@@ -597,96 +597,73 @@
         }
         /* end myths-section */
 
-
-        /* begin audit */
-        .audit-badge-container {
-            background: rgba(13, 17, 23, 0.6); /* Deep, terminal-like background */
-            border: 1px solid #30363d;
-            border-left: 4px solid #2ea043; /* Technical success green */
-            border-radius: 12px;
-            padding: 24px 32px;
-            margin: 0 auto 40px auto;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            max-width: 640px;
+        /* begin faq */
+        .faq-list {
+            margin-top: 24px;
+            display: grid;
+            gap: 14px;
         }
 
-        .audit-badge-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .faq-item {
+            border: 1px solid #28323e;
+            border-radius: 16px;
+            background: linear-gradient(180deg, #111821 0%, #0f141b 100%);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.015) inset;
+            overflow: hidden;
         }
 
-        .status-indicator {
-            width: 8px;
-            height: 8px;
-            background-color: #2ea043;
-            border-radius: 50%;
-            box-shadow: 0 0 8px rgba(46, 160, 67, 0.5); /* Subtle glow */
-        }
-
-        .audit-eyebrow {
-            font-family: monospace;
-            font-size: 0.85rem;
-            color: #2ea043;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .audit-title {
-            margin: 0 0 12px 0;
-            font-size: 1.25rem;
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 52px 18px 18px;
             color: var(--white);
+            font-size: 1.02rem;
+            line-height: 1.5;
             font-weight: 600;
+            position: relative;
         }
 
-        .audit-description {
-            margin: 0 0 20px 0;
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
             color: var(--muted);
-            max-width: 750px;
-        }
-
-        .audit-metrics {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .metric-tag {
-            background: rgba(46, 160, 67, 0.1);
-            color: #3fb950;
-            border: 1px solid rgba(46, 160, 67, 0.2);
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.8rem;
-        }
-
-        .audit-btn {
-            display: inline-block;
-            background: #21262d;
-            color: #c9d1d9;
-            border: 1px solid #30363d;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-size: 0.9rem;
+            font-size: 1.3rem;
+            line-height: 1;
             font-weight: 500;
-            text-decoration: none;
-            transition: background 0.2s ease, border-color 0.2s ease;
         }
 
-        .audit-btn:hover {
-            background: #30363d;
-            border-color: #8b949e;
-            color: #ffffff;
+        .faq-item[open] summary::after {
+            content: "−";
         }
-        /* end audit */
 
+        .faq-item[open] summary {
+            border-bottom: 1px solid var(--line-soft);
+        }
 
+        .faq-answer {
+            padding: 16px 18px 18px 18px;
+        }
+
+        .faq-answer p {
+            margin: 0 0 12px 0;
+            color: var(--text);
+            font-size: 0.98rem;
+            line-height: 1.74;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+        /* end faq */
+
+        /* begin footer */
         footer {
             margin-top: 38px;
             padding-top: 24px;
@@ -745,6 +722,7 @@
             font-size: 0.88rem;
             text-align: center;
         }
+        /* end footer */
 
         @media (max-width: 980px) {
 
@@ -880,35 +858,6 @@
                     <strong>Human life became conditional.</strong> Distortion followed. The world we know emerged from
                     there. World Amazing is a framework for interrupting that cycle at the root.
                 </p>
-            </div>
-        </section>
-
-        <section class="audit-badge-container">
-            <div class="audit-badge-header">
-                <div class="status-indicator"></div>
-                <span class="audit-eyebrow">Framework Audit Verified</span>
-            </div>
-        
-            <div class="audit-badge-content">
-                <h3 class="audit-title">AAF v1.0 Coherence Engine Pass</h3>
-                <p class="audit-description">
-                    This framework has passed a rigorous stress-test via the open-source 
-                    <a href="https://analyzeanything.org" target="_blank">Analyze Anything Framework (AAF)</a>.
-                    Evaluated under zero-shot conditions for validity, internal logic, and paradigm-shift significance, the
-                    verdict confirms it as a structurally coherent, high-fidelity blueprint for a Civilization 2.0 kernel.
-                </p>
-        
-                <div class="audit-metrics">
-                    <span class="metric-tag">Validity: PASS</span>
-                    <span class="metric-tag">Rigor: HIGH</span>
-                    <span class="metric-tag">Synthesis: SIGNIFICANT</span>
-                </div>
-            </div>
-        
-            <div class="audit-badge-action">
-                <a href="https://github.com/worldamazing/plan/tree/main/docs/aaf-results.md" class="audit-btn"
-                    target="_blank">View
-                    Full Audit Report &rarr;</a>
             </div>
         </section>
 
@@ -1088,6 +1037,7 @@
                 </p>
             </div>
         </section>
+
 
         <section class="section" id="different">
             <p class="section-kicker">Why this is different</p>
@@ -1270,6 +1220,105 @@
             </div>
         </section>
 
+
+        <section class="section" id="faq">
+            <p class="section-kicker">Likely questions</p>
+            <h2>A few likely questions</h2>
+            <p class="section-intro">
+                Some of the most likely first questions, kept brief. For deeper discussion on these questions and many more, see the 
+                <a href="https://github.com/worldamazing/plan/blob/main/docs/overview.md#questions-and-answers" target="_blank">
+                    FAQ</a> in the Overview.
+            </p>
+        
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Is this just another ideology or “ism”?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            No. World Amazing is not an attempt to fit humanity back inside an inherited political label.
+                            It is a civilizational framework built around a different question: what conditions actually
+                            allow human beings to live well, develop coherently, and flourish together?
+                        </p>
+                        <p>
+                            The work draws from many domains, but it does not reduce itself to socialism, capitalism,
+                            communism, nationalism, or any other inherited category. It is trying to move beyond the old
+                            bins, not win a place inside one of them.
+                        </p>
+                    </div>
+                </details>
+        
+                <details class="faq-item">
+                    <summary>Is this anti-capitalism?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            No. It keeps the best parts of capitalism while moving beyond money-first civilizational logic.
+                        </p>
+                        <p>
+                            The framework keeps freedom, initiative, experimentation, building, and voluntary projects, but
+                            removes the requirement that human life must remain subordinate to profit, scarcity pressure, and
+                            survival labor. The aim is not to flatten human initiative. It is to free it from a system that
+                            makes money the main judge of usefulness.
+                        </p>
+                    </div>
+                </details>
+        
+                <details class="faq-item">
+                    <summary>Is this some kind of centralized world government?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            No. The framework is not about concentrating control into one ruling body that governs every
+                            aspect of life.
+                        </p>
+                        <p>
+                            Its logic is the opposite: structure over rulers, transparency over opacity, coordination
+                            without domination, and guaranteed life conditions that increase real human freedom rather
+                            than reduce it. The point is not to create a planetary authority that stands over everyone.
+                            It is to build a world where the essentials of life are secure enough that fewer people can
+                            dominate others through instability, dependence, and fear.
+                        </p>
+                    </div>
+                </details>
+    
+                <details class="faq-item">
+                    <summary>Is the goal really to reduce required work to something like a two-day week?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Yes — over time, the framework argues that a coherent civilization should be able to meet its essential
+                            needs with far less required labor than today.
+                        </p>
+                        <p>
+                            Much of current labor exists to maintain scarcity logic, duplication, bureaucracy, extraction, and systems
+                            that are not actually organized around human well-being.
+                        </p>
+                        <p>
+                            A coherent civilization would radically reduce unnecessary work, streamline what remains essential, and
+                            increasingly use technology and coordination to lower the labor burden over time. The two-day workweek is
+                            not a gimmick. It is a directional claim about what becomes possible when life is organized around
+                            usefulness rather than around preserving the current structure of pressure.
+                        </p>
+                        <p>
+                            Two days per week is the target, not the starting point. The transition begins by moving in that direction: first lighter required labor, then greater efficiency, then more automation, then still less required work. The point is not merely less work. It is more free human life: more time for learning, training, recovery, creation, contribution, and real development.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>If I’m convinced, what should I do now?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            At this stage, the most valuable thing is serious engagement.
+                        </p>
+                        <p>
+                            Read the Overview. Read the papers. Share the work. Think with it. Pressure-test it. Bring
+                            others into the conversation. The project does not begin with blind buy-in. It begins with
+                            people entering the work honestly enough to see what it is really proposing.
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+
         <section class="section" id="papers">
             <p class="section-kicker">Featured papers</p>
             <h2>The Amazing Papers</h2>
@@ -1387,6 +1436,7 @@
                     <div class="footer-links">
                         <a href="https://makeitamazing.org/" target="_blank">Make It Amazing</a>
                         <a href="https://worldamazing.org/" target="_blank">World Amazing</a>
+                        <a href="https://whomanatee.org/" target="_blank">WHOMANATEE</a>
                     </div>
                 </div>
             </div>
