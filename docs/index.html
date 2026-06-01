@@ -461,33 +461,57 @@
             margin-top: 24px;
         }
 
-        .compare-grid {
+       /* begin anti-patterns */
+        .anti-pattern-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(280px, 1fr));
             gap: 18px;
-            margin-top: 22px;
+            margin-top: 24px;
         }
 
-        .compare-item {
-            border: 1px solid var(--line-soft);
-            border-left: 3px solid #355070;
-            border-radius: 14px;
-            padding: 18px;
-            background: rgba(255, 255, 255, 0.01);
+        @media (max-width: 820px) {
+            .anti-pattern-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .compare-item strong {
-            display: block;
-            color: var(--white);
-            margin-bottom: 8px;
-            font-size: 1rem;
+        .anti-icon {
+            opacity: 0.62;
+            margin-right: 2px;
         }
 
-        .compare-item span {
+        .anti-pattern-card {
+            border: 1px solid #28323e;
+            border-top: 3px solid #f85149;
+            border-radius: 16px;
+            padding: 20px 18px 18px 18px;
+            background: linear-gradient(180deg, #111821 0%, #0f141b 100%);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.015) inset;
+            transition: transform 0.12s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .anti-pattern-card:hover {
+            transform: translateY(-2px);
+            border-color: #3a4b60;
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+                0 16px 32px rgba(0, 0, 0, 0.14);
+        }
+
+        .anti-pattern-card h3 {
+            margin: 0 0 10px 0;
+            color: #ff7b72;
+            font-size: 1.08rem;
+            line-height: 1.35;
+        }
+
+        .anti-pattern-card p {
+            margin: 0;
             color: var(--text);
-            line-height: 1.68;
             font-size: 0.96rem;
+            line-height: 1.68;
         }
+        /* end anti-patterns */
 
         .papers-intro {
             max-width: 780px;
@@ -536,7 +560,7 @@
         .myth-grid {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* This centers the bottom row perfectly */
+            justify-content: center;
             gap: 24px;
             margin-top: 30px;
         }
@@ -1001,30 +1025,23 @@
             <p class="section-intro">
                 World Amazing is easiest to misread if slotted into familiar categories too early.
             </p>
-
-            <div class="compare-grid">
-                <div class="compare-item">
-                    <strong>Not a wishlist</strong>
-                    <span>A framework with diagnosis, first principles, architecture, transition logic, and public entry
-                        points.</span>
+            
+            <div class="anti-pattern-grid">
+                <div class="anti-pattern-card">
+                    <h3><span class="anti-icon">🚫</span> Not a wishlist</h3>
+                    <p>A framework with diagnosis, first principles, architecture, transition logic, and public entry points.</p>
                 </div>
-
-                <div class="compare-item">
-                    <strong>Not symptom management</strong>
-                    <span>A change in the conditions that keep reproducing rupture, distortion, and civilizational
-                        self-harm.</span>
+                <div class="anti-pattern-card">
+                    <h3><span class="anti-icon">🚫</span> Not symptom management</h3>
+                    <p>A change in the conditions that keep reproducing rupture, distortion, and civilizational self-harm.</p>
                 </div>
-
-                <div class="compare-item">
-                    <strong>Not a world government pitch</strong>
-                    <span>Planetary coordination with local autonomy, transparent structure, and no permanent central
-                        ruler.</span>
+                <div class="anti-pattern-card">
+                    <h3><span class="anti-icon">🚫</span> Not a world government pitch</h3>
+                    <p>Planetary coordination with local autonomy, transparent structure, and no permanent central ruler.</p>
                 </div>
-
-                <div class="compare-item">
-                    <strong>Not endless opposition</strong>
-                    <span>Build a framework so coherent, humane, and livable that the old system becomes
-                        obsolete.</span>
+                <div class="anti-pattern-card">
+                    <h3><span class="anti-icon">🚫</span> Not endless opposition</h3>
+                    <p>Build a framework so coherent, humane, and livable that the old system becomes obsolete.</p>
                 </div>
             </div>
         </section>
