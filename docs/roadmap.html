@@ -1,0 +1,3197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark only">
+  <meta name="description" content="World Amazing is an open-source civilizational framework for guaranteeing life,
+    returning human time, restoring the human, and building systems organized around relief, 
+    truth, cooperation, and flourishing.">
+  <title>Roadmap — World Amazing</title>
+  
+  <link rel="stylesheet" href="assets/main.css" />
+  <link rel="stylesheet" href="assets/global-nav.css" />
+  <link rel="stylesheet" href="assets/footer.css" />
+  <link rel="stylesheet" href="assets/nav.css" />
+  <link rel="stylesheet" href="assets/docs.css" />
+
+
+  <!-- ROADMAP -->
+  <style>
+    /* =========================================================
+   WORLD AMAZING ROADMAP
+   Open orientation layer before the six main arcs
+   ========================================================= */
+
+
+    /* =========================================================
+   ROADMAP SURFACE
+   Keeps the actual roadmap in the site's established look
+   ========================================================= */
+
+
+    .roadmap-anchor-alias {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      pointer-events: none;
+    }
+
+
+
+    /* =========================================================
+   EXISTING ROADMAP INTRO COPY
+
+   This is the original muted paragraph treatment used
+   inside "What these principles ask humanity to do."
+   ========================================================= */
+
+    .roadmap-intro {
+      max-width: 950px;
+
+      margin-top: 0.65rem;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+   READING FIELD + UNNUMBERED MOVEMENT SPINE
+   ========================================================= */
+
+    .roadmap-reading {
+      width: min(100%, 1180px);
+
+      margin:
+        clamp(2.8rem, 6vw, 5rem) auto 0;
+    }
+
+
+    .roadmap-movement {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns:
+        38px minmax(0, 1fr);
+
+      gap: clamp(1rem, 2.4vw, 1.8rem);
+
+      scroll-margin-top:
+        calc(var(--wa-topbar-height, 74px) + 24px);
+    }
+
+
+    .roadmap-movement+.roadmap-movement {
+      margin-top: clamp(4.5rem, 8vw, 7.5rem);
+    }
+
+
+    /* ---------------------------------------------------------
+   spine
+   --------------------------------------------------------- */
+
+    .roadmap-movement__marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      min-height: 100%;
+
+      padding-top: 0.15rem;
+    }
+
+
+    .roadmap-movement__node {
+      position: relative;
+
+      flex: 0 0 11px;
+
+      width: 11px;
+      height: 11px;
+
+      margin-top: 0.25rem;
+
+      border:
+        2px solid rgba(139, 211, 255, 0.68);
+
+      border-radius: 50%;
+
+      background: var(--bg);
+
+      box-shadow:
+        0 0 0 5px rgba(10, 14, 20, 0.92),
+        0 0 18px rgba(139, 211, 255, 0.12);
+    }
+
+
+    .roadmap-movement__line {
+      flex: 1;
+
+      width: 1px;
+      min-height: 92px;
+
+      margin-top: 0.75rem;
+
+      background:
+        linear-gradient(180deg,
+          rgba(139, 211, 255, 0.24),
+          rgba(139, 211, 255, 0.07) 78%,
+          transparent 100%);
+    }
+
+
+    .roadmap-movement:last-child .roadmap-movement__line {
+      background:
+        linear-gradient(180deg,
+          rgba(139, 211, 255, 0.24),
+          transparent 76%);
+    }
+
+
+    /* ---------------------------------------------------------
+   movement content
+   --------------------------------------------------------- */
+
+    .roadmap-movement__content {
+      min-width: 0;
+    }
+
+
+    .roadmap-movement__header {
+      position: relative;
+
+      max-width: 900px;
+
+      margin-bottom:
+        clamp(1.55rem, 3.5vw, 2.55rem);
+
+      padding:
+        0 0 1.15rem;
+
+      border-bottom:
+        1px solid rgba(139, 211, 255, 0.1);
+    }
+
+
+    .roadmap-movement__header::before {
+      content: "Roadmap";
+
+      display: block;
+
+      margin-bottom: 0.55rem;
+
+      color: var(--green);
+
+      font-size: 0.62rem;
+      font-weight: 900;
+      line-height: 1;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+
+      opacity: 0.8;
+    }
+
+
+    .roadmap-movement__header h3 {
+      max-width: 24ch;
+
+      margin: 0;
+
+      color: var(--white);
+
+      font-size:
+        clamp(1.45rem, 2.8vw, 2.45rem);
+
+      line-height: 1.03;
+
+      letter-spacing: -0.038em;
+    }
+
+
+    .roadmap-movement__header>p:last-child {
+      max-width: 720px;
+
+      margin: 0.65rem 0 0;
+
+      color: var(--muted);
+
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+
+    /* Existing roadmap components retain their established
+   visual language. */
+
+    .roadmap-movement__content>.cluster,
+    .roadmap-movement__content>.grid,
+    .roadmap-movement__content>.panel,
+    .roadmap-movement__content>.split,
+    .roadmap-movement__content>.statement,
+    .roadmap-movement__content>.principle,
+    .roadmap-movement__content>.core-principles {
+      margin-top:
+        clamp(1.4rem, 3vw, 2.2rem);
+    }
+
+
+    .roadmap-movement__content>.section-lead {
+      margin-top: 0;
+    }
+
+
+    /* =========================================================
+   CLOSING THRESHOLD
+   ========================================================= */
+
+    .roadmap-movement:last-child .roadmap-movement__content>.principle:last-child {
+      margin-top:
+        clamp(2rem, 5vw, 3.8rem);
+
+      padding:
+        clamp(1.5rem, 3.5vw, 2.4rem);
+
+      border-color:
+        rgba(185, 247, 207, 0.24);
+
+      background:
+        linear-gradient(110deg,
+          rgba(185, 247, 207, 0.09),
+          rgba(139, 211, 255, 0.035));
+
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025),
+        0 24px 65px rgba(0, 0, 0, 0.14);
+    }
+
+
+    /* Space for either Arc 01 directly or the separate
+   six-arc handoff we add next. */
+
+    .roadmap+.page-arc,
+    .roadmap+.framework-intro {
+      margin-top:
+        clamp(4rem, 8vw, 7rem);
+    }
+
+
+    /* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .roadmap-masthead__layout {
+        grid-template-columns: 1fr;
+
+        gap: 1.3rem;
+
+        align-items: start;
+      }
+
+
+      .roadmap-masthead__copy {
+        max-width: 760px;
+      }
+
+    }
+
+
+    @media (max-width: 640px) {
+
+      .roadmap {
+        margin-top: 2.7rem;
+        margin-bottom: 4.75rem;
+      }
+
+
+      .roadmap-masthead {
+        padding-top: 1.5rem;
+        padding-bottom: 2.25rem;
+      }
+
+
+      .roadmap-masthead h1 {
+        font-size:
+          clamp(1.85rem, 9vw, 2.8rem);
+      }
+
+
+      .roadmap-reading {
+        margin-top: 2.7rem;
+      }
+
+
+      .roadmap-movement {
+        grid-template-columns:
+          22px minmax(0, 1fr);
+
+        gap: 0.75rem;
+      }
+
+
+      .roadmap-movement+.roadmap-movement {
+        margin-top: 4.25rem;
+      }
+
+
+      .roadmap-movement__node {
+        width: 9px;
+        height: 9px;
+
+        flex-basis: 9px;
+
+        box-shadow:
+          0 0 0 4px rgba(10, 14, 20, 0.92),
+          0 0 14px rgba(139, 211, 255, 0.1);
+      }
+
+
+      .roadmap-movement__line {
+        margin-top: 0.6rem;
+      }
+
+
+      .roadmap-movement__header {
+        margin-bottom: 1.35rem;
+
+        padding-bottom: 0.95rem;
+      }
+
+
+      .roadmap-movement__header h3 {
+        font-size:
+          clamp(1.3rem, 6.5vw, 1.9rem);
+      }
+
+    }
+  
+
+  /* =========================================================
+     ROADMAP PATH
+     ========================================================= */
+    .roadmap-path {
+      display: block;
+    }
+
+
+    .roadmap-step {
+      position: relative;
+
+      scroll-margin-top:
+        calc(var(--wa-topbar-height, 74px) + 24px);
+    }
+
+
+    .roadmap-step + .roadmap-step {
+      margin-top:
+        clamp(4rem, 7vw, 6rem);
+
+      padding-top:
+        clamp(2rem, 3.5vw, 2.75rem);
+
+      border-top:
+        1px solid rgba(139, 211, 255, 0.10);
+    }
+
+    /* ---------------------------------------------------------
+       THE PATH — INDIVIDUAL STEPS
+       --------------------------------------------------------- */
+
+    .roadmap-step {
+      position: relative;
+
+      display: grid;
+      grid-template-columns:
+        clamp(52px, 7vw, 76px) minmax(0, 1fr);
+
+      gap:
+        clamp(1.25rem, 3vw, 2.4rem);
+
+      scroll-margin-top:
+        calc(var(--wa-topbar-height, 74px) + 24px);
+    }
+
+
+    .roadmap-step + .roadmap-step {
+      margin-top:
+        clamp(4rem, 7vw, 6rem);
+
+      padding-top:
+        clamp(2rem, 3.5vw, 2.75rem);
+
+      border-top:
+        1px solid rgba(139, 211, 255, 0.10);
+    }
+
+
+    .roadmap-step__number {
+      padding-top: 0.15rem;
+
+      color: var(--blue);
+
+      font-size:
+        clamp(1.8rem, 3.5vw, 2.65rem);
+
+      font-weight: 950;
+      line-height: 1;
+
+      letter-spacing: -0.045em;
+
+      opacity: 0.72;
+    }
+
+
+    .roadmap-step__content {
+      min-width: 0;
+      max-width: 930px;
+    }
+
+
+    .roadmap-step__content > .tag {
+      margin-bottom: 0.7rem;
+    }
+
+
+    .roadmap-step__content > h3 {
+      max-width: 24ch;
+
+      margin: 0;
+
+      color: var(--white);
+
+      font-size:
+        clamp(1.45rem, 2.7vw, 2.15rem);
+
+      line-height: 1.08;
+      letter-spacing: -0.032em;
+    }
+
+
+    .roadmap-step__content > p {
+      max-width: 850px;
+
+      margin-top: 0.9rem;
+
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+
+    .roadmap-step__content > .cluster,
+    .roadmap-step__content > .principle,
+    .roadmap-step__content > .flow-line {
+      margin-top:
+        clamp(1.35rem, 3vw, 2rem);
+    }
+
+
+    @media (max-width: 640px) {
+
+      .roadmap-step {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 0.9rem;
+      }
+
+
+      .roadmap-step + .roadmap-step {
+        margin-top: 3.25rem;
+        padding-top: 1.75rem;
+      }
+
+
+      .roadmap-step__number {
+        font-size: 1.45rem;
+      }
+
+    }
+  </style>
+
+  <!-- SECTION CONTEXT STICKY -->
+  <style>
+    /* =========================================================
+     SECTION CONTEXT BAR
+  
+     Separate from the real disclosure heading.
+  
+     The real heading scrolls away naturally.
+     This bar appears only after that heading has left view.
+     ========================================================= */
+
+
+    .section-context {
+      position: sticky;
+
+      top: var(--wa-topbar-height, 74px);
+
+      z-index: 30;
+
+      height: 0;
+
+      pointer-events: none;
+    }
+
+
+    /* ---------------------------------------------------------
+     BAR
+     --------------------------------------------------------- */
+
+    .section-context__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+
+      gap: 2rem;
+
+      align-items: center;
+
+      width: 100%;
+
+      padding-top: 0.58rem;
+      padding-bottom: 0.62rem;
+
+      border: 0;
+      border-bottom:
+        1px solid rgba(43, 55, 73, 0.92);
+
+      background:
+        rgba(10, 13, 18, 0.97);
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.16);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      color: inherit;
+      font: inherit;
+      text-align: left;
+
+      opacity: 0;
+
+      transform: translateY(-12px);
+
+      pointer-events: none;
+
+      transition:
+        opacity 200ms ease,
+        transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+
+    .section-context.is-visible .section-context__inner {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+      pointer-events: auto;
+
+      cursor: pointer;
+    }
+
+
+    /* ---------------------------------------------------------
+     TEXT
+     --------------------------------------------------------- */
+
+    .section-context__heading {
+      min-width: 0;
+    }
+
+
+    .section-context__arc {
+      display: block;
+
+      margin: 0 0 0.18rem;
+
+      color: var(--green);
+
+      font-size: 0.58rem;
+      font-weight: 900;
+      line-height: 1.1;
+
+      letter-spacing: 0.095em;
+      text-transform: uppercase;
+
+      opacity: 0.72;
+    }
+
+
+    .section-context__eyebrow {
+      display: block;
+
+      margin: 0 0 0.08rem;
+
+      color: var(--blue);
+
+      font-size: 0.56rem;
+      font-weight: 850;
+      line-height: 1.1;
+
+      letter-spacing: 0.075em;
+      text-transform: uppercase;
+
+      opacity: 0.68;
+    }
+
+
+    .section-context__title {
+      display: block;
+
+      max-width: none;
+
+      margin: 0;
+
+      overflow: hidden;
+
+      color: var(--white);
+
+      font-size: clamp(1rem, 1.35vw, 1.2rem);
+      font-weight: 880;
+      line-height: 1.08;
+
+      letter-spacing: -0.02em;
+
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+
+    /* ---------------------------------------------------------
+     DISCLOSURE CONTROL
+     Keep the same visual control the old sticky carried.
+     --------------------------------------------------------- */
+
+    .section-context__inner .section-disclosure__icon {
+
+      transform: scale(0.82);
+    }
+
+
+    /* ---------------------------------------------------------
+     HOVER
+     --------------------------------------------------------- */
+
+    .section-context__inner:hover .section-context__title {
+
+      color: var(--blue);
+    }
+
+
+    .section-context__inner:focus-visible {
+      outline: 2px solid var(--blue-strong);
+      outline-offset: 3px;
+    }
+
+
+    /* =========================================================
+     MOBILE
+     Same three-line architecture on every screen.
+     ========================================================= */
+
+    @media (max-width: 700px) {
+
+      .section-context__inner {
+        gap: 1rem;
+
+        padding-top: 0.52rem;
+        padding-bottom: 0.56rem;
+      }
+
+
+      .section-context__arc {
+        margin-bottom: 0.15rem;
+
+        font-size: 0.52rem;
+      }
+
+
+      .section-context__eyebrow {
+        font-size: 0.52rem;
+      }
+
+
+      .section-context__title {
+        font-size: 0.94rem;
+      }
+
+    }
+
+
+    /* =========================================================
+     ACCESSIBILITY
+     ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .section-context__inner {
+        transition: none;
+      }
+
+    }
+  </style>
+
+  <!-- TOC: LAYOUT -->
+  <style>
+    /* =========================================================
+      READING LAYOUT + RIGHT-RAIL TOC
+      ========================================================= */
+
+    .wa-reading-layout {
+      position: relative;
+      display: grid;
+      align-items: start;
+      min-width: 0;
+    }
+
+    .wa-reading-layout--frontmatter {
+      width: min(1480px, calc(100vw - 48px));
+      margin-left: 50%;
+      transform: translateX(-50%);
+
+      grid-template-columns:
+        minmax(0, 1120px) minmax(220px, 260px);
+
+      gap: clamp(2.5rem, 4vw, 4.5rem);
+    }
+
+    .wa-reading-layout--frontmatter .wa-frontmatter {
+      min-width: 0;
+    }
+
+    /* Several newer frontmatter sections already contain an inner .shell.
+      Inside the reading column, let those use the full column width. */
+    .wa-reading-layout--frontmatter .wa-front>.shell {
+      width: 100%;
+      margin-inline: 0;
+    }
+
+
+    /* ---------------------------------------------------------
+      TOC
+      --------------------------------------------------------- */
+
+    .wa-toc {
+      position: relative;
+      min-width: 0;
+      align-self: stretch;
+    }
+
+    .wa-toc__sticky {
+      padding: 0.2rem 0 1rem 1.35rem;
+
+      border-left: 1px solid var(--line-soft);
+    }
+
+
+    /* header */
+
+    .wa-toc__header {
+      margin-bottom: 1.65rem;
+    }
+
+    .wa-toc__eyebrow {
+      display: block;
+
+      margin-bottom: 0.35rem;
+
+      color: var(--green);
+
+      font-size: 0.62rem;
+      font-weight: 900;
+      line-height: 1;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .wa-toc__header strong {
+      display: block;
+
+      color: var(--white);
+
+      font-size: 1.05rem;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .wa-toc__header p {
+      max-width: 22ch;
+
+      margin: 0.45rem 0 0;
+
+      color: var(--muted);
+
+      font-size: 0.73rem;
+      line-height: 1.4;
+    }
+
+
+    /* groups */
+
+    .wa-toc__nav {
+      display: grid;
+      gap: 1.35rem;
+    }
+
+    .wa-toc__group {
+      display: grid;
+      gap: 0.08rem;
+    }
+
+    .wa-toc__group-label {
+      display: block;
+
+      margin-bottom: 0.38rem;
+
+      color: #6f7a87;
+
+      font-size: 0.57rem;
+      font-weight: 900;
+      line-height: 1;
+
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+
+    /* links */
+
+    .wa-toc__group a {
+      position: relative;
+
+      display: block;
+
+      padding: 0.32rem 0 0.32rem 0.65rem;
+
+      color: var(--muted);
+
+      font-size: 0.74rem;
+      font-weight: 650;
+      line-height: 1.25;
+
+      text-decoration: none;
+
+      transition:
+        color 140ms ease,
+        transform 140ms ease;
+    }
+
+    .wa-toc__group a::before {
+      content: "";
+
+      position: absolute;
+
+      top: 50%;
+
+      width: 2px;
+      height: 0;
+
+      border-radius: 999px;
+
+      background: var(--blue);
+
+      transform: translateY(-50%);
+
+      transition: height 160ms ease;
+    }
+
+    .wa-toc__group a:hover {
+      color: var(--soft);
+    }
+
+    .wa-toc__group a.is-active {
+      color: var(--white);
+    }
+
+    .wa-toc__group a.is-active::before {
+      height: 72%;
+    }
+
+
+    /* continue */
+
+    .wa-toc__continue {
+      display: grid;
+      gap: 0.55rem;
+
+      margin-top: 1.65rem;
+      padding-top: 1.25rem;
+
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .wa-toc__destination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+
+      padding: 0.65rem 0;
+
+      color: var(--soft);
+      text-decoration: none;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    }
+
+    .wa-toc__destination strong,
+    .wa-toc__destination small {
+      display: block;
+    }
+
+    .wa-toc__destination strong {
+      font-size: 0.78rem;
+      line-height: 1.2;
+    }
+
+    .wa-toc__destination small {
+      margin-top: 0.2rem;
+
+      color: var(--muted);
+
+      font-size: 0.64rem;
+      line-height: 1.3;
+    }
+
+    .wa-toc__destination>span:last-child {
+      color: var(--green);
+      opacity: 0.75;
+
+      transition: transform 140ms ease;
+    }
+
+    .wa-toc__destination:hover strong {
+      color: var(--white);
+    }
+
+    .wa-toc__destination:hover>span:last-child {
+      transform: translateX(3px);
+    }
+
+
+    /* anchors */
+
+    .wa-front[id] {
+      scroll-margin-top: 86px;
+    }
+
+
+    /* ---------------------------------------------------------
+      FIRST RESPONSIVE PASS
+      --------------------------------------------------------- */
+
+    @media (max-width: 1180px) {
+
+      .wa-reading-layout--frontmatter {
+        width: min(calc(100% - 32px), var(--max));
+        margin-inline: auto;
+
+        transform: none;
+
+        grid-template-columns: 1fr;
+      }
+
+      .wa-toc--frontmatter {
+        display: none;
+      }
+
+    }
+  </style>
+
+  <!-- ROADMAP READING LAYOUT -->
+  <style>
+    /* =========================================================
+       ROADMAP READING LAYOUT
+       ========================================================= */
+
+    .wa-reading-layout--roadmap {
+      position: relative;
+      padding-right: 0.5rem;
+      padding-bottom: 2rem;
+
+      width: min(1480px, calc(100vw - 48px));
+      margin-inline: auto;
+
+      grid-template-columns:
+        minmax(0, 1120px) minmax(220px, 260px);
+
+      gap: clamp(2.5rem, 4vw, 4.5rem);
+
+      align-items: start;
+
+      background: var(--bg);
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.18);
+    }
+
+    .wa-reading-layout--roadmap .roadmap__inner {
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+    }
+
+
+    /* let the TOC column span the full Roadmap height */
+
+    .wa-toc--roadmap {
+      align-self: stretch;
+      background: transparent;
+      padding-right: 1.25rem;
+      padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+
+    /* =========================================================
+       ROADMAP TOC
+       ========================================================= */
+
+    .wa-roadmap-toc__nav {
+      display: grid;
+    }
+
+    .wa-toc--roadmap [data-toc-target] {
+        padding-left: 0.65rem
+    }
+
+
+    /* ---------------------------------------------------------
+      MAJOR SECTIONS
+      --------------------------------------------------------- */
+
+    .wa-roadmap-toc__major {
+      position: relative;
+
+      display: block;
+
+      padding: 0.85rem 0;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.055);
+
+      color: var(--muted);
+      text-decoration: none;
+
+      transition: color 140ms ease;
+    }
+
+
+    .wa-roadmap-toc__major strong,
+    .wa-roadmap-toc__major small {
+      display: block;
+    }
+
+
+    .wa-roadmap-toc__major strong {
+      color: inherit;
+
+      font-size: 0.78rem;
+      font-weight: 780;
+      line-height: 1.2;
+    }
+
+
+    .wa-roadmap-toc__major small {
+      margin-top: 0.25rem;
+
+      color: #73808d;
+
+      font-size: 0.63rem;
+      line-height: 1.35;
+    }
+
+
+    /* ---------------------------------------------------------
+      THE PATH
+      --------------------------------------------------------- */
+
+    .wa-roadmap-toc__path {
+      margin:
+        0.35rem 0 0.55rem;
+
+      padding:
+        0.8rem 0 0.85rem;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.055);
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.055);
+    }
+
+
+    .wa-roadmap-toc__path-title {
+      position: relative;
+
+      display: block;
+
+      margin-bottom: 0.55rem;
+
+      color: var(--green);
+
+      font-size: 0.6rem;
+      font-weight: 900;
+      line-height: 1;
+
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+
+      text-decoration: none;
+    }
+
+
+    .wa-roadmap-toc__step {
+      position: relative;
+
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr);
+      gap: 0.55rem;
+
+      padding: 0.38rem 0;
+
+      color: var(--muted);
+      text-decoration: none;
+
+      transition: color 140ms ease;
+    }
+
+
+    .wa-roadmap-toc__number {
+      padding-top: 0.08rem;
+
+      color: #687583;
+
+      font-size: 0.56rem;
+      font-weight: 900;
+      line-height: 1.2;
+
+      letter-spacing: 0.07em;
+
+      transition: color 140ms ease;
+    }
+
+
+    .wa-roadmap-toc__step strong {
+      color: inherit;
+
+      font-size: 0.69rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+
+    /* ---------------------------------------------------------
+      INTERACTION
+      --------------------------------------------------------- */
+
+    .wa-roadmap-toc__major:hover,
+    .wa-roadmap-toc__step:hover {
+      color: var(--soft);
+    }
+
+
+    .wa-roadmap-toc__major.is-active,
+    .wa-roadmap-toc__step.is-active {
+      color: var(--white);
+    }
+
+
+    .wa-roadmap-toc__step.is-active .wa-roadmap-toc__number {
+      color: var(--green);
+    }
+
+    /* ---------------------------------------------------------
+   ROADMAP TOC RAIL
+   --------------------------------------------------------- */
+
+.wa-toc--roadmap {
+  position: relative;
+  padding-left: 0.05rem; /*Why in the world do we need this line for alignment? 0 is no good.*/
+}
+
+
+.wa-toc--roadmap::before {
+  content: "";
+
+  position: absolute;
+
+  top: clamp(1.5rem, 3vw, 2.5rem);
+  bottom: 1.5rem;
+
+  /* place it inside the TOC, not on the clipped edge */
+  left: 0rem;
+
+  width: 1px;
+
+  background: var(--line-soft);
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+.wa-toc--roadmap .wa-toc__sticky {
+  border-left: 0;
+}
+
+    .wa-roadmap-toc__major::before,
+    .wa-roadmap-toc__step::before,
+    .wa-roadmap-toc__path-title::before {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      top: 50%;
+
+      width: 2px;
+      height: 0;
+
+      border-radius: 999px;
+
+      background: var(--green);
+
+      transform: translateY(-50%);
+
+      transition: height 160ms ease;
+    }
+
+
+    .wa-roadmap-toc__major.is-active::before,
+    .wa-roadmap-toc__step.is-active::before,
+    .wa-roadmap-toc__path-title.is-active::before {
+      height: 70%;
+    }
+
+    /* roadmap anchors */
+
+    .roadmap-movement[id] {
+      scroll-margin-top: 24px;
+    }
+
+
+    @media (max-width: 1180px) {
+
+      .wa-reading-layout--roadmap {
+        width: min(calc(100% - 32px), var(--max));
+        grid-template-columns: 1fr;
+      }
+
+      .wa-toc--roadmap {
+        display: none;
+      }
+
+    }
+  </style>
+
+  <style>
+    /* ---------------------------------------------------------
+   FRAMEWORK HANDOFF
+   --------------------------------------------------------- */
+
+.wa-framework-handoff {
+  padding: 90px 0 70px;
+  text-align: center;
+}
+
+.wa-framework-handoff .tag {
+  justify-content: center;
+}
+
+.wa-framework-handoff h2 {
+  max-width: 16ch;
+  margin-inline: auto;
+}
+
+.wa-framework-handoff p {
+  max-width: 820px;
+  margin: 1.1rem auto 0;
+  color: var(--muted);
+  font-size: 1.03rem;
+}
+
+.wa-framework-handoff__link {
+  display: inline-flex;
+  margin-top: 1.4rem;
+  color: var(--green);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.wa-framework-handoff__link:hover {
+  text-decoration: underline;
+}
+  </style>
+
+</head>
+
+<body>
+  <header class="site-header topbar-wrap">
+  
+    <div class="shell topbar">
+  
+      <a class="brand" href="index.html#top">
+        <span class="brand__full">World Amazing</span>
+        <span class="brand__short">WA</span>
+        <span class="brand__tagline">— the whole plan, clearly explained</span>
+      </a>
+  
+  
+      <!-- DESKTOP NAV -->
+  
+      <nav class="nav" aria-label="Primary navigation">
+  
+        <div class="nav__docs">
+          <a href="basics.html">Basics</a>
+          <a href="roadmap.html" aria-current="page">Roadmap</a>
+          <a href="framework.html">Framework</a>
+        </div>
+  
+  
+        <div class="nav__explore">
+          <a href="papers.html">Papers</a>
+          <a href="memes.html">Memes</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+  
+  
+        <div class="nav__actions">
+  
+          <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+            Make It Amazing
+            <span class="nav__external" aria-hidden="true">↗</span>
+          </a>
+  
+          <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+            Show
+            <span class="nav__external" aria-hidden="true">↗</span>
+          </a>
+  
+          <a class="nav__join" href="index.html#join">
+            Join
+          </a>
+  
+        </div>
+  
+      </nav>
+  
+  
+      <!-- MOBILE ACTIONS -->
+  
+      <div class="nav__mobile-actions">
+  
+        <a class="nav__join" href="index.html#join">
+          Join
+        </a>
+  
+        <button class="nav__menu-button" type="button" aria-expanded="false" aria-controls="mobile-navigation">
+          <span>More</span>
+          <span class="nav__menu-chevron" aria-hidden="true"></span>
+        </button>
+  
+      </div>
+  
+    </div>
+  
+  
+    <!-- MOBILE MENU -->
+  
+    <nav class="nav-mobile" id="mobile-navigation" aria-label="Mobile navigation" hidden>
+  
+      <div class="shell nav-mobile__inner">
+        <div class="nav-mobile__group">
+        
+          <span class="nav-mobile__label">
+            Start here
+          </span>
+        
+          <a href="basics.html">Basics</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="framework.html">Framework</a>
+        
+        </div>
+        
+        
+        <div class="nav-mobile__group">
+        
+          <span class="nav-mobile__label">
+            Explore
+          </span>
+        
+          <a href="papers.html">Papers</a>
+          <a href="memes.html">Memes</a>
+          <a href="index.html#faq">FAQ</a>
+        
+        </div>
+        
+        
+        <div class="nav-mobile__group nav-mobile__group--enter">
+        
+          <span class="nav-mobile__label">
+            Enter
+          </span>
+        
+          <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+            Make It Amazing ↗
+          </a>
+        
+          <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+            Show ↗
+          </a>
+        
+          <a href="index.html#join">
+            Join
+          </a>
+        
+        </div>
+  
+        
+  
+      </div>
+  
+    </nav>
+  
+  </header>
+
+  <main id="top">
+    <div class="shell">
+
+      <!-- =========================================================
+           ROADMAP
+           ========================================================= -->
+      <section aria-labelledby="roadmap-title" class="roadmap wa-doc-page" id="roadmap">
+      
+        <div class="wa-doc-environment">
+      
+          <div class="wa-reading-layout wa-reading-layout--roadmap wa-doc-surface">
+      
+            <div class="roadmap__inner wa-doc-main">
+
+              <span aria-hidden="true" class="roadmap-anchor-alias" id="how-world-amazing-happens"></span>
+
+              <header class="wa-doc-masthead">
+              
+                <p class="wa-doc-masthead__eyebrow">
+                  The path
+                </p>
+              
+                <div class="wa-doc-masthead__layout">
+              
+                  <div class="wa-doc-masthead__title">
+              
+                    <h1 id="roadmap-title">
+                      A Realistic Roadmap
+                    </h1>
+              
+                    <p class="wa-doc-masthead__statement">
+                      How humanity moves from the world we inherited
+                      into the one we can build.
+                    </p>
+              
+                  </div>
+              
+                  <div class="wa-doc-masthead__copy">
+              
+                    <p>
+                      World Amazing does not require the current world to disappear
+                      before another way of operating can begin.
+                      Existing life has to remain protected while better capacity is
+                      connected, built, tested, and expanded.
+                    </p>
+              
+                    <p>
+                      The Roadmap follows that movement:
+                      from stabilizing life and connecting what already exists
+                      through shared foundations, human restoration,
+                      working systems, and a world increasingly able to move beyond relief.
+                    </p>
+              
+                  </div>
+              
+                </div>
+              
+              </header>
+
+              <div class="roadmap-reading">
+                <!-- =========================================================
+                     WHY THIS PATH
+                     ========================================================= -->
+                <section class="roadmap-movement" id="roadmap-why-path">
+                
+                  <div aria-hidden="true" class="roadmap-movement__marker">
+                    <span class="roadmap-movement__node"></span>
+                    <span class="roadmap-movement__line"></span>
+                  </div>
+                
+                  <div class="roadmap-movement__content">
+                
+                    <header class="roadmap-movement__header">
+                      <h3>Why this path</h3>
+                      <p>
+                        Why the material world and the human process
+                        have to change together.
+                      </p>
+                    </header>
+                
+                
+                    <div class="section-lead">
+                
+                      <p>
+                        War, poverty, homelessness, exploitation, corruption,
+                        damaged childhoods, institutional failure, isolation,
+                        and recurring conflict are real problems.
+                        But they are not produced by completely separate human processes.
+                      </p>
+                
+                      <p>
+                        Humans develop inside material conditions, relationships,
+                        institutions, histories, systems of authority,
+                        economic pressures, fear, care, punishment,
+                        belonging, concealment, and conflict.
+                        What develops inside humans then returns through families,
+                        institutions, economies, governments, culture, and public life.
+                      </p>
+                
+                      <p>
+                        A durable transition therefore cannot only redesign systems,
+                        and it cannot only ask individual humans to change.
+                        It has to interrupt the whole loop.
+                      </p>
+                
+                    </div>
+                
+                
+                    <div class="panel cluster">
+                
+                      <span class="tag">The reproduction loop</span>
+                
+                      <h3>
+                        The world develops the human.
+                        The human rebuilds the world.
+                      </h3>
+                
+                      <div class="flow-line cluster">
+                
+                        <article class="flow-line__node">
+                          <span class="node-number">1</span>
+                          <strong>Conditions</strong>
+                          <p>
+                            Material insecurity, relationships, authority,
+                            culture, institutions, care, conflict,
+                            and the surrounding world reach the developing human.
+                          </p>
+                        </article>
+                
+                        <span aria-hidden="true" class="flow-line__arrow">→</span>
+                
+                        <article class="flow-line__node">
+                          <span class="node-number">2</span>
+                          <strong>Development</strong>
+                          <p>
+                            Humans learn what safety, truth, power,
+                            belonging, care, authority, and conflict feel like.
+                          </p>
+                        </article>
+                
+                        <span aria-hidden="true" class="flow-line__arrow">→</span>
+                
+                        <article class="flow-line__node">
+                          <span class="node-number">3</span>
+                          <strong>Adult action</strong>
+                          <p>
+                            Those adaptations enter relationships,
+                            parenting, work, leadership, decisions,
+                            law, institutions, and public life.
+                          </p>
+                        </article>
+                
+                        <span aria-hidden="true" class="flow-line__arrow">→</span>
+                
+                        <article class="flow-line__node">
+                          <span class="node-number">4</span>
+                          <strong>New conditions</strong>
+                          <p>
+                            Humans reproduce another version of the world
+                            that developed them, and the next human enters it.
+                          </p>
+                        </article>
+                
+                      </div>
+                
+                    </div>
+                
+                
+                    <div class="split panel cluster">
+                
+                      <div>
+                        <span class="tag">Childhood is part of the chain</span>
+                
+                        <h3>
+                          The surrounding field reaches the human
+                          before the human is able to choose it.
+                        </h3>
+                      </div>
+                
+                      <div>
+                        <p>
+                          Parents and other adults did not invent the entire field
+                          they transmit.
+                          They were developing humans inside earlier versions of it too.
+                        </p>
+                
+                        <p>
+                          Seeing where civilization first enters the human
+                          expands causation and responsibility beyond isolated blame
+                          without erasing the responsibility of any person
+                          for what they actually do.
+                        </p>
+                      </div>
+                
+                    </div>
+                
+                
+                    <div class="grid grid--3 cluster">
+                
+                      <article class="card">
+                        <span class="tag">Causation</span>
+                
+                        <h3>
+                          Causes can extend far beyond the individual.
+                        </h3>
+                
+                        <p>
+                          History, development, institutions, relationships,
+                          material conditions, prior injury, culture,
+                          and present circumstances can all enter human action.
+                        </p>
+                      </article>
+                
+                
+                      <article class="card">
+                        <span class="tag">Responsibility</span>
+                
+                        <h3>
+                          Responsibility still reaches the person.
+                        </h3>
+                
+                        <p>
+                          Understanding why something happened does not make the act acceptable
+                          or remove responsibility for stopping harm,
+                          receiving truth, changing behavior, and repairing what can be repaired.
+                        </p>
+                      </article>
+                
+                
+                      <article class="card">
+                        <span class="tag">Change</span>
+                
+                        <h3>
+                          The person and the surrounding field both have to change.
+                        </h3>
+                
+                        <p>
+                          Otherwise humanity can address one harmful act
+                          while continuing to reproduce the conditions
+                          that help generate another.
+                        </p>
+                      </article>
+                
+                    </div>
+                
+                
+                    <div class="principle principle--green cluster">
+                
+                      <strong>
+                        Material transition and human restoration
+                        are not two separate transitions.
+                      </strong>
+                
+                      <p>
+                        Better conditions give humans more room to recover,
+                        learn, think, cooperate, and change.
+                        Recovering humans become increasingly capable
+                        of building and maintaining better conditions.
+                      </p>
+                
+                    </div>
+                
+                  </div>
+                
+                </section>
+                
+                
+                <!-- =========================================================
+                     RULES OF THE ROAD
+                     ========================================================= -->
+                <section class="roadmap-movement" id="roadmap-rules">
+                
+                  <div aria-hidden="true" class="roadmap-movement__marker">
+                    <span class="roadmap-movement__node"></span>
+                    <span class="roadmap-movement__line"></span>
+                  </div>
+                
+                  <div class="roadmap-movement__content">
+                
+                    <header class="roadmap-movement__header">
+                      <h3>Rules of the road</h3>
+                      <p>
+                        Principles that apply throughout the transition,
+                        not stages humanity completes one at a time.
+                      </p>
+                    </header>
+                
+                
+                    <div class="grid grid--2 core-principles__grid">
+                
+                      <article class="principle-card">
+                        <span class="principle-card__number">01</span>
+                
+                        <div>
+                          <h4>Change humans and conditions together.</h4>
+                
+                          <p>
+                            The surrounding world shapes humans,
+                            and humans rebuild the surrounding world.
+                            Durable change has to work in both directions.
+                          </p>
+                        </div>
+                      </article>
+                
+                
+                      <article class="principle-card">
+                        <span class="principle-card__number">02</span>
+                
+                        <div>
+                          <h4>Protect life without discarding humans.</h4>
+                
+                          <p>
+                            Active danger is stopped.
+                            Harmful authority and access can be removed.
+                            Protection does not require organizing any human
+                            as permanent waste.
+                          </p>
+                        </div>
+                      </article>
+                
+                
+                      <article class="principle-card">
+                        <span class="principle-card__number">03</span>
+                
+                        <div>
+                          <h4>Healing is ongoing, not an entrance requirement.</h4>
+                
+                          <p>
+                            Humanity does not wait for complete restoration
+                            before building housing, healthcare, food systems,
+                            infrastructure, learning, protection, and better public life.
+                          </p>
+                        </div>
+                      </article>
+                
+                
+                      <article class="principle-card principle-card--green">
+                        <span class="principle-card__number">04</span>
+                
+                        <div>
+                          <h4>Build the replacement.</h4>
+                
+                          <p>
+                            Do not organize the transition around endless opposition.
+                            Build alternatives that increasingly perform useful functions better,
+                            then let unnecessary mechanisms become unnecessary.
+                          </p>
+                        </div>
+                      </article>
+                
+                
+                      <article class="principle-card">
+                        <span class="principle-card__number">05</span>
+                
+                        <div>
+                          <h4>Keep operation visible and correctable.</h4>
+                
+                          <p>
+                            Decisions, resources, authority, reasoning,
+                            outcomes, failures, and changes should remain inspectable
+                            wherever reality and legitimate privacy permit.
+                          </p>
+                        </div>
+                      </article>
+                
+                
+                      <article class="principle-card">
+                        <span class="principle-card__number">06</span>
+                
+                        <div>
+                          <h4>Expect friction without making friction the goal.</h4>
+                
+                          <p>
+                            Deep changes in identity, relationship,
+                            institutions, survival patterns, and inherited assumptions
+                            can produce grief, fear, anger, uncertainty, and resistance.
+                            Difficulty is information, not proof that change should stop.
+                          </p>
+                        </div>
+                      </article>
+                
+                
+                      <article class="principle-card principle-card--metric">
+                        <span class="principle-card__number">07</span>
+                
+                        <div>
+                          <h4>The human is the metric.</h4>
+                
+                          <p>
+                            Efficiency, productivity, profit,
+                            technical sophistication, and administrative elegance
+                            are not sufficient measures of success.
+                            Ask what kind of human life the system actually produces.
+                          </p>
+                        </div>
+                      </article>
+                
+                
+                      <article class="principle-card">
+                        <span class="principle-card__number">08</span>
+                
+                        <div>
+                          <h4>Begin from reality, not uniformity.</h4>
+                
+                          <p>
+                            Places begin from different conditions,
+                            possess different capacities,
+                            face different dangers,
+                            and can move at different speeds
+                            without changing the shared direction.
+                          </p>
+                        </div>
+                      </article>
+                
+                    </div>
+                
+                
+                    <div class="statement cluster">
+                
+                      <strong>
+                        These rules apply through every step that follows.
+                      </strong>
+                
+                      <p>
+                        The Roadmap is a direction of movement,
+                        not a rigid sequence that eight billion humans
+                        must perform in lockstep.
+                      </p>
+                
+                    </div>
+                
+                  </div>
+                
+                </section>
+
+
+                <!-- =========================================================
+                     THE PATH
+                     ========================================================= -->
+                <section class="roadmap-movement" id="roadmap-path">
+                
+                  <div aria-hidden="true" class="roadmap-movement__marker">
+                    <span class="roadmap-movement__node"></span>
+                    <span class="roadmap-movement__line"></span>
+                  </div>
+                
+                  <div class="roadmap-movement__content">
+                
+                    <header class="roadmap-movement__header">
+                      <h3>The path</h3>
+                      <p>
+                        Eight movements from active breakdown
+                        toward a world increasingly able to move beyond relief.
+                      </p>
+                    </header>
+                
+                
+                    <div class="roadmap-path">
+                
+                      <!-- 01 -->
+                      <article class="roadmap-step" id="roadmap-stabilize-life">
+                
+                        <div class="roadmap-step__number">01</div>
+                
+                        <div class="roadmap-step__content">
+                
+                          <span class="tag">Stabilize life</span>
+                
+                          <h3>
+                            Stop active breakdown and preserve
+                            what humans need to remain alive.
+                          </h3>
+                
+                          <p>
+                            Immediate danger comes first:
+                            violence, hunger, exposure, displacement,
+                            medical abandonment, utility failure,
+                            and other conditions in which life is already breaking down.
+                          </p>
+                
+                          <p>
+                            Essential systems keep functioning while the larger transition begins.
+                            Existing emergency, logistical, engineering, medical,
+                            and defense capacity increasingly moves toward protection,
+                            rescue, separation of active danger,
+                            disaster response, and preserving life.
+                          </p>
+                
+                          <div class="principle principle--green cluster">
+                            <strong>
+                              Relief does not wait for the completed future.
+                            </strong>
+                
+                            <p>
+                              Stabilize what is failing now
+                              while building the conditions that make repeated crisis less necessary.
+                            </p>
+                          </div>
+                
+                        </div>
+                
+                      </article>
+                
+                
+                      <!-- 02 -->
+                      <article class="roadmap-step" id="roadmap-connect-capacity">
+                      
+                        <div class="roadmap-step__number">02</div>
+                      
+                        <div class="roadmap-step__content">
+                      
+                          <span class="tag">Connect capacity</span>
+                      
+                          <h3>
+                            Turn scattered human and material capacity
+                            into coordinated building power.
+                          </h3>
+                      
+                          <p>
+                            Humanity already possesses people, knowledge, money,
+                            land, buildings, equipment, infrastructure,
+                            institutions, technology, public resources,
+                            and productive systems on an enormous scale.
+                          </p>
+                      
+                          <p>
+                            Much of that capacity is separated across different owners,
+                            organizations, industries, governments, jurisdictions,
+                            and purposes.
+                            Map what exists, connect what can work together,
+                            and direct usable capacity toward stabilization,
+                            construction, and the systems humanity needs.
+                          </p>
+                      
+                          <div class="flow-line cluster">
+                      
+                            <article class="flow-line__node">
+                              <strong>See what exists</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Connect it</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Deploy it</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Create more capacity</strong>
+                            </article>
+                      
+                          </div>
+                      
+                        </div>
+                      
+                      </article>
+                
+                
+                      <!-- 03 -->
+                      <article class="roadmap-step" id="roadmap-shared-foundation">
+                      
+                        <div class="roadmap-step__number">03</div>
+                      
+                        <div class="roadmap-step__content">
+                      
+                          <span class="tag">Establish the shared foundation</span>
+                      
+                          <h3>
+                            Turn emergency provision into dependable
+                            systems beneath human life.
+                          </h3>
+                      
+                          <p>
+                            Housing, food, clean water, sanitation, healthcare,
+                            energy, communication, learning, transportation,
+                            care, protection, and participation become
+                            continuously available shared infrastructure
+                            rather than conditions each human has to repeatedly secure.
+                          </p>
+                      
+                          <p>
+                            The objective is not only to distribute whatever supply
+                            already exists.
+                            Where recurring needs remain scarce,
+                            build, expand, maintain, and improve the capacity
+                            that meets them.
+                          </p>
+                      
+                      
+                          <div class="principle principle--green cluster">
+                      
+                            <strong>
+                              Abundance is something humanity can design for.
+                            </strong>
+                      
+                            <p>
+                              Meet the need now,
+                              then leave behind more housing, production,
+                              infrastructure, knowledge, energy, care,
+                              and productive capability than existed before.
+                            </p>
+                      
+                          </div>
+                      
+                        </div>
+                      
+                      </article>
+                
+                
+                      <!-- 04 -->
+                      <article class="roadmap-step" id="roadmap-operate-overlap">
+                      
+                        <div class="roadmap-step__number">04</div>
+                      
+                        <div class="roadmap-step__content">
+                      
+                          <span class="tag">Operate through overlap</span>
+                      
+                          <h3>
+                            Build the next system without requiring
+                            the inherited world to disappear first.
+                          </h3>
+                      
+                          <p>
+                            Existing currencies, businesses, governments, laws,
+                            infrastructure, supply chains, institutions,
+                            ownership arrangements, and providers continue operating
+                            wherever their functions are still needed.
+                          </p>
+                      
+                          <p>
+                            New capacity can grow beside them, inside them,
+                            and through them.
+                            Existing systems can supply, contract, cooperate,
+                            contribute, convert, integrate, or continue separately
+                            while better ways of performing their functions are built.
+                          </p>
+                      
+                      
+                          <div class="flow-line flow-line--3 cluster">
+                      
+                            <article class="flow-line__node">
+                              <strong>Keep useful functions running</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Build new capacity</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Operate through both</strong>
+                            </article>
+                      
+                          </div>
+                      
+                        </div>
+                      
+                      </article>
+                
+                
+                      <!-- 05 -->
+                      <article class="roadmap-step" id="roadmap-expand-systems">
+                      
+                        <div class="roadmap-step__number">05</div>
+                      
+                        <div class="roadmap-step__content">
+                      
+                          <span class="tag">Expand working systems</span>
+                      
+                          <h3>
+                            Turn working pieces into connected systems
+                            that can carry more of human life.
+                          </h3>
+                      
+                          <p>
+                            A functioning home, clinic, food network,
+                            production system, transportation connection,
+                            energy system, learning environment, or other useful operation
+                            becomes capacity that does not have to be invented again from zero.
+                          </p>
+                      
+                          <p>
+                            Repeat what works, connect separate operations,
+                            improve what fails, fill missing links,
+                            and expand the people, knowledge, infrastructure,
+                            production, and coordination required to operate at greater scale.
+                          </p>
+                      
+                      
+                          <div class="flow-line cluster">
+                      
+                            <article class="flow-line__node">
+                              <strong>Make it work</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Repeat it</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Connect it</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Expand capacity</strong>
+                            </article>
+                      
+                          </div>
+                      
+                        </div>
+                      
+                      </article>
+                
+                
+                      <!-- 06 -->
+                      <article class="roadmap-step" id="roadmap-move-functions">
+                      
+                        <div class="roadmap-step__number">06</div>
+                      
+                        <div class="roadmap-step__content">
+                      
+                          <span class="tag">Move functions into better systems</span>
+                      
+                          <h3>
+                            An existing city changes by moving functions,
+                            not by declaring itself transformed.
+                          </h3>
+                      
+                          <p>
+                            Housing, healthcare, food, transportation, energy,
+                            learning, production, care, public coordination,
+                            and other functions can move at different speeds.
+                            A function shifts when another system can carry it
+                            more reliably, accessibly, or effectively.
+                          </p>
+                      
+                          <p>
+                            The transition therefore happens function by function.
+                            Some inherited systems may continue for years.
+                            Others may integrate quickly.
+                            Some may keep part of their role while new systems
+                            take over another part.
+                          </p>
+                      
+                      
+                          <div class="flow-line cluster">
+                      
+                            <article class="flow-line__node">
+                              <strong>Build capacity</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Prove it works</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Move the function</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Keep improving</strong>
+                            </article>
+                      
+                          </div>
+                      
+                        </div>
+                      
+                      </article>
+                
+                
+                      <!-- 07 -->
+                      <article class="roadmap-step" id="roadmap-old-mechanisms">
+                      
+                        <div class="roadmap-step__number">07</div>
+                      
+                        <div class="roadmap-step__content">
+                      
+                          <span class="tag">Let old mechanisms lose their function</span>
+                      
+                          <h3>
+                            Replace the need for inherited mechanisms,
+                            not useful capacity for its own sake.
+                          </h3>
+                      
+                          <p>
+                            As better systems take over real functions,
+                            some inherited structures can integrate, convert,
+                            shrink, change purpose, or continue during a period of overlap.
+                            Others eventually have little reason to remain.
+                          </p>
+                      
+                          <p>
+                            Useful people, knowledge, buildings, equipment,
+                            infrastructure, institutions, and productive capacity
+                            do not need to be discarded because they came from the old world.
+                            What disappears is the machinery that better systems
+                            have made unnecessary.
+                          </p>
+                      
+                      
+                          <div class="principle principle--green cluster">
+                      
+                            <strong>
+                              Obsolescence follows replacement.
+                            </strong>
+                      
+                            <p>
+                              Move the useful function first.
+                              Then let the mechanism that used to carry it
+                              become smaller, change, or disappear.
+                            </p>
+                      
+                          </div>
+                      
+                        </div>
+                      
+                      </article>
+                
+                
+                      <!-- 08 -->
+                      <article class="roadmap-step" id="roadmap-beyond-relief">
+                      
+                        <div class="roadmap-step__number">08</div>
+                      
+                        <div class="roadmap-step__content">
+                      
+                          <span class="tag">Build beyond relief</span>
+                      
+                          <h3>
+                            Once the floor is secure,
+                            humanity can spend more of itself
+                            on what life can become.
+                          </h3>
+                      
+                          <p>
+                            Better systems, accumulated infrastructure,
+                            automation, simplification, and shared capacity
+                            can progressively reduce the amount of human time
+                            required simply to maintain the conditions of life.
+                          </p>
+                      
+                          <p>
+                            The time returned to humans is not emptiness.
+                            It becomes room for care, relationship, learning,
+                            investigation, play, art, invention, exploration,
+                            physical development, rest, difficult voluntary work,
+                            and possibilities no institution could have planned in advance.
+                          </p>
+                      
+                      
+                          <div class="flow-line flow-line--3 cluster">
+                      
+                            <article class="flow-line__node">
+                              <strong>Eliminate pointless work</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Reduce necessary labor</strong>
+                            </article>
+                      
+                            <span aria-hidden="true" class="flow-line__arrow">→</span>
+                      
+                            <article class="flow-line__node">
+                              <strong>Expand freely chosen human activity</strong>
+                            </article>
+                      
+                          </div>
+                      
+                      
+                          <div class="principle principle--green cluster">
+                      
+                            <strong>
+                              Relief reduces what a human must do.
+                              Amazing expands what a human is free to do.
+                            </strong>
+                      
+                          </div>
+                      
+                        </div>
+                      
+                      </article>
+                
+                    </div>
+                
+                  </div>
+                
+                </section>
+
+                <!-- =========================================================
+                     THROUGHOUT THE TRANSITION
+                     ========================================================= -->
+                <section class="roadmap-movement" id="roadmap-throughout">
+                
+                  <div aria-hidden="true" class="roadmap-movement__marker">
+                    <span class="roadmap-movement__node"></span>
+                    <span class="roadmap-movement__line"></span>
+                  </div>
+                
+                  <div class="roadmap-movement__content">
+                
+                    <header class="roadmap-movement__header">
+                
+                      <span class="tag">Throughout the transition</span>
+                
+                      <h3>
+                        Restore humans.
+                        Test everything against reality.
+                      </h3>
+                
+                      <p>
+                        Neither work waits for a particular stage.
+                        Human restoration and continuous correction run
+                        through the entire transition.
+                      </p>
+                
+                    </header>
+                
+                
+                    <div class="grid grid--2 cluster">
+                
+                      <article class="panel panel--green">
+                
+                        <span class="tag">Human restoration</span>
+                
+                        <h3>
+                          Change what humans carry forward.
+                        </h3>
+                
+                        <p>
+                          Humans enter the transition carrying histories,
+                          adaptations, injuries, fears, habits, relationships,
+                          assumptions, and ways of using power formed inside
+                          the world being changed.
+                        </p>
+                
+                        <p>
+                          Truth, responsibility, protection, grief, repair,
+                          learning, relationship, development, and recovery
+                          therefore continue while material systems are being built.
+                        </p>
+                
+                        <p>
+                          The objective is not simply to help humans feel better.
+                          It is to stop inherited patterns from being carried
+                          forward into families, institutions, authority,
+                          and the systems replacing the old ones.
+                        </p>
+                
+                      </article>
+                
+                
+                      <article class="panel panel--blue">
+                
+                        <span class="tag">Reality + correction</span>
+                
+                        <h3>
+                          Let reality keep answering the plan.
+                        </h3>
+                
+                        <p>
+                          Every new system remains open to observation,
+                          testing, measurement, criticism, documentation,
+                          and correction.
+                        </p>
+                
+                        <p>
+                          Record what was attempted, what was expected,
+                          what actually happened, where people were helped,
+                          where harm or failure appeared, and what needs to change.
+                        </p>
+                
+                        <p>
+                          A better system does not become correct
+                          because humanity built it with good intentions.
+                          It remains better only by continuing to meet reality
+                          and changing when reality says it should.
+                        </p>
+                
+                      </article>
+                
+                    </div>
+                
+                
+                    <div class="flow-line flow-line--5 cluster">
+                
+                      <article class="flow-line__node">
+                        <strong>Observe</strong>
+                      </article>
+                
+                      <span aria-hidden="true" class="flow-line__arrow">→</span>
+                
+                      <article class="flow-line__node">
+                        <strong>Test</strong>
+                      </article>
+                
+                      <span aria-hidden="true" class="flow-line__arrow">→</span>
+                
+                      <article class="flow-line__node">
+                        <strong>Document</strong>
+                      </article>
+                
+                      <span aria-hidden="true" class="flow-line__arrow">→</span>
+                
+                      <article class="flow-line__node">
+                        <strong>Correct</strong>
+                      </article>
+                
+                      <span aria-hidden="true" class="flow-line__arrow">→</span>
+                
+                      <article class="flow-line__node">
+                        <strong>Build again</strong>
+                      </article>
+                
+                    </div>
+                
+                
+                    <div class="principle cluster">
+                
+                      <strong>
+                        The transition changes both the humans
+                        operating the system and the system humans operate.
+                      </strong>
+                
+                    </div>
+                
+                  </div>
+                
+                </section>
+
+
+                <!-- =========================================================
+                     WHERE REALITY ENTERS
+                     ========================================================= -->
+                <section class="roadmap-movement" id="roadmap-reality">
+                
+                  <div aria-hidden="true" class="roadmap-movement__marker">
+                    <span class="roadmap-movement__node"></span>
+                    <span class="roadmap-movement__line"></span>
+                  </div>
+                
+                  <div class="roadmap-movement__content">
+                
+                    <header class="roadmap-movement__header">
+                
+                      <h3>Where reality enters</h3>
+                
+                      <p>
+                        Different places begin from different conditions,
+                        move at different speeds,
+                        and experience the transition on different clocks.
+                      </p>
+                
+                    </header>
+                
+                
+                    <div class="split panel cluster">
+                
+                      <div>
+                
+                        <span class="tag">
+                          One direction. Different starting conditions.
+                        </span>
+                
+                        <h3>
+                          The first useful move depends
+                          on the reality of the place.
+                        </h3>
+                
+                      </div>
+                
+                      <div>
+                
+                        <p>
+                          A place does not need to pass through every part
+                          of the Roadmap in the same order as every other place.
+                          Existing conditions determine what requires attention first.
+                        </p>
+                
+                        <p>
+                          Some places may need immediate stabilization.
+                          Others may already have strong infrastructure
+                          and be ready to connect capacity, redesign systems,
+                          reduce unnecessary labor, or move existing functions
+                          into better operating structures.
+                        </p>
+                
+                        <p>
+                          The path can therefore move at different speeds
+                          without changing its direction.
+                        </p>
+                
+                      </div>
+                
+                    </div>
+                
+                
+                    <div class="grid grid--2 cluster">
+                
+                      <article class="card">
+                
+                        <span class="tag">Stable city</span>
+                
+                        <h4>
+                          Connect and reorganize what already exists.
+                        </h4>
+                
+                        <p>
+                          Housing, healthcare, transportation,
+                          education, production, energy,
+                          institutions, and economic capacity
+                          may already exist at substantial scale.
+                        </p>
+                
+                      </article>
+                
+                
+                      <article class="card">
+                
+                        <span class="tag">Underbuilt region</span>
+                
+                        <h4>
+                          Build missing capacity directly.
+                        </h4>
+                
+                        <p>
+                          Infrastructure, healthcare, energy,
+                          communication, transportation, production,
+                          and other systems can be built without reproducing
+                          every inherited mechanism used elsewhere.
+                        </p>
+                
+                      </article>
+                
+                
+                      <article class="card">
+                
+                        <span class="tag">Active crisis</span>
+                
+                        <h4>
+                          Stabilize life first.
+                        </h4>
+                
+                        <p>
+                          Protection, food, water, medicine,
+                          shelter, sanitation, energy, communication,
+                          logistics, and immediate care take priority
+                          while longer-term systems are prepared.
+                        </p>
+                
+                      </article>
+                
+                
+                      <article class="card">
+                
+                        <span class="tag">High existing capacity</span>
+                
+                        <h4>
+                          Redirect and connect more than rebuild.
+                        </h4>
+                
+                        <p>
+                          A place with enormous existing resources
+                          may mainly need to connect, share, simplify,
+                          automate, reorganize, and redirect capacity
+                          toward wider human use.
+                        </p>
+                
+                      </article>
+                
+                    </div>
+                
+                
+                    <div class="principle principle--green cluster">
+                
+                      <span class="tag">
+                        Relief does not wait for total agreement
+                      </span>
+                
+                      <strong>
+                        Humans do not have to resolve every disagreement
+                        before they can begin protecting and rebuilding life together.
+                      </strong>
+                
+                      <p>
+                        Shared needs create immediate fields of cooperation.
+                        Food can move. Water can flow. Homes can be built.
+                        Hospitals can operate. Infrastructure can be repaired.
+                        People can be protected while harder disagreements
+                        remain unresolved.
+                      </p>
+                
+                    </div>
+                
+                
+                    <div class="cluster">
+                
+                      <span class="tag">The time horizon</span>
+                
+                      <h3>
+                        Relief and transformation move on different clocks.
+                      </h3>
+                
+                      <div class="grid grid--2 cluster">
+                
+                        <article class="panel">
+                
+                          <span class="tag">Now</span>
+                
+                          <p>
+                            Protect life, stabilize immediate needs,
+                            connect usable capacity,
+                            remove obvious pointless work where possible,
+                            and begin useful local action.
+                          </p>
+                
+                        </article>
+                
+                
+                        <article class="panel">
+                
+                          <span class="tag">Years</span>
+                
+                          <p>
+                            Build and connect housing, healthcare,
+                            infrastructure, production, learning,
+                            transportation, energy,
+                            and operating systems.
+                          </p>
+                
+                        </article>
+                
+                
+                        <article class="panel">
+                
+                          <span class="tag">Decades</span>
+                
+                          <p>
+                            Move deeply embedded functions into better systems,
+                            redesign cities and regions,
+                            dramatically reduce necessary labor,
+                            and allow new ways of operating to become ordinary.
+                          </p>
+                
+                        </article>
+                
+                
+                        <article class="panel">
+                
+                          <span class="tag">Generations</span>
+                
+                          <p>
+                            Humans increasingly develop inside safer,
+                            more truthful, more cooperative conditions
+                            and stop reproducing many of the patterns
+                            inherited today.
+                          </p>
+                
+                        </article>
+                
+                      </div>
+                
+                    </div>
+                
+                
+                    <div class="statement cluster">
+                
+                      <strong>
+                        The transition can be globally connected
+                        without being globally synchronized.
+                      </strong>
+                
+                      <p>
+                        Begin where reality allows.
+                        Connect what works.
+                        Expand what becomes possible.
+                      </p>
+                
+                    </div>
+                
+                  </div>
+                
+                </section>
+
+
+                <!-- =========================================================
+                     FRAMEWORK HANDOFF
+                     ========================================================= -->
+                <div class="wa-framework-handoff">
+                
+                  <span class="tag">Now: how does all of this actually work?</span>
+                
+                  <h2>
+                    Open the machinery.
+                  </h2>
+                
+                  <p>
+                    The Full Framework opens the structure beneath the Roadmap:
+                    how the inherited world reproduces itself,
+                    how shared foundations and connected capacity operate,
+                    how decisions are made,
+                    how human restoration works,
+                    how the transition unfolds,
+                    and what humanity can build beyond relief.
+                  </p>
+                
+                  <a class="wa-framework-handoff__link" href="framework.html#framework-handoff">
+                    Open the Full Framework →
+                  </a>
+                
+                </div>
+              </div>
+
+            </div>
+
+
+            <aside class="wa-toc wa-toc--roadmap" id="toc-roadmap" aria-label="Roadmap contents">
+            
+              <div class="wa-toc__sticky">
+            
+                <!-- FIXED TOP -->
+                <header class="wa-toc__header">
+            
+                  <a class="wa-toc__site" href="#top">
+                    World Amazing
+                  </a>
+            
+                  <a class="wa-toc__title" href="#roadmap">
+                    <span>A Realistic Roadmap</span>
+                    <span aria-hidden="true">↑</span>
+                  </a>
+            
+                  <p>
+                    From understanding to operation.
+                  </p>
+            
+                </header>
+            
+            
+                <!-- SCROLLABLE MIDDLE -->
+                <div class="wa-toc__body">
+            
+                  <div class="wa-toc__scroll">
+            
+                    <nav class="wa-roadmap-toc__nav">
+            
+                      <a class="wa-roadmap-toc__major" href="#roadmap-why-path" data-toc-target="roadmap-why-path">
+                      
+                        <span>
+                          <strong>Why this path</strong>
+                          <small>
+                            Why human and material change have to move together.
+                          </small>
+                        </span>
+                      
+                      </a>
+                      
+                      
+                      <a class="wa-roadmap-toc__major" href="#roadmap-rules" data-toc-target="roadmap-rules">
+                      
+                        <span>
+                          <strong>Rules of the road</strong>
+                          <small>
+                            Principles that apply throughout the transition.
+                          </small>
+                        </span>
+                      
+                      </a>
+                      
+                      
+                      <div class="wa-roadmap-toc__path">
+                      
+                        <a class="wa-roadmap-toc__path-title" href="#roadmap-path" data-toc-target="roadmap-path">
+                          The path
+                        </a>
+                      
+                      
+                        <a class="wa-roadmap-toc__step" href="#roadmap-stabilize-life" data-toc-target="roadmap-stabilize-life">
+                      
+                          <span class="wa-roadmap-toc__number">01</span>
+                          <strong>Stabilize life</strong>
+                      
+                        </a>
+                      
+                      
+                        <a class="wa-roadmap-toc__step" href="#roadmap-connect-capacity" data-toc-target="roadmap-connect-capacity">
+                      
+                          <span class="wa-roadmap-toc__number">02</span>
+                          <strong>Connect capacity</strong>
+                      
+                        </a>
+                      
+                      
+                        <a class="wa-roadmap-toc__step" href="#roadmap-shared-foundation" data-toc-target="roadmap-shared-foundation">
+                      
+                          <span class="wa-roadmap-toc__number">03</span>
+                          <strong>Establish the shared foundation</strong>
+                      
+                        </a>
+                      
+                      
+                        <a class="wa-roadmap-toc__step" href="#roadmap-operate-overlap" data-toc-target="roadmap-operate-overlap">
+                      
+                          <span class="wa-roadmap-toc__number">04</span>
+                          <strong>Operate through overlap</strong>
+                      
+                        </a>
+                      
+                      
+                        <a class="wa-roadmap-toc__step" href="#roadmap-expand-systems" data-toc-target="roadmap-expand-systems">
+                      
+                          <span class="wa-roadmap-toc__number">05</span>
+                          <strong>Expand working systems</strong>
+                      
+                        </a>
+                      
+                      
+                        <a class="wa-roadmap-toc__step" href="#roadmap-move-functions" data-toc-target="roadmap-move-functions">
+                      
+                          <span class="wa-roadmap-toc__number">06</span>
+                          <strong>Move functions into better systems</strong>
+                      
+                        </a>
+                      
+                      
+                        <a class="wa-roadmap-toc__step" href="#roadmap-old-mechanisms" data-toc-target="roadmap-old-mechanisms">
+                      
+                          <span class="wa-roadmap-toc__number">07</span>
+                          <strong>Let old mechanisms lose their function</strong>
+                      
+                        </a>
+                      
+                      
+                        <a class="wa-roadmap-toc__step" href="#roadmap-beyond-relief" data-toc-target="roadmap-beyond-relief">
+                      
+                          <span class="wa-roadmap-toc__number">08</span>
+                          <strong>Build beyond relief</strong>
+                      
+                        </a>
+                      
+                      </div>
+                      
+                      
+                      <a class="wa-roadmap-toc__major" href="#roadmap-throughout" data-toc-target="roadmap-throughout">
+                      
+                        <span>
+                          <strong>Throughout the transition</strong>
+                          <small>
+                            Human restoration and continuous correction.
+                          </small>
+                        </span>
+                      
+                      </a>
+                      
+                      
+                      <a class="wa-roadmap-toc__major" href="#roadmap-reality" data-toc-target="roadmap-reality">
+                      
+                        <span>
+                          <strong>Where reality enters</strong>
+                          <small>
+                            Different conditions, places, speeds, and time horizons.
+                          </small>
+                        </span>
+                      
+                      </a>
+            
+                    </nav>
+            
+                  </div>
+            
+            
+                  <div class="wa-toc__more" aria-hidden="true">
+                    ↓
+                  </div>
+            
+                </div>
+            
+            
+                <!-- FIXED BOTTOM -->
+                <footer class="wa-toc__footer">
+            
+                  <span class="wa-toc__group-label">
+                    Explore
+                  </span>
+            
+                  <nav>
+            
+                    <a href="basics.html">
+                      <span aria-hidden="true">←</span>
+                      The Basics
+                    </a>
+            
+                    <a href="framework.html">
+                      <span aria-hidden="true">→</span>
+                      Full Framework
+                    </a>
+            
+                  </nav>
+            
+                </footer>
+            
+              </div>
+            
+            </aside>
+
+
+
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="site-footer">
+      
+        <div class="footer-grid">
+      
+      
+          <!-- ===================================================
+                   WORLD AMAZING
+                   =================================================== -->
+      
+          <div class="footer-brand">
+      
+            <a class="footer-brand__name" href="index.html">
+              World Amazing
+            </a>
+      
+            <p>
+              A public framework for human and civilizational restoration:
+              stabilize life, restore humans, connect capacity,
+              and build beyond relief.
+            </p>
+      
+            <p class="footer-brand__line">
+              Relief is the floor. Amazing is the ceiling.
+            </p>
+      
+      
+            <div class="footer-path">
+      
+              <span>
+                Start here
+              </span>
+      
+              <div class="footer-path__links">
+      
+                <a href="basics.html">
+                  Basics
+                </a>
+      
+                <span aria-hidden="true">
+                  →
+                </span>
+      
+                <a href="roadmap.html">
+                  Roadmap
+                </a>
+      
+                <span aria-hidden="true">
+                  →
+                </span>
+      
+                <a href="framework.html">
+                  Framework
+                </a>
+      
+              </div>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   UNDERSTAND
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              Understand
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="basics.html">
+                The Basics
+              </a>
+      
+              <a href="roadmap.html">
+                A Realistic Roadmap
+              </a>
+      
+              <a href="framework.html">
+                The Full Framework
+              </a>
+      
+              <a href="papers.html">
+                Amazing Papers
+              </a>
+      
+              <a href="memes.html">
+                Memes
+              </a>
+      
+              <a href="index.html#faq">
+                FAQ
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   ENTER
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              Enter
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+                Make It Amazing
+              </a>
+      
+              <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+                World Amazing Show
+              </a>
+      
+              <a href="https://whomanatee.org/" target="_blank" rel="noopener">
+                Global Partnership
+              </a>
+      
+              <a href="index.html#join">
+                Join
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   MORE
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              More
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="https://github.com/worldamazing/plan" target="_blank" rel="noopener">
+                GitHub
+              </a>
+      
+              <a href="https://github.com/worldamazing/plan/blob/main/docs/overview.md" target="_blank" rel="noopener">
+                Overview
+              </a>
+      
+              <a href="settings.html">
+                Settings
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+        </div>
+      
+      
+        <!-- =======================================================
+               BOTTOM
+               ======================================================= -->
+      
+        <div class="footer-bottom">
+      
+          <span>
+            World Amazing
+          </span>
+      
+          <span>
+            Relief is the floor. Amazing is the ceiling.
+          </span>
+      
+        </div>
+      
+      </footer>
+    </div>
+  </main>
+
+  
+  <script src="assets/topbar.js"></script>
+  <script src="assets/nav.js"></script>
+
+  <script src="assets/site-settings.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,423 @@
+/* =========================================================
+   GLOBAL NAV
+   ========================================================= */
+
+.nav {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 0.8rem;
+
+    min-width: 0;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   READING PATH
+   ========================================================= */
+
+.nav__docs {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 0.12rem;
+
+    padding: 0.2rem;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 999px;
+
+    background:
+        #171d22;
+}
+
+
+.nav__docs::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        repeating-linear-gradient(135deg,
+            rgba(255, 255, 255, 0.04) 0,
+            rgba(255, 255, 255, 0.04) 1px,
+            transparent 1px,
+            transparent 7px);
+
+    opacity: 0.55;
+}
+
+
+.nav__docs a {
+    position: relative;
+    z-index: 1;
+
+    padding: 0.38rem 0.62rem;
+
+    border-radius: 999px;
+}
+
+.nav__docs a[aria-current="page"] {
+    color: var(--white);
+
+    background:
+        rgba(185, 247, 207, 0.075);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(185, 247, 207, 0.16);
+}
+
+
+/* =========================================================
+   EXPLORE
+   ========================================================= */
+
+.nav__explore {
+    display: flex;
+    align-items: center;
+
+    gap: 0.78rem;
+
+    padding: 0 0.15rem;
+}
+
+
+/* =========================================================
+   ENTRY / ACTIONS
+   ========================================================= */
+
+.nav__actions {
+    display: flex;
+    align-items: center;
+
+    gap: 0.12rem;
+
+    padding: 0.2rem;
+
+    border: 1px solid rgba(139, 211, 255, 0.14);
+    border-radius: 999px;
+
+    background:
+        rgba(139, 211, 255, 0.025);
+}
+
+
+.nav__actions>a {
+    padding: 0.38rem 0.58rem;
+
+    border-radius: 999px;
+}
+
+
+.nav__external {
+    margin-left: 0.08rem;
+
+    color: var(--blue);
+
+    font-size: 0.67em;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   SHARED LINKS
+   ========================================================= */
+
+.nav a {
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 0.83rem;
+    font-weight: 800;
+
+    transition:
+        color 150ms ease,
+        background 150ms ease,
+        border-color 150ms ease;
+}
+
+
+.nav a:hover,
+.nav a:focus-visible {
+    color: var(--white);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+}
+
+
+/* =========================================================
+   JOIN
+   ========================================================= */
+
+.nav__join {
+    padding: 0.42rem 0.72rem;
+    text-decoration: none;
+
+    border: 1px solid rgba(185, 247, 207, 0.28);
+    border-radius: 999px;
+
+    color: var(--green) !important;
+
+    background: rgba(185, 247, 207, 0.055);
+
+    font-size: 0.83rem;
+    font-weight: 800;
+}
+
+
+.nav__join:hover,
+.nav__join:focus-visible {
+    border-color: rgba(185, 247, 207, 0.48);
+
+    color: var(--white) !important;
+
+    background: rgba(185, 247, 207, 0.1);
+}
+
+
+/* =========================================================
+   MOBILE CONTROLS
+   ========================================================= */
+
+.nav__mobile-actions {
+    display: none;
+    align-items: center;
+
+    gap: 0.45rem;
+
+    flex: 0 0 auto;
+}
+
+
+.nav__menu-button {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 0.38rem;
+
+    padding: 0.42rem 0.68rem;
+
+    border: 1px solid var(--line);
+    border-radius: 999px;
+
+    color: var(--soft);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    font: inherit;
+    font-size: 0.79rem;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.nav__menu-button:hover,
+.nav__menu-button:focus-visible {
+    color: var(--white);
+
+    border-color: rgba(139, 211, 255, 0.3);
+
+    background:
+        rgba(139, 211, 255, 0.045);
+}
+
+
+.nav__menu-chevron {
+    width: 7px;
+    height: 7px;
+
+    border-right: 1.5px solid var(--blue);
+    border-bottom: 1.5px solid var(--blue);
+
+    transform:
+        translateY(-2px) rotate(45deg);
+
+    transition:
+        transform 160ms ease;
+}
+
+
+.nav__menu-button[aria-expanded="true"] .nav__menu-chevron {
+    transform:
+        translateY(2px) rotate(225deg);
+}
+
+
+/* =========================================================
+   MOBILE PANEL
+   ========================================================= */
+
+.nav-mobile {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    z-index: 120;
+
+    max-height:
+        calc(100dvh - var(--wa-topbar-height, 66px));
+
+    overflow-y: auto;
+
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line);
+
+    background:
+        rgba(10, 13, 18, 0.98);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 24px 45px rgba(0, 0, 0, 0.34);
+}
+
+
+.nav-mobile[hidden] {
+    display: none;
+}
+
+
+.nav-mobile__inner {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 1rem;
+
+    padding-top: 1.15rem;
+    padding-bottom: 1.3rem;
+}
+
+
+.nav-mobile__group {
+    min-width: 0;
+}
+
+
+.nav-mobile__label {
+    display: block;
+
+    margin-bottom: 0.45rem;
+
+    color: var(--green);
+
+    font-size: 0.59rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+
+.nav-mobile__group a {
+    display: block;
+
+    padding: 0.62rem 0;
+
+    border-top: 1px solid var(--line-soft);
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-size: 0.83rem;
+    font-weight: 800;
+}
+
+
+.nav-mobile__group a:hover,
+.nav-mobile__group a:focus-visible {
+    color: var(--green);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1220px) {
+
+    .brand__tagline {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 980px) {
+
+    :root {
+        --wa-topbar-height: 66px;
+    }
+
+
+    .topbar {
+        min-height: 66px;
+    }
+
+
+    .nav {
+        display: none;
+    }
+
+
+    .nav__mobile-actions {
+        display: flex;
+    }
+
+}
+
+@media (max-width: 700px) {
+    .nav-mobile__inner {
+        grid-template-columns: 1fr;
+
+        gap: 1.15rem;
+
+        padding-top: 1rem;
+        padding-bottom: 1.25rem;
+    }
+
+
+    .nav-mobile__group a {
+        padding: 0.58rem 0;
+    }
+
+
+    .nav__mobile-actions .nav__join {
+        padding: 0.36rem 0.6rem;
+    }
+    
+}
+
+@media (max-width: 390px) {
+    .brand__full {
+        display: none;
+    }
+
+    .brand__short {
+        display: inline;
+    }
+
+    .nav__core {
+        gap: 0.58rem;
+    }
+
+    .nav a {
+        font-size: 0.76rem;
+    }
+}

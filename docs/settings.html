@@ -1,0 +1,2052 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta name="color-scheme" content="dark only">
+
+  <meta
+    name="description"
+    content="Tune the World Amazing interface."
+  >
+
+  <title>Settings — World Amazing</title>
+
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="assets/global-nav.css" />
+  <link rel="stylesheet" href="assets/footer.css" />
+
+  <style>
+    /* =========================================================
+       SETTINGS / COCKPIT
+       ========================================================= */
+
+    :root {
+      --settings-panel: rgba(15, 22, 31, 0.92);
+      --settings-panel-2: rgba(20, 29, 39, 0.92);
+      --settings-line: rgba(255, 255, 255, 0.09);
+      --settings-line-bright: rgba(139, 211, 255, 0.24);
+      --settings-glow: rgba(139, 211, 255, 0.12);
+      --settings-green-glow: rgba(185, 247, 207, 0.12);
+    }
+
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+
+    .settings-shell {
+      width: min(1500px, calc(100% - 32px));
+      min-height: calc(100vh - 110px);
+
+      margin: 18px auto 28px;
+
+      border: 1px solid var(--settings-line-bright);
+      border-radius: 24px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 75% 0%,
+          rgba(139, 211, 255, 0.055),
+          transparent 30rem
+        ),
+        radial-gradient(
+          circle at 10% 100%,
+          rgba(185, 247, 207, 0.04),
+          transparent 28rem
+        ),
+        #0b1118;
+
+      box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.28),
+        inset 0 1px rgba(255, 255, 255, 0.025);
+    }
+
+
+    /* =========================================================
+       CONSOLE HEADER
+       ========================================================= */
+
+    .settings-console-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: center;
+
+      min-height: 74px;
+      padding: 0 24px;
+
+      border-bottom: 1px solid var(--settings-line);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.025),
+          transparent
+        );
+    }
+
+
+    .settings-console-head__title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+
+    .settings-console-head__title strong {
+      color: var(--white);
+
+      font-size: 0.82rem;
+      font-weight: 950;
+      letter-spacing: 0.105em;
+      text-transform: uppercase;
+    }
+
+
+    .settings-console-head__divider {
+      width: 1px;
+      height: 20px;
+
+      background: var(--settings-line);
+    }
+
+
+    .settings-console-head__title span {
+      color: var(--muted);
+
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+
+    .settings-console-head__status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      color: var(--muted);
+
+      font-size: 0.68rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+
+    .status-light {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      box-shadow:
+        0 0 8px rgba(185, 247, 207, 0.7),
+        0 0 22px rgba(185, 247, 207, 0.25);
+    }
+
+
+    /* =========================================================
+       MAIN GRID
+       ========================================================= */
+
+    .settings-console {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+
+      min-height: calc(100vh - 230px);
+    }
+
+
+    /* =========================================================
+       LEFT CONTROL RAIL
+       ========================================================= */
+
+    .settings-rail {
+      display: flex;
+      flex-direction: column;
+
+      padding: 22px 14px;
+
+      border-right: 1px solid var(--settings-line);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.018),
+          transparent
+        );
+    }
+
+
+    .settings-rail__label {
+      padding: 0 10px 12px;
+
+      color: var(--muted);
+
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+
+    .settings-rail button {
+      position: relative;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      width: 100%;
+
+      padding: 12px 10px;
+
+      border: 0;
+      border-radius: 10px;
+
+      color: var(--muted);
+      background: transparent;
+
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 850;
+      text-align: left;
+
+      cursor: default;
+    }
+
+
+    .settings-rail button.is-active {
+      color: var(--white);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(139, 211, 255, 0.08),
+          transparent
+        );
+    }
+
+
+    .settings-rail button.is-active::before {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      top: 9px;
+      bottom: 9px;
+
+      width: 2px;
+
+      border-radius: 999px;
+
+      background: var(--blue);
+
+      box-shadow:
+        0 0 12px rgba(139, 211, 255, 0.5);
+    }
+
+
+    .settings-rail button[disabled] {
+      opacity: 0.38;
+    }
+
+
+    .settings-rail__coming {
+      color: var(--muted);
+
+      font-size: 0.54rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       MAIN PANEL
+       ========================================================= */
+
+    .settings-main {
+      padding:
+        clamp(24px, 4vw, 48px);
+    }
+
+
+    .settings-intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 3rem;
+      align-items: end;
+
+      padding-bottom: clamp(22px, 4vw, 38px);
+
+      border-bottom: 1px solid var(--settings-line);
+    }
+
+
+    .settings-intro__copy {
+      max-width: 800px;
+    }
+
+
+    .settings-intro .eyebrow {
+      margin-bottom: 0.6rem;
+    }
+
+
+    .settings-intro h1 {
+      max-width: 850px;
+
+      font-size: clamp(2.8rem, 6vw, 5.3rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+    }
+
+
+    .settings-intro p {
+      max-width: 650px;
+
+      margin-top: 1rem;
+
+      color: var(--muted);
+
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+
+    .settings-intro__code {
+      flex: none;
+
+      color: rgba(139, 211, 255, 0.45);
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      line-height: 1.7;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       INSTRUMENT AREA
+       ========================================================= */
+
+    .instrument-grid {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(270px, 0.65fr);
+
+      gap: 12px;
+
+      margin-top: 12px;
+    }
+
+
+    .instrument {
+      position: relative;
+
+      border: 1px solid var(--settings-line);
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.022),
+          transparent 60%
+        ),
+        var(--settings-panel);
+    }
+
+
+    .instrument__head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      align-items: center;
+
+      min-height: 60px;
+      padding: 0 18px;
+
+      border-bottom: 1px solid var(--settings-line);
+    }
+
+
+    .instrument__title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+
+    .instrument__title span {
+      color: var(--blue);
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+
+    .instrument__title strong {
+      color: var(--white);
+
+      font-size: 0.83rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+
+    .instrument__state {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      color: var(--green);
+
+      font-size: 0.61rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+
+    .instrument__state::before {
+      content: "";
+
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: currentColor;
+
+      box-shadow:
+        0 0 9px currentColor;
+    }
+
+
+    .instrument__body {
+      padding:
+        clamp(20px, 3vw, 30px);
+    }
+
+
+    /* =========================================================
+       LENS FLARE MASTER PANEL
+       ========================================================= */
+
+    .flare-master {
+      min-height: 480px;
+    }
+
+
+    .flare-master__top {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+      gap: 2rem;
+      align-items: center;
+    }
+
+
+    .flare-master h2 {
+      max-width: 600px;
+
+      font-size: clamp(2rem, 4vw, 3.7rem);
+      line-height: 0.97;
+      letter-spacing: -0.05em;
+    }
+
+
+    .flare-master__description {
+      max-width: 660px;
+
+      margin-top: 0.9rem;
+
+      color: var(--muted);
+
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+       MASTER SWITCH
+       ========================================================= */
+
+    .master-switch {
+      display: grid;
+      justify-items: center;
+      gap: 9px;
+    }
+
+
+    .master-switch__label {
+      color: var(--muted);
+
+      font-size: 0.57rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+
+    .toggle {
+      position: relative;
+
+      width: 86px;
+      height: 42px;
+
+      padding: 0;
+
+      border: 1px solid var(--settings-line-bright);
+      border-radius: 999px;
+
+      background: #090e14;
+
+      cursor: pointer;
+
+      box-shadow:
+        inset 0 3px 8px rgba(0, 0, 0, 0.65);
+    }
+
+
+    .toggle::before {
+      content: "";
+
+      position: absolute;
+      top: 5px;
+      left: 5px;
+
+      width: 30px;
+      height: 30px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #8b99a8,
+          #43505f
+        );
+
+      box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.55);
+
+      transition:
+        transform 170ms ease,
+        background 170ms ease,
+        box-shadow 170ms ease;
+    }
+
+
+    .toggle[aria-pressed="true"] {
+      border-color: rgba(185, 247, 207, 0.35);
+
+      background:
+        rgba(185, 247, 207, 0.065);
+    }
+
+
+    .toggle[aria-pressed="true"]::before {
+      transform: translateX(44px);
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #ffffff,
+          var(--green) 42%,
+          #64af81
+        );
+
+      box-shadow:
+        0 0 11px rgba(185, 247, 207, 0.7),
+        0 0 27px rgba(185, 247, 207, 0.28);
+    }
+
+
+    .master-switch__value {
+      color: var(--green);
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+
+    /* =========================================================
+       ROTARY CONTROLS
+       ========================================================= */
+
+    .flare-controls {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 12px;
+
+      margin-top: 30px;
+    }
+
+
+    .rotary-panel {
+      display: grid;
+      grid-template-columns:
+        120px minmax(0, 1fr);
+
+      gap: clamp(1rem, 2vw, 1.5rem);
+      align-items: center;
+
+      padding: 18px;
+
+      border: 1px solid var(--settings-line);
+      border-radius: 15px;
+
+      background:
+        rgba(255, 255, 255, 0.012);
+    }
+
+
+    .rotary {
+      position: relative;
+
+      width: 104px;
+      aspect-ratio: 1;
+
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 28%,
+          #394553,
+          #171e27 48%,
+          #090e14 75%
+        );
+
+      box-shadow:
+        inset 0 3px 9px rgba(255, 255, 255, 0.06),
+        inset 0 -6px 12px rgba(0, 0, 0, 0.7),
+        0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+
+
+    .rotary::before {
+      content: "";
+
+      position: absolute;
+      top: 13px;
+      left: 50%;
+
+      width: 3px;
+      height: 22px;
+
+      border-radius: 999px;
+
+      background: var(--blue);
+
+      box-shadow:
+        0 0 8px rgba(139, 211, 255, 0.7);
+
+      transform:
+        translateX(-50%)
+        rotate(var(--rotation, 0deg));
+
+      transform-origin: 50% 39px;
+
+      transition: transform 180ms ease;
+    }
+
+
+    .rotary::after {
+      content: "";
+
+      position: absolute;
+      inset: 39px;
+
+      border-radius: 50%;
+
+      background: #060a0e;
+
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+
+    .rotary-controls__label {
+      color: var(--white);
+
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+
+    .rotary-options {
+      display: grid;
+      gap: 5px;
+
+      margin-top: 10px;
+    }
+
+
+    .rotary-options button {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+
+      width: 100%;
+
+      padding: 8px 9px;
+
+      border: 1px solid transparent;
+      border-radius: 8px;
+
+      color: var(--muted);
+      background: transparent;
+
+      font: inherit;
+      font-size: 0.73rem;
+      font-weight: 800;
+
+      cursor: pointer;
+    }
+
+
+    .rotary-options button::after {
+      content: "";
+
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+
+    .rotary-options button.is-selected {
+      border-color: rgba(139, 211, 255, 0.14);
+
+      color: var(--white);
+
+      background:
+        rgba(139, 211, 255, 0.045);
+    }
+
+
+    .rotary-options button.is-selected::after {
+      background: var(--blue);
+
+      box-shadow:
+        0 0 9px rgba(139, 211, 255, 0.8);
+    }
+
+
+    /* =========================================================
+       PREVIEW
+       ========================================================= */
+
+    .flare-preview {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+
+      margin-top: 24px;
+      padding-top: 20px;
+
+      border-top: 1px solid var(--settings-line);
+    }
+
+
+    .flare-preview__status {
+      color: var(--muted);
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.06em;
+      line-height: 1.6;
+      text-transform: uppercase;
+    }
+
+
+    .console-button {
+      padding: 10px 14px;
+
+      border: 1px solid rgba(139, 211, 255, 0.28);
+      border-radius: 9px;
+
+      color: var(--blue);
+
+      background:
+        rgba(139, 211, 255, 0.045);
+
+      font: inherit;
+      font-size: 0.69rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+
+      cursor: pointer;
+    }
+
+
+    .console-button:hover,
+    .console-button:focus-visible {
+      border-color: var(--blue);
+
+      color: var(--white);
+
+      background:
+        rgba(139, 211, 255, 0.08);
+    }
+
+
+    /* =========================================================
+       INFO PANEL
+       ========================================================= */
+
+    .flare-info {
+      min-height: 480px;
+    }
+
+
+    .flare-info__body {
+      display: grid;
+      gap: 18px;
+    }
+
+
+    .readout {
+      padding-bottom: 16px;
+
+      border-bottom: 1px solid var(--settings-line);
+    }
+
+
+    .readout:last-child {
+      padding-bottom: 0;
+
+      border-bottom: 0;
+    }
+
+
+    .readout span {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 0.61rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+
+    .readout strong {
+      display: block;
+
+      margin-top: 0.5rem;
+
+      color: var(--white);
+
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+
+    .readout--fun strong {
+      color: var(--green);
+    }
+
+
+    /* =========================================================
+       COMING SOON MODULES
+       ========================================================= */
+
+    .future-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+      gap: 10px;
+
+      margin-top: 12px;
+    }
+
+
+    .future-module {
+      position: relative;
+
+      min-height: 150px;
+
+      padding: 18px;
+
+      border: 1px solid var(--settings-line);
+      border-radius: 15px;
+
+      overflow: hidden;
+
+      background:
+        rgba(255, 255, 255, 0.009);
+
+      opacity: 0.42;
+    }
+
+
+    .future-module__status {
+      color: var(--muted);
+
+      font-size: 0.56rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+
+    .future-module strong {
+      display: block;
+
+      margin-top: 1.1rem;
+
+      color: var(--white);
+
+      font-size: 1rem;
+    }
+
+
+    .future-module p {
+      margin-top: 0.5rem;
+
+      color: var(--muted);
+
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+
+    .future-module::after {
+      content: "COMING SOON";
+
+      position: absolute;
+      right: 12px;
+      bottom: 10px;
+
+      color: rgba(255, 255, 255, 0.11);
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.54rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+
+    /* =========================================================
+       CONSOLE FOOT
+       ========================================================= */
+
+    .settings-console-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: center;
+
+      min-height: 58px;
+      padding: 0 24px;
+
+      border-top: 1px solid var(--settings-line);
+
+      color: var(--muted);
+
+      background:
+        rgba(255, 255, 255, 0.01);
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.61rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+
+    .settings-console-foot button {
+      padding: 0;
+
+      border: 0;
+
+      color: var(--muted);
+      background: transparent;
+
+      font: inherit;
+
+      cursor: pointer;
+    }
+
+
+    .settings-console-foot button:hover,
+    .settings-console-foot button:focus-visible {
+      color: var(--white);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 1050px) {
+
+      .settings-console {
+        grid-template-columns: 1fr;
+      }
+
+      .settings-rail {
+        flex-direction: row;
+        gap: 4px;
+
+        overflow-x: auto;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--settings-line);
+      }
+
+      .settings-rail__label {
+        display: none;
+      }
+
+      .settings-rail button {
+        width: auto;
+        flex: none;
+      }
+
+      .settings-rail button.is-active::before {
+        top: auto;
+        right: 10px;
+        bottom: 0;
+        left: 10px;
+
+        width: auto;
+        height: 2px;
+      }
+
+      .instrument-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flare-master,
+      .flare-info {
+        min-height: 0;
+      }
+
+      .future-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+
+    @media (max-width: 720px) {
+
+      .settings-shell {
+        width: min(100% - 16px, 1500px);
+
+        margin-top: 8px;
+
+        border-radius: 16px;
+      }
+
+      .settings-console-head {
+        min-height: 62px;
+        padding: 0 14px;
+      }
+
+      .settings-console-head__title span,
+      .settings-console-head__divider {
+        display: none;
+      }
+
+      .settings-console-head__status {
+        font-size: 0.58rem;
+      }
+
+      .settings-main {
+        padding: 18px;
+      }
+
+      .settings-intro {
+        display: block;
+      }
+
+      .settings-intro__code {
+        margin-top: 1.5rem;
+
+        text-align: left;
+      }
+
+      .flare-master__top {
+        grid-template-columns: 1fr;
+      }
+
+      .master-switch {
+        justify-items: start;
+      }
+
+      .flare-controls {
+        grid-template-columns: 1fr;
+      }
+
+      .rotary-panel {
+        grid-template-columns: 100px minmax(0, 1fr);
+      }
+
+      .rotary {
+        width: 90px;
+      }
+
+      .rotary::before {
+        transform-origin: 50% 33px;
+      }
+
+      .future-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .settings-console-foot {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 14px;
+
+        line-height: 1.5;
+      }
+
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <header class="site-header topbar-wrap">
+  
+    <div class="shell topbar">
+  
+      <a class="brand" href="index.html#top">
+        <span class="brand__full">World Amazing</span>
+        <span class="brand__short">WA</span>
+        <span class="brand__tagline">— the whole plan, clearly explained</span>
+      </a>
+  
+  
+      <!-- DESKTOP NAV -->
+  
+      <nav class="nav" aria-label="Primary navigation">
+  
+        <div class="nav__docs">
+          <a href="basics.html">Basics</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="framework.html">Framework</a>
+        </div>
+  
+  
+        <div class="nav__explore">
+          <a href="papers.html">Papers</a>
+          <a href="memes.html">Memes</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+  
+  
+        <div class="nav__actions">
+  
+          <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+            Make It Amazing
+            <span class="nav__external" aria-hidden="true">↗</span>
+          </a>
+  
+          <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+            Show
+            <span class="nav__external" aria-hidden="true">↗</span>
+          </a>
+  
+          <a class="nav__join" href="index.html#join">
+            Join
+          </a>
+  
+        </div>
+  
+      </nav>
+  
+  
+      <!-- MOBILE ACTIONS -->
+  
+      <div class="nav__mobile-actions">
+  
+        <a class="nav__join" href="index.html#join">
+          Join
+        </a>
+  
+        <button class="nav__menu-button" type="button" aria-expanded="false" aria-controls="mobile-navigation">
+          <span>More</span>
+          <span class="nav__menu-chevron" aria-hidden="true"></span>
+        </button>
+  
+      </div>
+  
+    </div>
+  
+  
+    <!-- MOBILE MENU -->
+  
+    <nav class="nav-mobile" id="mobile-navigation" aria-label="Mobile navigation" hidden>
+  
+      <div class="shell nav-mobile__inner">
+        <div class="nav-mobile__group">
+        
+          <span class="nav-mobile__label">
+            Start here
+          </span>
+        
+          <a href="basics.html">Basics</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="framework.html">Framework</a>
+        
+        </div>
+        
+        
+        <div class="nav-mobile__group">
+        
+          <span class="nav-mobile__label">
+            Explore
+          </span>
+        
+          <a href="papers.html">Papers</a>
+          <a href="memes.html">Memes</a>
+          <a href="index.html#faq">FAQ</a>
+        
+        </div>
+        
+        
+        <div class="nav-mobile__group nav-mobile__group--enter">
+        
+          <span class="nav-mobile__label">
+            Enter
+          </span>
+        
+          <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+            Make It Amazing ↗
+          </a>
+        
+          <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+            Show ↗
+          </a>
+        
+          <a href="index.html#join">
+            Join
+          </a>
+        
+        </div>
+  
+        
+  
+      </div>
+  
+    </nav>
+  
+  </header>
+
+
+  <main>
+
+    <div class="settings-shell">
+
+      <!-- =====================================================
+           CONSOLE HEADER
+           ===================================================== -->
+
+      <div class="settings-console-head">
+
+        <div class="settings-console-head__title">
+
+          <strong>
+            World Amazing / Settings
+          </strong>
+
+          <span class="settings-console-head__divider"></span>
+
+          <span>
+            Interface control
+          </span>
+
+        </div>
+
+
+        <div class="settings-console-head__status">
+
+          <span class="status-light"></span>
+
+          System 01
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           CONSOLE BODY
+           ===================================================== -->
+
+      <div class="settings-console">
+
+
+        <!-- LEFT RAIL -->
+
+        <aside class="settings-rail">
+
+         
+
+        </aside>
+
+
+        <!-- MAIN -->
+
+        <div class="settings-main">
+
+
+          <!-- INTRO -->
+
+          <section class="settings-intro">
+
+            <div class="settings-intro__copy">
+
+              <p class="eyebrow">
+                Tune the interface. Not the truth.
+              </p>
+
+              <h1>
+                Settings
+              </h1>
+
+              <p>
+                Adjust how World Amazing behaves on this device.
+                Settings are stored locally in your browser
+                and take effect immediately.
+              </p>
+
+            </div>
+
+
+            <div class="settings-intro__code">
+
+              WA/CONTROL<br>
+              LOCAL STATE<br>
+              REV 01
+
+            </div>
+
+          </section>
+
+
+          <!-- =================================================
+               INSTRUMENTS
+               ================================================= -->
+
+          <div class="instrument-grid">
+
+
+            <!-- LENS FLARE -->
+
+            <section class="instrument flare-master">
+
+              <div class="instrument__head">
+
+                <div class="instrument__title">
+
+                  <span>
+                    FX-01
+                  </span>
+
+                  <strong>
+                    Lens flare
+                  </strong>
+
+                </div>
+
+
+                <span
+                  class="instrument__state"
+                  id="flare-state"
+                >
+                  Standby
+                </span>
+
+              </div>
+
+
+              <div class="instrument__body">
+
+
+                <div class="flare-master__top">
+
+                  <div>
+
+                    <h2>
+                      Occasional lens flare.
+                    </h2>
+
+                    <p class="flare-master__description">
+                      Civilization is difficult enough
+                      without insufficient lens flare.
+                      World Amazing may occasionally catch the light.
+                    </p>
+
+                  </div>
+
+
+                  <div class="master-switch">
+
+                    <span class="master-switch__label">
+                      Master
+                    </span>
+
+                    <button
+                      class="toggle"
+                      id="flare-toggle"
+                      type="button"
+                      role="switch"
+                      aria-checked="false"
+                      aria-pressed="false"
+                      aria-label="Occasional lens flare"
+                    ></button>
+
+                    <span
+                      class="master-switch__value"
+                      id="flare-toggle-value"
+                    >
+                      OFF
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <!-- ROTARIES -->
+
+                <div class="flare-controls">
+
+
+                  <!-- FREQUENCY -->
+
+                  <div class="rotary-panel">
+
+                    <div
+                      class="rotary"
+                      id="frequency-knob"
+                      aria-hidden="true"
+                    ></div>
+
+
+                    <div>
+
+                      <div class="rotary-controls__label">
+                        Frequency
+                      </div>
+
+                      <div
+                        class="rotary-options"
+                        id="frequency-options"
+                      >
+
+                        <button
+                          type="button"
+                          data-value="rare"
+                        >
+                          Rare
+                        </button>
+
+                        <button
+                          class="is-selected"
+                          type="button"
+                          data-value="occasional"
+                        >
+                          Occasional
+                        </button>
+
+                        <button
+                          type="button"
+                          data-value="chaotic"
+                        >
+                          Chaotic
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                  <!-- INTENSITY -->
+
+                  <div class="rotary-panel">
+
+                    <div
+                      class="rotary"
+                      id="intensity-knob"
+                      aria-hidden="true"
+                    ></div>
+
+
+                    <div>
+
+                      <div class="rotary-controls__label">
+                        Intensity
+                      </div>
+
+                      <div
+                        class="rotary-options"
+                        id="intensity-options"
+                      >
+
+                        <button
+                          type="button"
+                          data-value="subtle"
+                        >
+                          Subtle
+                        </button>
+
+                        <button
+                          class="is-selected"
+                          type="button"
+                          data-value="cinematic"
+                        >
+                          Cinematic
+                        </button>
+
+                        <button
+                          type="button"
+                          data-value="jj"
+                        >
+                          J.J.
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- PREVIEW -->
+
+                <div class="flare-preview">
+
+                  <div
+                    class="flare-preview__status"
+                    id="flare-readout"
+                  >
+                    AUTO / OCCASIONAL<br>
+                    OUTPUT / CINEMATIC
+                  </div>
+
+
+                  <button
+                    class="console-button"
+                    id="flare-preview"
+                    type="button"
+                  >
+                    Test flare
+                  </button>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            
+
+            
+
+          </div>
+
+
+          
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           CONSOLE FOOT
+           ===================================================== -->
+
+      <div class="settings-console-foot">
+
+        <span id="settings-save-status">
+          Settings stored locally · changes apply immediately
+        </span>
+
+        <button
+          id="reset-settings"
+          type="button"
+        >
+          Reset defaults
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="shell">
+      <footer class="site-footer">
+      
+        <div class="footer-grid">
+      
+      
+          <!-- ===================================================
+                   WORLD AMAZING
+                   =================================================== -->
+      
+          <div class="footer-brand">
+      
+            <a class="footer-brand__name" href="index.html">
+              World Amazing
+            </a>
+      
+            <p>
+              A public framework for human and civilizational restoration:
+              stabilize life, restore humans, connect capacity,
+              and build beyond relief.
+            </p>
+      
+            <p class="footer-brand__line">
+              Relief is the floor. Amazing is the ceiling.
+            </p>
+      
+      
+            <div class="footer-path">
+      
+              <span>
+                Start here
+              </span>
+      
+              <div class="footer-path__links">
+      
+                <a href="basics.html">
+                  Basics
+                </a>
+      
+                <span aria-hidden="true">
+                  →
+                </span>
+      
+                <a href="roadmap.html">
+                  Roadmap
+                </a>
+      
+                <span aria-hidden="true">
+                  →
+                </span>
+      
+                <a href="framework.html">
+                  Framework
+                </a>
+      
+              </div>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   UNDERSTAND
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              Understand
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="basics.html">
+                The Basics
+              </a>
+      
+              <a href="roadmap.html">
+                A Realistic Roadmap
+              </a>
+      
+              <a href="framework.html">
+                The Full Framework
+              </a>
+      
+              <a href="papers.html">
+                Amazing Papers
+              </a>
+      
+              <a href="memes.html">
+                Memes
+              </a>
+      
+              <a href="index.html#faq">
+                FAQ
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   ENTER
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              Enter
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+                Make It Amazing
+              </a>
+      
+              <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+                World Amazing Show
+              </a>
+      
+              <a href="https://whomanatee.org/" target="_blank" rel="noopener">
+                Global Partnership
+              </a>
+      
+              <a href="index.html#join">
+                Join
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   MORE
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              More
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="https://github.com/worldamazing/plan" target="_blank" rel="noopener">
+                GitHub
+              </a>
+      
+              <a href="https://github.com/worldamazing/plan/blob/main/docs/overview.md" target="_blank" rel="noopener">
+                Overview
+              </a>
+      
+              <a href="settings.html">
+                Settings
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+        </div>
+      
+      
+        <!-- =======================================================
+               BOTTOM
+               ======================================================= -->
+      
+        <div class="footer-bottom">
+      
+          <span>
+            World Amazing
+          </span>
+      
+          <span>
+            Relief is the floor. Amazing is the ceiling.
+          </span>
+      
+        </div>
+      
+      </footer>
+    </div>
+
+  </main>
+
+
+  <!-- SHARED SETTINGS / EFFECT ENGINE -->
+
+  <script src="assets/topbar.js"></script>
+  <script src="assets/site-settings.js"></script>
+  
+
+
+  <!-- SETTINGS UI -->
+
+  <script>
+    (() => {
+      const api = window.WASettings;
+
+      if (!api) {
+        return;
+      }
+
+      const toggle =
+        document.querySelector("#flare-toggle");
+
+      const toggleValue =
+        document.querySelector("#flare-toggle-value");
+
+      const stateLabel =
+        document.querySelector("#flare-state");
+
+      const readout =
+        document.querySelector("#flare-readout");
+
+      const frequencyKnob =
+        document.querySelector("#frequency-knob");
+
+      const intensityKnob =
+        document.querySelector("#intensity-knob");
+
+      const frequencyButtons = [
+        ...document.querySelectorAll(
+          "#frequency-options button"
+        )
+      ];
+
+      const intensityButtons = [
+        ...document.querySelectorAll(
+          "#intensity-options button"
+        )
+      ];
+
+      const previewButton =
+        document.querySelector("#flare-preview");
+
+      const resetButton =
+        document.querySelector("#reset-settings");
+
+      const saveStatus =
+        document.querySelector("#settings-save-status");
+
+
+      const rotations = {
+        rare: "-46deg",
+        occasional: "0deg",
+        chaotic: "46deg",
+
+        subtle: "-46deg",
+        cinematic: "0deg",
+        jj: "46deg"
+      };
+
+
+      function updateButtons(buttons, value) {
+        buttons.forEach((button) => {
+          button.classList.toggle(
+            "is-selected",
+            button.dataset.value === value
+          );
+        });
+      }
+
+
+      function render() {
+        const settings = api.get();
+
+        const flare = settings.lensFlare;
+
+        toggle.setAttribute(
+          "aria-pressed",
+          String(flare.enabled)
+        );
+
+        toggle.setAttribute(
+          "aria-checked",
+          String(flare.enabled)
+        );
+
+        toggleValue.textContent =
+          flare.enabled ? "ON" : "OFF";
+
+        stateLabel.textContent =
+          flare.enabled ? "Active" : "Standby";
+
+        stateLabel.style.color =
+          flare.enabled
+            ? "var(--green)"
+            : "var(--muted)";
+
+        updateButtons(
+          frequencyButtons,
+          flare.frequency
+        );
+
+        updateButtons(
+          intensityButtons,
+          flare.intensity
+        );
+
+        frequencyKnob.style.setProperty(
+          "--rotation",
+          rotations[flare.frequency]
+        );
+
+        intensityKnob.style.setProperty(
+          "--rotation",
+          rotations[flare.intensity]
+        );
+
+        readout.innerHTML =
+          `${flare.enabled ? "AUTO" : "STANDBY"} / ` +
+          `${flare.frequency.toUpperCase()}<br>` +
+          `OUTPUT / ${flare.intensity === "jj"
+            ? "J.J."
+            : flare.intensity.toUpperCase()
+          }`;
+      }
+
+
+      function showSaved() {
+        saveStatus.textContent =
+          "Saved locally · changes apply immediately";
+
+        clearTimeout(showSaved.timer);
+
+        showSaved.timer = setTimeout(() => {
+          saveStatus.textContent =
+            "Settings stored locally · changes apply immediately";
+        }, 1800);
+      }
+
+
+      toggle.addEventListener("click", () => {
+        const settings = api.get();
+
+        api.set({
+          lensFlare: {
+            ...settings.lensFlare,
+            enabled: !settings.lensFlare.enabled
+          }
+        });
+
+        render();
+        showSaved();
+      });
+
+
+      frequencyButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const settings = api.get();
+
+          api.set({
+            lensFlare: {
+              ...settings.lensFlare,
+              frequency: button.dataset.value
+            }
+          });
+
+          render();
+          showSaved();
+        });
+      });
+
+
+      intensityButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const settings = api.get();
+
+          api.set({
+            lensFlare: {
+              ...settings.lensFlare,
+              intensity: button.dataset.value
+            }
+          });
+
+          render();
+          showSaved();
+        });
+      });
+
+
+      previewButton.addEventListener("click", () => {
+        api.previewLensFlare();
+      });
+
+
+      resetButton.addEventListener("click", () => {
+        api.reset();
+
+        render();
+
+        saveStatus.textContent =
+          "Defaults restored";
+
+        clearTimeout(showSaved.timer);
+
+        showSaved.timer = setTimeout(() => {
+          saveStatus.textContent =
+            "Settings stored locally · changes apply immediately";
+        }, 1800);
+      });
+
+
+      window.addEventListener(
+        "wa:settingschange",
+        render
+      );
+
+
+      render();
+    })();
+  </script>
+
+</body>
+
+</html>

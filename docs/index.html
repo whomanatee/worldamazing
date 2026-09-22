@@ -1,1480 +1,4267 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <title>World Amazing</title>
-    <meta name="description"
-        content="World Amazing: an open-source civilizational framework for moving humanity from conditional
-        life under Civilization 1.0 to a civilization organized around relief, truth, cooperation, and human flourishing.">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark only">
-
-    <!-- <meta property="og:title" content="World Amazing">
-    <meta property="og:description"
-        content="An open-source civilizational framework for moving humanity from conditional life under
-        Civilization 1.0 to a civilization organized around relief, truth, cooperation, and human flourishing.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://worldamazing.org/">
-    <meta property="og:image" content="https://worldamazing.org/og-image.png">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="World Amazing">
-    <meta name="twitter:description"
-        content="An open-source civilizational framework for moving humanity from conditional life under Civilization 1.0 to a civilization organized around relief, truth, cooperation, and human flourishing.">
-    <meta name="twitter:image" content="https://worldamazing.org/og-image.png"> -->
-
-    <style>
-        :root {
-            color-scheme: dark;
-            --bg: #0b0f14;
-            --bg-soft: #0f141b;
-            --panel: #111821;
-            --panel-2: #0d131a;
-            --text: #c9d1d9;
-            --muted: #8b949e;
-            --line: #30363d;
-            --line-soft: #21262d;
-            --blue: #58a6ff;
-            --blue-strong: #1f6feb;
-            --green: #238636;
-            --green-hover: #2ea043;
-            --white: #ffffff;
-            --shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background:
-                radial-gradient(circle at top center, rgba(88, 166, 255, 0.05), transparent 28%),
-                linear-gradient(180deg, #0b0f14 0%, #0d1117 100%);
-            color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        a {
-            color: var(--blue);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        a:hover {
-            color: var(--blue-strong);
-            text-decoration: underline;
-        }
-
-        strong {
-            font-weight: 600;
-        }
-
-        .nowrap {
-            white-space: nowrap;
-        }
-
-        .site-shell {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 0 28px 56px 28px;
-        }
-
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 18px 0 16px 0;
-            border-bottom: 1px solid var(--line-soft);
-        }
-
-        .brand {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .brand-title {
-            color: var(--white);
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-        }
-
-        .brand-subtitle {
-            color: var(--muted);
-            font-size: 0.82rem;
-            max-width: 480px;
-            line-height: 1.45;
-        }
-
-        .topnav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 10px 18px;
-            font-size: 0.92rem;
-            padding-top: 2px;
-        }
-
-        .topnav a {
-            color: var(--muted);
-            font-weight: 500;
-        }
-
-        .topnav a:hover {
-            color: var(--white);
-        }
-
-        .hero {
-            padding: 72px 0 44px 0;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
-            gap: 34px;
-            align-items: start;
-        }
-
-        .hero-kicker {
-            margin: 0 0 16px 0;
-            color: var(--muted);
-            font-size: 0.8rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .hero h1 {
-            margin: 0;
-            color: var(--white);
-            font-size: 6rem;
-            line-height: 0.92;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            max-width: 760px;
-        }
-
-        .hero-subhead {
-            margin: 26px 0 0 0;
-            max-width: 860px;
-            color: var(--white);
-            font-size: 1.58rem;
-            line-height: 1.34;
-            font-weight: 500;
-        }
-
-        .hero-copy {
-            margin-top: 22px;
-            max-width: 760px;
-            font-size: 1.08rem;
-            line-height: 1.78;
-            color: var(--text);
-        }
-
-        .hero-panel {
-            border: 1px solid #2a3440;
-            border-top: 3px solid var(--blue);
-            border-radius: 18px;
-            padding: 22px 20px 20px 20px;
-            background:
-                radial-gradient(circle at top center, rgba(88, 166, 255, 0.09), transparent 46%),
-                linear-gradient(180deg, #111821 0%, #0e141b 100%);
-            box-shadow:
-                0 0 0 1px rgba(255, 255, 255, 0.02) inset,
-                var(--shadow);
-        }
-
-        .hero-panel h2 {
-            margin: 0 0 12px 0;
-            color: var(--white);
-            font-size: 1.12rem;
-            line-height: 1.35;
-        }
-
-        .hero-panel p {
-            margin: 0;
-            color: var(--text);
-            font-size: 0.98rem;
-            line-height: 1.7;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 28px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 13px 18px;
-            border-radius: 11px;
-            font-weight: 650;
-            font-size: 0.98rem;
-            text-decoration: none;
-            border: 1px solid var(--line);
-            background-color: #151b22;
-            color: var(--text);
-            transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
-            text-align: center;
-        }
-
-        .button:hover {
-            background-color: var(--blue-strong);
-            border-color: var(--blue-strong);
-            color: var(--white);
-            transform: translateY(-1px);
-            text-decoration: none;
-            box-shadow: 0 10px 24px rgba(31, 111, 235, 0.18);
-        }
-
-        .button.primary {
-            background-color: var(--green);
-            border-color: var(--green);
-            color: var(--white);
-        }
-
-        .button.primary:hover {
-            background-color: var(--green-hover);
-            border-color: var(--green-hover);
-            box-shadow: 0 10px 24px rgba(46, 160, 67, 0.16);
-        }
-
-        .button.large {
-            min-width: 220px;
-        }
-
-        .hero-note {
-            margin-top: 18px;
-            color: var(--muted);
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
-
-        .statement-band {
-            margin: 28px 0 8px 0;
-            padding: 22px 24px;
-            border-top: 1px solid #355070;
-            border-bottom: 1px solid #223246;
-            text-align: center;
-            background:
-                linear-gradient(90deg, rgba(88, 166, 255, 0.08) 0%, rgba(88, 166, 255, 0.02) 55%, transparent 100%);
-        }
-
-        .statement-band p {
-            margin: 0;
-            color: var(--white);
-            font-size: 1.52rem;
-            line-height: 1.55;
-            letter-spacing: -0.01em;
-            font-style: italic;
-        }
-
-        .statement-band strong {
-            color: var(--white);
-        }
-
-        .section {
-            padding: 34px 0;
-            border-top: 1px solid var(--line-soft);
-        }
-
-        .section-kicker {
-            margin: 0 0 10px 0;
-            color: var(--muted);
-            font-size: 0.76rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .section-kicker::before {
-            content: "";
-            display: inline-block;
-            width: 28px;
-            height: 1px;
-            background: #3a4a5c;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-
-        .section h2 {
-            margin: 0 0 14px 0;
-            color: var(--white);
-            font-size: 2.5rem;
-            line-height: 1.08;
-            font-weight: 750;
-            letter-spacing: -0.025em;
-            max-width: 920px;
-        }
-
-        .section-intro {
-            max-width: 820px;
-            color: var(--text);
-            font-size: 1.08rem;
-            line-height: 1.78;
-        }
-
-        .split-copy {
-            display: grid;
-            grid-template-columns: 0.82fr 1.18fr;
-            gap: 34px;
-            margin-top: 18px;
-        }
-
-        .split-copy p {
-            margin: 0;
-            font-size: 1.02rem;
-            line-height: 1.76;
-        }
-
-        .diagnosis-strip {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-            margin-top: 24px;
-        }
-
-        .diagnosis-item {
-            border: 1px solid #28323e;
-            border-top: 3px solid #355070;
-            border-radius: 16px;
-            padding: 20px 18px;
-            background: linear-gradient(180deg, #111821 0%, #0f141b 100%);
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.015) inset;
-        }
-
-        .diagnosis-item h3 {
-            margin: 0 0 10px 0;
-            color: var(--white);
-            font-size: 1.08rem;
-            line-height: 1.35;
-        }
-
-        .diagnosis-item p {
-            margin: 0;
-            color: var(--text);
-            font-size: 0.95rem;
-            line-height: 1.68;
-        }
-
-        .card-grid,
-        .scope-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 18px;
-            margin-top: 24px;
-        }
-
-        .card-grid.two {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .card,
-        .scope-card,
-        .pillar {
-            border: 1px solid #28323e;
-            border-radius: 16px;
-            padding: 20px 18px 18px 18px;
-            background: linear-gradient(180deg, #111821 0%, #0f141b 100%);
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.015) inset;
-            transition: transform 0.12s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        .card:hover,
-        .scope-card:hover,
-        .pillar:hover {
-            transform: translateY(-2px);
-            border-color: #3a4b60;
-            box-shadow:
-                0 0 0 1px rgba(255, 255, 255, 0.02) inset,
-                0 16px 32px rgba(0, 0, 0, 0.14);
-        }
-
-        .card.framework,
-        .scope-card.framework,
-        .pillar.framework {
-            border-top: 3px solid #355070;
-        }
-
-        .card.paper,
-        .scope-card.paper,
-        .pillar.paper {
-            border-top: 3px solid #4d5e73;
-        }
-
-        .card.public,
-        .scope-card.public,
-        .pillar.public {
-            border-top: 3px solid #2f563a;
-        }
-
-        .card-label {
-            margin: 0 0 10px 0;
-            color: var(--muted);
-            font-size: 0.72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .card h3,
-        .scope-card h3,
-        .pillar h3 {
-            margin: 0 0 10px 0;
-            color: var(--white);
-            font-size: 1.12rem;
-            line-height: 1.34;
-        }
-
-        .card p,
-        .scope-card p,
-        .pillar p {
-            margin: 0;
-            color: var(--text);
-            font-size: 0.96rem;
-            line-height: 1.68;
-        }
-
-        .card-link {
-            display: inline-block;
-            margin-top: 14px;
-            font-size: 0.94rem;
-            font-weight: 600;
-        }
-
-        .pillar-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-            margin-top: 24px;
-        }
-
-       /* begin anti-patterns */
-        .anti-pattern-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(280px, 1fr));
-            gap: 18px;
-            margin-top: 24px;
-        }
-
-        @media (max-width: 820px) {
-            .anti-pattern-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .anti-icon {
-            opacity: 0.62;
-            margin-right: 2px;
-        }
-
-        .anti-pattern-card {
-            border: 1px solid #28323e;
-            border-top: 3px solid #f85149;
-            border-radius: 16px;
-            padding: 20px 18px 18px 18px;
-            background: linear-gradient(180deg, #111821 0%, #0f141b 100%);
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.015) inset;
-            transition: transform 0.12s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        .anti-pattern-card:hover {
-            transform: translateY(-2px);
-            border-color: #3a4b60;
-            box-shadow:
-                0 0 0 1px rgba(255, 255, 255, 0.02) inset,
-                0 16px 32px rgba(0, 0, 0, 0.14);
-        }
-
-        .anti-pattern-card h3 {
-            margin: 0 0 10px 0;
-            color: #ff7b72;
-            font-size: 1.08rem;
-            line-height: 1.35;
-        }
-
-        .anti-pattern-card p {
-            margin: 0;
-            color: var(--text);
-            font-size: 0.96rem;
-            line-height: 1.68;
-        }
-        /* end anti-patterns */
-
-        .papers-intro {
-            max-width: 780px;
-            margin-top: 4px;
-            color: var(--text);
-            font-size: 1.04rem;
-            line-height: 1.72;
-        }
-
-        .cta-panel {
-            margin-top: 24px;
-            border: 1px solid #2a3440;
-            border-top: 3px solid var(--green);
-            border-radius: 18px;
-            padding: 28px 22px;
-            background:
-                radial-gradient(circle at top center, rgba(88, 166, 255, 0.08), transparent 42%),
-                linear-gradient(180deg, #111821 0%, #0f141b 100%);
-            box-shadow:
-                0 0 0 1px rgba(255, 255, 255, 0.02) inset,
-                var(--shadow);
-            text-align: center;
-        }
-
-        .cta-panel h3 {
-            margin: 0 0 12px 0;
-            color: var(--white);
-            font-size: 1.62rem;
-            line-height: 1.28;
-        }
-
-        .cta-panel p {
-            max-width: 720px;
-            margin: 0 auto;
-            color: var(--text);
-            line-height: 1.72;
-            font-size: 1rem;
-        }
-
-        .cta-panel .hero-actions {
-            justify-content: center;
-            margin-top: 22px;
-        }
-
-        /* start myths-section */
-        .myth-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 30px;
-        }
-
-        .myth-card {
-            flex: 1 1 320px; /* Allows them to grow, shrink, and sets a base width */
-            max-width: 480px; /* Prevents the bottom two cards from getting too wide */
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--line, #30363d);
-            border-radius: 8px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .myth-part {
-            opacity: 0.5; /* Dims the old world logic */
-            transition: opacity 0.3s ease;
-        }
-
-        .myth-card:hover .myth-part {
-            opacity: 0.8; /* Slight reveal on hover */
-        }
-
-        .myth-label, .truth-label {
-            font-family: monospace;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .myth-label {
-            color: var(--muted, #8b949e);
-        }
-
-        .myth-text {
-            font-style: italic;
-            margin: 0;
-            font-size: 0.95rem;
-            text-decoration: line-through; /* Visually strikes down the myth */
-            text-decoration-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .truth-part {
-            border-left: 2px solid #58a6ff; /* A clean, technical blue to signify clarity/truth */
-            padding-left: 16px;
-        }
-
-        .truth-label {
-            color: #58a6ff;
-        }
-
-        .truth-text {
-            margin: 0;
-            font-weight: 600;
-            color: var(--text, #c9d1d9);
-            font-size: 1.05rem;
-            line-height: 1.4;
-        }
-        /* end myths-section */
-
-        /* begin faq */
-        .faq-list {
-            margin-top: 24px;
-            display: grid;
-            gap: 14px;
-        }
-
-        .faq-item {
-            border: 1px solid #28323e;
-            border-radius: 16px;
-            background: linear-gradient(180deg, #111821 0%, #0f141b 100%);
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.015) inset;
-            overflow: hidden;
-        }
-
-        .faq-item summary {
-            list-style: none;
-            cursor: pointer;
-            padding: 18px 52px 18px 18px;
-            color: var(--white);
-            font-size: 1.02rem;
-            line-height: 1.5;
-            font-weight: 600;
-            position: relative;
-        }
-
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .faq-item summary::after {
-            content: "+";
-            position: absolute;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--muted);
-            font-size: 1.3rem;
-            line-height: 1;
-            font-weight: 500;
-        }
-
-        .faq-item[open] summary::after {
-            content: "−";
-        }
-
-        .faq-item[open] summary {
-            border-bottom: 1px solid var(--line-soft);
-        }
-
-        .faq-answer {
-            padding: 16px 18px 18px 18px;
-        }
-
-        .faq-answer p {
-            margin: 0 0 12px 0;
-            color: var(--text);
-            font-size: 0.98rem;
-            line-height: 1.74;
-        }
-
-        .faq-answer p:last-child {
-            margin-bottom: 0;
-        }
-        /* end faq */
-
-        /* begin footer */
-        footer {
-            margin-top: 38px;
-            padding-top: 24px;
-            padding-bottom: 12px;
-            border-top: 1px solid var(--line);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr 1fr;
-            gap: 24px;
-        }
-
-        .footer-brand {
-            color: var(--muted);
-            font-size: 0.94rem;
-            line-height: 1.7;
-        }
-
-        .footer-brand strong {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--white);
-            font-size: 1rem;
-        }
-
-        .footer-group h4 {
-            margin: 0 0 10px 0;
-            color: var(--white);
-            font-size: 0.9rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .footer-links a {
-            color: var(--muted);
-            font-size: 0.92rem;
-            font-weight: 500;
-        }
-
-        .footer-links a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            margin-top: 22px;
-            padding-top: 16px;
-            border-top: 1px solid var(--line-soft);
-            color: var(--muted);
-            font-size: 0.88rem;
-            text-align: center;
-        }
-        /* end footer */
-
-        @media (max-width: 980px) {
-
-            .hero-grid,
-            .split-copy,
-            .diagnosis-strip,
-            .card-grid,
-            .card-grid.two,
-            .pillar-grid,
-            .scope-grid,
-            .compare-grid,
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 4.6rem;
-            }
-
-            .topbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .topnav {
-                justify-content: flex-start;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .site-shell {
-                padding: 0 18px 40px 18px;
-            }
-
-            .hero {
-                padding-top: 44px;
-            }
-
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-
-            .hero-subhead {
-                font-size: 1.24rem;
-            }
-
-            .section h2 {
-                font-size: 2rem;
-            }
-
-            .statement-band p {
-                font-size: 1.08rem;
-            }
-
-            .button.large {
-                min-width: 100%;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark only">
+  <meta name="description" content="World Amazing is an open-source civilizational framework for guaranteeing life,
+    returning human time, restoring the human, and building systems organized around relief, 
+    truth, cooperation, and flourishing.">
+  <title>World Amazing</title>
+
+  <link rel="stylesheet" href="assets/main.css" />
+  <link rel="stylesheet" href="assets/footer.css" />
+  <link rel="stylesheet" href="assets/global-nav.css" />
+
+  <!-- HOMEPAGE SECTION HEADS -->
+  <style>
+    /* =========================================================
+       HOMEPAGE SECTION HEADS
+       ========================================================= */
+
+    .home-section-head {
+      position: relative;
+
+      display: grid;
+      grid-template-columns:
+        minmax(130px, 0.28fr)
+        minmax(0, 1fr);
+
+      gap: clamp(1.5rem, 5vw, 5rem);
+      align-items: end;
+
+      padding:
+        clamp(1.6rem, 3vw, 2.4rem)
+        clamp(1.4rem, 3vw, 2.5rem);
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          110deg,
+          rgba(255,255,255,0.018),
+          transparent 52%
+        ),
+        var(--surface);
+    }
+
+
+    /* accent */
+
+    .home-section-head::before {
+      content: "";
+
+      position: absolute;
+      top: -1px;
+      left: 0;
+
+      width: clamp(90px, 14vw, 170px);
+      height: 3px;
+
+      border-radius: 999px;
+    }
+
+
+    .home-section-head--green::before {
+      background: var(--green);
+      box-shadow:
+        0 0 22px rgba(185, 247, 207, 0.16);
+    }
+
+
+    /* marker */
+
+    .home-section-head__marker {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      min-height: 100%;
+    }
+
+
+    .home-section-head__number {
+      color: rgba(185, 247, 207, 0.16);
+
+      font-size: clamp(3.8rem, 8vw, 7rem);
+      font-weight: 950;
+      line-height: 0.8;
+      letter-spacing: -0.07em;
+    }
+
+
+    .home-section-head__label {
+      margin-top: 1rem;
+
+      color: var(--green);
+
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+
+    /* content */
+
+    .home-section-head__content {
+      position: relative;
+      z-index: 1;
+    }
+
+
+    .home-section-head__content h2 {
+      max-width: 900px;
+
+      margin: 0;
+
+      font-size: clamp(2rem, 4.2vw, 3.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+
+    .home-section-head__content > p {
+      max-width: 760px;
+
+      margin-top: 1rem;
+
+      color: var(--muted);
+
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+
+    @media (max-width: 700px) {
+
+      .home-section-head {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .home-section-head__marker {
+        min-height: 0;
+      }
+
+      .home-section-head__number {
+        font-size: 3.5rem;
+      }
+
+      .home-section-head__label {
+        margin-top: 0.7rem;
+      }
+
+    }
+  </style>
+
+  <!-- POSSIBILITY FIELD -->
+  <style>
+    /* =========================================================
+   POSSIBILITY PANEL
+   ========================================================= */
+
+.possibility-panel {
+  display: flex;
+  flex-direction: column;
+
+  height:
+    clamp(
+      640px,
+      calc(100svh - var(--wa-topbar-height, 74px) - 24px),
+      790px
+    );
+
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+  border-radius: clamp(24px, 3vw, 34px);
+
+  background:
+    radial-gradient(
+      circle at 71% 51%,
+      rgba(139, 211, 255, 0.055),
+      transparent 31rem
+    ),
+    radial-gradient(
+      circle at 88% 80%,
+      rgba(185, 247, 207, 0.03),
+      transparent 22rem
+    ),
+    var(--surface);
+}
+
+
+/* =========================================================
+   FRAME
+   ========================================================= */
+
+.possibility-frame {
+  display: grid;
+  grid-template-columns:
+    minmax(110px, 0.22fr)
+    minmax(0, 1fr);
+
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+
+  flex: none;
+
+  padding:
+    0.9rem
+    clamp(1.4rem, 3vw, 2.5rem);
+
+  border-bottom: 1px solid var(--line-soft);
+
+  background:
+    rgba(255, 255, 255, 0.012);
+}
+
+
+.possibility-frame > span {
+  color: var(--green);
+
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+.possibility-frame > strong {
+  color: var(--soft);
+
+  font-size: clamp(0.88rem, 1.25vw, 1.02rem);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   REALITY / FLOOR
+   ========================================================= */
+
+.possibility-setup {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  flex: none;
+
+  border-bottom: 1px solid var(--line-soft);
+}
+
+
+.possibility-status {
+  display: grid;
+  grid-template-columns:
+    minmax(80px, 0.22fr)
+    minmax(0, 1fr)
+    auto;
+
+  gap: clamp(0.9rem, 2vw, 1.8rem);
+  align-items: center;
+
+  min-width: 0;
+
+  padding:
+    0.95rem
+    clamp(1.4rem, 3vw, 2.5rem);
+}
+
+
+.possibility-status + .possibility-status {
+  border-left: 1px solid var(--line-soft);
+}
+
+
+.possibility-status__label {
+  color: var(--muted);
+
+  font-size: 0.61rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+
+.possibility-status p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: clamp(0.71rem, 0.9vw, 0.81rem);
+  line-height: 1.45;
+}
+
+
+.possibility-status > strong {
+  color: var(--soft);
+
+  font-size: 0.7rem;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+
+.possibility-status--floor {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(185, 247, 207, 0.025),
+      transparent
+    );
+}
+
+
+.possibility-status--floor .possibility-status__label,
+.possibility-status--floor > strong {
+  color: var(--green);
+}
+
+
+/* =========================================================
+   MAIN FIELD
+   ========================================================= */
+
+.possibility-main {
+  display: grid;
+  grid-template-columns:
+    minmax(290px, 0.88fr)
+    minmax(0, 1.7fr);
+
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+
+  flex: 1 1 auto;
+
+  min-height: 0;
+
+  padding:
+    clamp(1.45rem, 2.6vw, 2.2rem)
+    clamp(1.5rem, 4vw, 3.5rem);
+}
+
+
+/* =========================================================
+   CENTRAL STATEMENT
+   ========================================================= */
+
+.possibility-main__statement {
+  max-width: 620px;
+}
+
+
+.possibility-main__statement h2 {
+  margin-top: 0.4rem;
+
+  color: var(--white);
+
+  font-size: clamp(2.35rem, 4.2vw, 4.45rem);
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+}
+
+
+.possibility-main__statement > p:last-child {
+  max-width: 540px;
+
+  margin-top: 0.8rem;
+
+  color: var(--muted);
+
+  font-size: clamp(0.83rem, 1vw, 0.95rem);
+  line-height: 1.48;
+}
+
+
+/* =========================================================
+   TRAJECTORY
+   ========================================================= */
+
+.possibility-path {
+  position: relative;
+
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: clamp(1.2rem, 2.5vw, 2.3rem);
+
+  align-self: stretch;
+  align-items: center;
+
+  min-width: 0;
+
+  padding-top: 1.2rem;
+}
+
+
+/* continuous path */
+
+.possibility-path::before {
+  content: "";
+
+  position: absolute;
+  top: 2.05rem;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(185, 247, 207, 0.5),
+      rgba(139, 211, 255, 0.38) 52%,
+      rgba(139, 211, 255, 0.12)
+    );
+}
+
+
+/* =========================================================
+   TRAJECTORY STEP
+   ========================================================= */
+
+.possibility-step {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  align-self: stretch;
+
+  min-width: 0;
+
+  padding-top: 2.3rem;
+}
+
+
+.possibility-step__node {
+  position: absolute;
+  top: 0.53rem;
+  left: 0;
+
+  width: 10px;
+  height: 10px;
+
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+
+  background: var(--blue);
+
+  box-shadow:
+    0 0 0 1px rgba(139, 211, 255, 0.35);
+}
+
+
+.possibility-step--life .possibility-step__node {
+  background: var(--green);
+
+  box-shadow:
+    0 0 0 1px rgba(185, 247, 207, 0.4);
+}
+
+
+.possibility-step--frontier .possibility-step__node {
+  background:
+    linear-gradient(
+      135deg,
+      var(--blue),
+      var(--green)
+    );
+}
+
+
+.possibility-step__label {
+  display: block;
+
+  color: var(--muted);
+
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+
+.possibility-step > strong {
+  display: block;
+
+  margin-top: 0.55rem;
+
+  color: var(--white);
+
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.35;
+}
+
+
+.possibility-step--life > strong {
+  color: var(--green);
+}
+
+
+.possibility-step p {
+  margin-top: 0.7rem;
+
+  color: var(--muted);
+
+  font-size: clamp(0.72rem, 0.86vw, 0.8rem);
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   FLOOR / CEILING
+   ========================================================= */
+
+.possibility-close {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  flex: none;
+
+  padding: 0;
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line-soft);
+
+  background: rgba(255, 255, 255, 0.028);
+}
+
+.possibility-close::before {
+  content: "";
+
+  position: absolute;
+  z-index: 2;
+
+  top: 50%;
+  left: 50%;
+
+  width: clamp(52px, 6vw, 92px);
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.22),
+    rgba(185,247,207,0.62)
+  );
+
+  transform: translate(-50%, -50%);
+}
+
+
+.possibility-close::after {
+  content: "";
+
+  position: absolute;
+  z-index: 2;
+
+  top: 50%;
+  left: calc(50% + clamp(26px, 3vw, 46px));
+
+  width: 7px;
+  height: 7px;
+
+  border-top: 1.5px solid var(--green);
+  border-right: 1.5px solid var(--green);
+
+  transform:
+    translate(-100%, -50%)
+    rotate(45deg);
+}
+
+
+.possibility-close > * {
+  display: flex;
+  align-items: center;
+
+  min-height: 54px;
+
+  margin: 0;
+
+  padding:
+    0.85rem
+    clamp(1.5rem, 4vw, 3.5rem);
+
+  font-size: clamp(0.84rem, 1.1vw, 0.96rem);
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+
+.possibility-close span {
+  color: var(--white);
+}
+
+
+.possibility-close strong {
+  justify-content: flex-end;
+
+  border-left: 0;
+
+  color: var(--green);
+
+  text-align: right;
+}
+
+
+@media (max-width: 700px) {
+  .possibility-close::before,
+  .possibility-close::after {
+    display: none;
+  }
+}
+
+/* =========================================================
+   PAGE HANDOFF
+   ========================================================= */
+
+.possibility-nav {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  flex: none;
+
+  border-top: 1px solid var(--line);
+}
+
+
+.possibility-nav a {
+  display: grid;
+  grid-template-columns:
+    auto
+    minmax(0, 1fr)
+    auto;
+
+  gap: 0.8rem;
+  align-items: center;
+
+  min-width: 0;
+
+  padding:
+    0.9rem
+    clamp(1rem, 2.2vw, 1.6rem);
+
+  color: inherit;
+
+  text-decoration: none;
+
+  background:
+    rgba(255, 255, 255, 0.012);
+
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+
+.possibility-nav a + a {
+  border-left: 1px solid var(--line);
+}
+
+
+.possibility-nav a > span:first-child {
+  color: var(--muted);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 0.62rem;
+  font-weight: 900;
+}
+
+
+.possibility-nav a > strong {
+  color: var(--soft);
+
+  font-size: clamp(0.76rem, 1vw, 0.88rem);
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+
+.possibility-nav__arrow {
+  color: var(--blue);
+
+  font-size: 0.8rem;
+
+  transition:
+    transform 160ms ease,
+    color 160ms ease;
+}
+
+
+.possibility-nav a:hover,
+.possibility-nav a:focus-visible {
+  background:
+    rgba(139, 211, 255, 0.045);
+}
+
+
+.possibility-nav a:hover > strong,
+.possibility-nav a:focus-visible > strong {
+  color: var(--white);
+}
+
+
+.possibility-nav a:hover .possibility-nav__arrow,
+.possibility-nav a:focus-visible .possibility-nav__arrow {
+  color: var(--green);
+
+  transform: translateY(3px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .possibility-panel {
+    height: auto;
+    min-height: 0;
+  }
+
+
+  .possibility-main {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+  }
+
+
+  .possibility-main__statement {
+    max-width: 800px;
+  }
+}
+
+
+@media (max-width: 760px) {
+
+  .possibility-frame {
+    grid-template-columns: 1fr;
+
+    gap: 0.35rem;
+  }
+
+
+  .possibility-setup {
+    grid-template-columns: 1fr;
+  }
+
+
+  .possibility-status {
+    grid-template-columns: 1fr;
+
+    gap: 0.4rem;
+  }
+
+
+  .possibility-status + .possibility-status {
+    border-top: 1px solid var(--line-soft);
+    border-left: 0;
+  }
+
+
+  .possibility-status > strong {
+    white-space: normal;
+  }
+
+
+  .possibility-path {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+    padding-top: 0;
+  }
+
+
+  .possibility-path::before {
+    top: 0;
+    bottom: 0;
+    left: 4px;
+    right: auto;
+
+    width: 1px;
+    height: auto;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(185, 247, 207, 0.5),
+        rgba(139, 211, 255, 0.35),
+        rgba(139, 211, 255, 0.08)
+      );
+  }
+
+
+  .possibility-step {
+    padding:
+      0
+      0
+      1.7rem
+      1.7rem;
+  }
+
+
+  .possibility-step__node {
+    top: 0.2rem;
+    left: 0;
+  }
+
+
+  .possibility-nav {
+    grid-template-columns: 1fr;
+  }
+
+
+  .possibility-nav a + a {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+}
+  </style>
+
+  <!-- 01 WHAT CHANGES -->
+  <style>
+    /* =========================================================
+       WHAT CHANGES
+       ========================================================= */
+
+    .change-list {
+      display: grid;
+      gap: 14px;
+
+      margin-top: clamp(2rem, 4vw, 3rem);
+    }
+
+    .change-row {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        44px
+        minmax(0, 1fr);
+
+      gap: 1rem;
+      align-items: stretch;
+
+      padding: clamp(1.25rem, 2.5vw, 1.7rem);
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+
+      background:
+        linear-gradient(
+          100deg,
+          rgba(255,255,255,0.015),
+          rgba(185,247,207,0.025)
+        ),
+        var(--surface);
+    }
+
+    .change-row__old,
+    .change-row__new {
+      min-width: 0;
+    }
+
+    .change-row__old > span,
+    .change-row__new > span {
+      display: block;
+
+      margin-bottom: 0.55rem;
+
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .change-row__old > span {
+      color: var(--muted);
+    }
+
+    .change-row__new > span {
+      color: var(--green);
+    }
+
+    .change-row h3 {
+      max-width: 24ch;
+
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      line-height: 1.25;
+    }
+
+    .change-row p {
+      max-width: 560px;
+
+      margin-top: 0.65rem;
+
+      color: var(--muted);
+
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .change-row__arrow {
+      display: grid;
+      place-items: center;
+
+      color: var(--green);
+
+      font-size: 1.6rem;
+      font-weight: 950;
+    }
+
+    .change-closing {
+      margin-top: clamp(1.5rem, 3vw, 2.25rem);
+    }
+
+    @media (max-width: 760px) {
+
+      .change-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .change-row__arrow {
+        min-height: 24px;
+        justify-content: start;
+
+        transform: rotate(90deg);
+        transform-origin: center;
+      }
+
+    }
+  </style>
+
+  <!-- 02 THE UNDERLYING MOVE -->
+  <style>
+    /* =========================================================
+       THE UNDERLYING MOVE
+       ========================================================= */
+
+    .home-section-head--blue::before {
+      background: var(--blue);
+      box-shadow:
+        0 0 22px rgba(139, 211, 255, 0.16);
+    }
+
+    .home-section-head--blue .home-section-head__number {
+      color: rgba(139, 211, 255, 0.16);
+    }
+
+    .home-section-head--blue .home-section-head__label {
+      color: var(--blue);
+    }
+
+
+    .underlying-core {
+      max-width: 1080px;
+
+      margin-top: clamp(2rem, 4vw, 3rem);
+      padding: clamp(1.5rem, 3vw, 2.1rem);
+
+      border: 1px solid rgba(139, 211, 255, 0.22);
+      border-left: 4px solid var(--blue);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+
+      background:
+        linear-gradient(
+          100deg,
+          rgba(139, 211, 255, 0.06),
+          transparent 70%
+        ),
+        var(--surface);
+    }
+
+    .underlying-core .tag {
+      display: block;
+      width: fit-content;
+
+      margin-bottom: 0.8rem;
+    }
+
+    .underlying-core strong {
+      display: block;
+
+      max-width: 900px;
+
+      color: var(--white);
+
+      font-size: clamp(1.2rem, 2.3vw, 1.65rem);
+      line-height: 1.42;
+    }
+
+
+    .underlying-flow {
+      margin-top: clamp(1.5rem, 3vw, 2.25rem);
+    }
+
+    .underlying-flow .flow-line__node h3 {
+      margin-top: 0.7rem;
+
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+
+    .underlying-flow .flow-line__node p {
+      margin-top: 0.65rem;
+
+      color: var(--muted);
+
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+
+    .underlying-human {
+      display: grid;
+      grid-template-columns:
+        minmax(220px, 0.75fr)
+        minmax(0, 1.25fr);
+
+      gap: clamp(1.5rem, 4vw, 4rem);
+
+      margin-top: 1.5rem;
+      padding: clamp(1.4rem, 3vw, 2rem);
+
+      border: 1px solid rgba(185, 247, 207, 0.2);
+      border-radius: var(--radius-lg);
+
+      background:
+        linear-gradient(
+          120deg,
+          rgba(185, 247, 207, 0.055),
+          transparent 65%
+        ),
+        var(--surface);
+    }
+
+    .underlying-human h3 {
+      margin-top: 0.65rem;
+
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+    }
+
+    .underlying-human > p {
+      margin: 0;
+
+      color: var(--muted);
+
+      line-height: 1.65;
+    }
+
+    .underlying-closing {
+      margin-top: 1.5rem;
+    }
+
+
+    @media (max-width: 760px) {
+
+      .underlying-human {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+    }
+  </style>
+
+  <!-- 03 ENTER THE WORK -->
+  <style>
+    /* =========================================================
+       ENTER THE WORK
+       ========================================================= */
+
+    .home-section-head--enter::before {
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--green)
+        );
+
+      box-shadow:
+        0 0 22px rgba(139, 211, 255, 0.14);
+    }
+
+    .home-section-head--enter .home-section-head__number {
+      color: rgba(255, 255, 255, 0.1);
+    }
+
+    .home-section-head--enter .home-section-head__label {
+      color: var(--soft);
+    }
+
+
+    /* main path */
+
+    .entry-path {
+      margin-top: clamp(2rem, 4vw, 3rem);
+    }
+
+    .entry-path__intro,
+    .entry-other__intro {
+      max-width: 780px;
+    }
+
+    .entry-path__intro > p,
+    .entry-other__intro > p {
+      margin-top: 0.65rem;
+
+      color: var(--muted);
+
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+
+    .entry-path__grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        auto
+        minmax(0, 1fr)
+        auto
+        minmax(0, 1fr);
+
+      gap: 0.8rem;
+      align-items: stretch;
+
+      margin-top: 1.4rem;
+    }
+
+
+    .entry-path__card {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 1rem;
+
+      min-width: 0;
+      padding: clamp(1.35rem, 2.5vw, 1.8rem);
+
+      border: 1px solid rgba(139, 211, 255, 0.22);
+      border-radius: var(--radius-lg);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(139, 211, 255, 0.045),
+          rgba(185, 247, 207, 0.018)
+        ),
+        var(--surface);
+
+      color: inherit;
+
+      text-decoration: none;
+
+      transition:
+        border-color 160ms ease,
+        background 160ms ease,
+        transform 160ms ease;
+    }
+
+
+    .entry-path__card:hover,
+    .entry-path__card:focus-visible {
+      border-color: rgba(185, 247, 207, 0.4);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(139, 211, 255, 0.07),
+          rgba(185, 247, 207, 0.035)
+        ),
+        var(--surface);
+
+      transform: translateY(-2px);
+    }
+
+
+    .entry-path__number {
+      color: rgba(139, 211, 255, 0.32);
+
+      font-size: 1rem;
+      font-weight: 950;
+    }
+
+
+    .entry-path__role {
+      color: var(--green);
+
+      font-size: 0.67rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+
+    .entry-path__card h3 {
+      margin-top: 0.5rem;
+
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      line-height: 1.15;
+    }
+
+
+    .entry-path__card p {
+      margin-top: 0.75rem;
+
+      color: var(--muted);
+
+      font-size: 0.91rem;
+      line-height: 1.6;
+    }
+
+
+    .entry-path__card strong {
+      display: block;
+
+      margin-top: 1.2rem;
+
+      color: var(--blue);
+
+      font-size: 0.88rem;
+    }
+
+
+    .entry-path__arrow {
+      display: grid;
+      place-items: center;
+
+      color: var(--green);
+
+      font-size: 1.4rem;
+      font-weight: 950;
+    }
+
+    .entry-grid--secondary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+
+      margin-top: 1.4rem;
+    }
+
+
+    .entry-grid--secondary .entry-card {
+      min-height: 210px;
+    }
+
+
+    @media (max-width: 900px) {
+
+      .entry-path__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .entry-path__arrow {
+        min-height: 24px;
+
+        justify-content: center;
+
+        transform: rotate(90deg);
+      }
+
+      .entry-grid--secondary {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      .entry-grid--secondary {
+        grid-template-columns: 1fr;
+      }
+
+      .entry-grid--secondary .entry-card {
+        min-height: 0;
+      }
+
+    }
+  </style>
+
+  <!-- 03 ENTER THE WORK - OTHER WAYS INTO THE WORK-->
+  <style>
+    /* =========================================================
+       EXPLORE — OTHER WAYS INTO THE WORK
+       ========================================================= */
+
+    .entry-other {
+      margin-top: clamp(1.75rem, 5vw, 3.0rem);
+    }
+
+
+    .entry-other__intro {
+      max-width: 760px;
+    }
+
+
+    .entry-other__intro > p {
+      margin-top: 0.65rem;
+
+      color: var(--muted);
+
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+
+    /* =========================================================
+      SHARED CARD
+      ========================================================= */
+
+    .explore-card {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+
+      min-width: 0;
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+
+      color: inherit;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.018),
+          transparent 60%
+        ),
+        var(--surface);
+
+      text-decoration: none;
+
+      transition:
+        border-color 160ms ease,
+        background 160ms ease,
+        transform 160ms ease;
+    }
+
+
+    .explore-card:hover,
+    .explore-card:focus-visible {
+      border-color: rgba(139, 211, 255, 0.34);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(139,211,255,0.05),
+          rgba(185,247,207,0.018)
+        ),
+        var(--surface);
+
+      transform: translateY(-2px);
+    }
+
+
+    .explore-card__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+
+
+    .explore-card__tag {
+      color: var(--blue);
+
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+
+    .explore-card__arrow {
+      flex: none;
+
+      color: var(--muted);
+
+      font-size: 1rem;
+      font-weight: 900;
+
+      transition:
+        color 160ms ease,
+        transform 160ms ease;
+    }
+
+
+    .explore-card:hover .explore-card__arrow,
+    .explore-card:focus-visible .explore-card__arrow {
+      color: var(--green);
+
+      transform: translate(2px, -1px);
+    }
+
+
+    .explore-card__body h3 {
+      margin-top: 0.8rem;
+
+      color: var(--white);
+
+      font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+
+    .explore-card__body p {
+      margin-top: 0.75rem;
+
+      color: var(--muted);
+
+      font-size: 0.91rem;
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+      ROW 1 — LIVE PROJECT
+      ========================================================= */
+
+    .explore-live-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 10px;
+
+      margin-top: 1.5rem;
+    }
+
+
+    .explore-card--live {
+      min-height: 230px;
+
+      padding:
+        clamp(1.3rem, 2.5vw, 1.7rem);
+    }
+
+
+    .explore-card--live .explore-card__body {
+      margin-top: auto;
+    }
+
+
+    /* =========================================================
+      ROW 2 — PAPERS + MEMES
+      ========================================================= */
+
+    .explore-deep-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 10px;
+
+      margin-top: 10px;
+    }
+
+
+    .explore-card--deep {
+      min-height: 320px;
+
+      padding:
+        clamp(1.5rem, 3vw, 2.1rem);
+    }
+
+
+    .explore-card--deep .explore-card__body h3 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
+
+    .explore-card__statement {
+      display: block;
+
+      max-width: 560px;
+
+      margin-top: 1rem;
+
+      color: var(--white);
+
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      line-height: 1.4;
+    }
+
+
+    /* papers */
+
+    .explore-card--papers {
+      border-color:
+        rgba(139, 211, 255, 0.22);
+
+      background:
+        radial-gradient(
+          circle at 0% 0%,
+          rgba(139,211,255,0.065),
+          transparent 24rem
+        ),
+        var(--surface);
+    }
+
+
+    .explore-card__footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+
+      margin-top: auto;
+      padding-top: 1.4rem;
+    }
+
+
+    .explore-card__footer span {
+      padding: 0.42rem 0.65rem;
+
+      border: 1px solid var(--line-soft);
+      border-radius: 999px;
+
+      color: var(--muted);
+
+      font-size: 0.67rem;
+      font-weight: 800;
+    }
+
+
+    /* memes */
+
+    .explore-card--memes {
+      border-color:
+        rgba(185, 247, 207, 0.2);
+
+      background:
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(185,247,207,0.065),
+          transparent 24rem
+        ),
+        var(--surface);
+    }
+
+
+    .explore-card--memes .explore-card__tag {
+      color: var(--green);
+    }
+
+
+    .explore-card__quote {
+      margin: auto 0 0;
+      padding-top: 1.35rem;
+
+      border-top: 1px solid var(--line-soft);
+
+      color: var(--soft);
+
+      font-size: clamp(0.94rem, 1.5vw, 1.08rem);
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+
+    /* =========================================================
+      ROW 3 — UTILITIES
+      ========================================================= */
+
+    .explore-utility-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 10px;
+
+      margin-top: 10px;
+    }
+
+
+    .explore-utility {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      align-items: center;
+
+      min-width: 0;
+
+      padding: 1rem 1.15rem;
+
+      border: 1px solid var(--line);
+      border-radius: 13px;
+
+      color: inherit;
+
+      background:
+        rgba(255,255,255,0.012);
+
+      text-decoration: none;
+
+      transition:
+        border-color 160ms ease,
+        background 160ms ease;
+    }
+
+
+    .explore-utility:hover,
+    .explore-utility:focus-visible {
+      border-color:
+        rgba(139, 211, 255, 0.3);
+
+      background:
+        rgba(139, 211, 255, 0.035);
+    }
+
+
+    .explore-utility div {
+      min-width: 0;
+    }
+
+
+    .explore-utility div > span {
+      display: block;
+
+      margin-bottom: 0.35rem;
+
+      color: var(--muted);
+
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+
+    .explore-utility strong {
+      display: block;
+
+      color: var(--soft);
+
+      font-size: 0.82rem;
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
+
+    .explore-utility__arrow {
+      flex: none;
+
+      color: var(--muted);
+
+      font-weight: 900;
+
+      transition:
+        color 160ms ease,
+        transform 160ms ease;
+    }
+
+
+    .explore-utility:hover .explore-utility__arrow,
+    .explore-utility:focus-visible .explore-utility__arrow {
+      color: var(--blue);
+
+      transform: translate(2px, -1px);
+    }
+
+
+    /* =========================================================
+      RESPONSIVE
+      ========================================================= */
+
+    @media (max-width: 850px) {
+
+      .explore-live-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .explore-card--live:last-child {
+        grid-column: 1 / -1;
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      .explore-live-grid,
+      .explore-deep-grid,
+      .explore-utility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .explore-card--live:last-child {
+        grid-column: auto;
+      }
+
+      .explore-card--live {
+        min-height: 190px;
+      }
+
+      .explore-card--deep {
+        min-height: 270px;
+      }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+      .explore-card--live,
+      .explore-card--deep {
+        min-height: 0;
+      }
+
+      .explore-utility {
+        align-items: flex-start;
+      }
+
+    }
+  </style>
+
+  <!-- CLOSING SECTIONS -->
+  <style>
+    /* =========================================================
+    COMPACT PUBLIC ENDING
+    ========================================================= */
+
+    .public-section {
+      position: relative;
+
+      padding: clamp(62px, 8vw, 92px) 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .compact-heading {
+      max-width: 900px;
+    }
+
+    .compact-heading>p:last-child {
+      max-width: 760px;
+
+      margin-top: 0.9rem;
+
+      color: var(--muted);
+    }
+
+
+    .compact-heading--center {
+      max-width: 900px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .compact-heading--center h2,
+    .compact-heading--center>p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .compact-heading--center .eyebrow {
+      justify-content: center;
+      text-align: center;
+    }
+
+
+    /* =========================================================
+    AMAZING PAPERS
+    ========================================================= */
+
+    .papers-lead {
+      max-width: 850px;
+    }
+
+    .paper-grid--compact {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+
+      margin-top: 32px;
+    }
+
+    .paper-card {
+      display: flex;
+      flex-direction: column;
+
+      padding: 24px;
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+
+      background:
+        linear-gradient(180deg,
+          var(--surface),
+          var(--bg-soft));
+    }
+
+    .paper-card h3 {
+      margin-top: 0.55rem;
+
+      font-size: 1.08rem;
+    }
+
+    .paper-card p {
+      margin-top: 0.7rem;
+
+      color: var(--muted);
+
+      font-size: 0.92rem;
+    }
+
+    .paper-card a {
+      width: fit-content;
+
+      margin-top: auto;
+      padding-top: 1rem;
+
+      color: var(--blue);
+
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .paper-card a::after {
+      content: " →";
+    }
+
+    .paper-card a:hover {
+      color: var(--white);
+    }
+
+
+    .paper-future {
+      display: grid;
+      grid-template-columns:
+        minmax(220px, 0.7fr) minmax(0, 1.3fr);
+
+      gap: 30px;
+
+      margin-top: 24px;
+      padding: 26px 28px;
+
+      border: 1px solid rgba(139, 211, 255, 0.2);
+      border-radius: var(--radius-lg);
+
+      background:
+        linear-gradient(135deg,
+          rgba(139, 211, 255, 0.045),
+          transparent 55%),
+        var(--surface);
+    }
+
+    .paper-future h3 {
+      margin-top: 0.55rem;
+
+      font-size: 1.2rem;
+    }
+
+    .paper-future p {
+      margin: 0;
+
+      color: var(--muted);
+    }
+
+    .paper-future strong {
+      display: block;
+
+      margin-top: 1rem;
+
+      color: var(--white);
+
+      font-size: 1rem;
+    }
+
+
+    /* =========================================================
+    WORLD AMAZING SHOW
+    ========================================================= */
+
+    .show-section {
+      padding-top: clamp(78px, 9vw, 105px);
+      padding-bottom: clamp(58px, 7vw, 78px);
+    }
+
+    .show-banner {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1.35fr) minmax(230px, 0.65fr);
+
+      gap: clamp(28px, 5vw, 60px);
+      align-items: end;
+
+      padding:
+        clamp(38px, 6vw, 60px) clamp(28px, 5vw, 52px);
+
+      border: 1px solid rgba(139, 211, 255, 0.25);
+      border-top: 3px solid var(--blue-strong);
+      border-radius: 28px;
+
+      background:
+        radial-gradient(circle at 12% 0%,
+          rgba(139, 211, 255, 0.12),
+          transparent 27rem),
+        radial-gradient(circle at 95% 100%,
+          rgba(185, 247, 207, 0.07),
+          transparent 22rem),
+        linear-gradient(140deg,
+          var(--surface-2),
+          var(--surface));
+    }
+
+    .show-banner h2 {
+      max-width: 10ch;
+
+      margin-top: 0.4rem;
+
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      line-height: 0.97;
+      letter-spacing: -0.055em;
+    }
+
+    .show-banner>div:first-child>p:last-child {
+      max-width: 700px;
+
+      margin-top: 1.15rem;
+
+      color: var(--soft);
+
+      font-size: 1.05rem;
+    }
+
+    .show-banner__action {
+      padding-left: 24px;
+
+      border-left: 1px solid var(--line-soft);
+    }
+
+    .show-banner__action p {
+      margin: 0 0 18px;
+
+      color: var(--muted);
+
+      font-size: 0.93rem;
+    }
+
+
+
+    /* =========================================================
+    FAQ
+    ========================================================= */
+
+    .faq-grid {
+      display: grid;
+      gap: 9px;
+
+      margin-top: 30px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+
+      background: var(--surface);
+
+      overflow: hidden;
+    }
+
+    .faq-item[open] {
+      border-color: rgba(139, 211, 255, 0.24);
+    }
+
+    .faq-item>summary {
+      position: relative;
+
+      padding: 18px 56px 18px 19px;
+
+      color: var(--white);
+
+      font-size: 0.96rem;
+      font-weight: 800;
+      line-height: 1.4;
+
+      cursor: pointer;
+
+      list-style: none;
+    }
+
+    .faq-item>summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item>summary::after {
+      content: "+";
+
+      position: absolute;
+      top: 50%;
+      right: 20px;
+
+      transform: translateY(-50%);
+
+      color: var(--blue);
+
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .faq-item[open]>summary::after {
+      content: "−";
+
+      color: var(--green);
+    }
+
+    .faq-answer {
+      max-width: 960px;
+
+      padding: 0 56px 19px 19px;
+    }
+
+    .faq-answer p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 0.93rem;
+    }
+
+    .faq-link {
+      margin-top: 20px;
+    }
+
+    .faq-link a {
+      color: var(--blue);
+
+      font-size: 0.92rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .faq-link a:hover {
+      color: var(--white);
+    }
+
+
+
+    /* =========================================================
+    ENTER THE WORK
+    ========================================================= */
+
+    .enter-section {
+      padding-top: clamp(68px, 8vw, 92px);
+    }
+
+    .entry-grid--compact {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+
+      margin-top: 30px;
+    }
+
+    .entry-card {
+      display: flex;
+      flex-direction: column;
+
+      min-height: 190px;
+      padding: 21px;
+
+      border: 1px solid var(--line);
+      border-radius: 16px;
+
+      background:
+        linear-gradient(180deg,
+          var(--surface),
+          var(--bg-soft));
+    }
+
+    .entry-card h3 {
+      margin-top: 0.48rem;
+
+      font-size: 1.05rem;
+    }
+
+    .entry-card p {
+      flex: 1;
+
+      margin-top: 0.6rem;
+
+      color: var(--muted);
+
+      font-size: 0.88rem;
+    }
+
+    .entry-card a {
+      width: fit-content;
+
+      margin-top: 0.85rem;
+
+      color: var(--blue);
+
+      font-size: 0.88rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .entry-card a:hover {
+      color: var(--white);
+    }
+
+
+
+    /* =========================================================
+    JOIN
+    ========================================================= */
+
+    .join-section {
+      padding-top: clamp(42px, 8vw, 42px);
+      padding-bottom: clamp(72px, 9vw, 108px);
+
+      border-top: 0;
+    }
+
+    .join-panel--compact {
+      max-width: 960px;
+
+      margin-inline: auto;
+      padding: clamp(38px, 6vw, 56px) 28px;
+
+      border: 1px solid rgba(185, 247, 207, 0.25);
+      border-top: 3px solid var(--green-strong);
+      border-radius: 26px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(circle at 50% 0%,
+          rgba(185, 247, 207, 0.1),
+          transparent 42%),
+        var(--surface);
+    }
+
+    .join-panel--compact .eyebrow {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .join-panel--compact h2 {
+      margin-top: 0.5rem;
+
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .join-panel--compact>p {
+      max-width: 650px;
+
+      margin: 1rem auto 0;
+
+      color: var(--soft);
+    }
+
+    .join-panel--compact>.button {
+      margin-top: 24px;
+    }
+
+    .join-panel--compact small {
+      display: block;
+
+      margin-top: 16px;
+
+      color: var(--muted);
+
+      font-size: 0.82rem;
+    }
+
+    .join-panel--compact h2,
+    .join-panel--compact>p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    /* =========================================================
+    RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .paper-future,
+      .show-banner {
+        grid-template-columns: 1fr;
+      }
+
+      .show-banner__action {
+        padding-top: 20px;
+        padding-left: 0;
+
+        border-top: 1px solid var(--line-soft);
+        border-left: 0;
+      }
+    }
+
+
+    @media (max-width: 760px) {
+
+      .paper-grid--compact,
+      .entry-grid--compact {
+        grid-template-columns: 1fr;
+      }
+
+      .entry-card {
+        min-height: 0;
+      }
+    }
+
+
+    @media (max-width: 700px) {
+      .public-section {
+        padding: 64px 0;
+      }
+
+      .show-section {
+        padding-top: 70px;
+        padding-bottom: 54px;
+      }
+
+      .show-banner {
+        padding: 34px 23px;
+
+        border-radius: 22px;
+      }
+
+      .paper-card,
+      .paper-future {
+        padding: 22px;
+      }
+
+      .faq-item>summary {
+        padding:
+          17px 48px 17px 17px;
+      }
+
+      .faq-answer {
+        padding:
+          0 17px 18px;
+      }
+
+      .entry-card {
+        padding: 20px;
+      }
+
+      .join-panel--compact {
+        padding: 38px 20px;
+
+        border-radius: 22px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
-    <div class="site-shell">
-
-        <header class="topbar">
-            <div class="brand">
-                <div class="brand-title">World Amazing</div>
-                <div class="brand-subtitle">A framework for moving humanity from conditional life to flourishing</div>
-            </div>
-
-            <nav class="topnav" aria-label="Primary">
-                <a href="https://makeitamazing.org/" target="_blank">Make It Amazing</a>
-                <a href="https://worldamazing.org/show/" target="_blank">Show</a>
-                <a href="https://forms.gle/AdHLCHzLEFkhTdPN8" target="_blank">Join</a>
-                <a href="https://whomanatee.org/" target="_blank">Primary Node</a>
-                <a href="https://github.com/worldamazing/plan" target="_blank">GitHub</a>
-            </nav>
-        </header>
-
-        <section class="hero">
-            <p class="hero-kicker">Open-source civilizational framework</p>
-
-            <div class="hero-grid">
-                <div>
-                    <h1>World Amazing</h1>
-
-                    <p class="hero-subhead">
-                        A framework for moving humanity from conditional life under Civilization 1.0 to a civilization
-                        organized around relief, truth, cooperation, and human flourishing.
-                    </p>
-
-                    <p class="hero-copy">
-                        Civilization 1.0 names the long civilizational order that began some 10,000 years ago in which
-                        life became increasingly conditional: shaped by hierarchy, scarcity logic, extraction, and
-                        distorted development. World Amazing is a public framework for replacing that order with a
-                        baseline built on relief, truth, cooperation, and human flourishing. It is not a wishlist or a
-                        mood board. It is a real body of work: diagnosis, architecture, transition, governance, healing,
-                        defense, and public entry points into what comes next.
-                    </p>
-
-                    <div class="hero-actions">
-                        <a href="https://makeitamazing.org/" target="_blank" class="button primary large">Start with Make It Amazing</a>
-                        <a href="https://worldamazing.org/show/" target="_blank" class="button large">See the Show</a>
-                        <a href="https://forms.gle/AdHLCHzLEFkhTdPN8" target="_blank" class="button large">Join World Amazing</a>
-                    </div>
-
-                    <p class="hero-note">
-                        Relief is the floor. Amazing is the ceiling.
-                    </p>
-                </div>
-
-                <aside class="hero-panel">
-                    <h2>How to explore the framework</h2>
-                    <p>
-                        <a href="https://makeitamazing.org/" target="_blank" class="nowrap">Make It Amazing</a>
-                        is the main invitation and the best place to begin.
-
-                        <br /><br />
-                        <a href="#papers" class="nowrap">The Amazing Papers</a>
-                        are focused entry points into core, difficult questions. 
-                        
-                        <br /><br />
-                        <a href="https://github.com/worldamazing/plan/blob/main/docs/overview.md" target="_blank" class="nowrap">
-                            The Overview</a> lays out the full architecture of everything described on this page.
-                        
-                        <br /><br />
-                        <a href="https://worldamazing.org/show/" target="_blank" class="nowrap">The Show</a> 
-                        is a public space where the future can be discussed and practiced.
-
-                        <br /><br />
-                        <a href="https://whomanatee.org/" target="_blank">The Primary Node</a>
-                        is the global partnership for all humans to join and start a new  way of living.
-                    </p>
-                </aside>
-            </div>
-
-            <div class="statement-band">
-                <p>
-                    <strong>Human life became conditional.</strong> Distortion followed. The world we know emerged from
-                    there. World Amazing is a framework for interrupting that cycle at the root.
-                </p>
-            </div>
-        </section>
-
-        <section class="section" id="what-it-is">
-            <p class="section-kicker">What World Amazing is</p>
-            <h2>A framework for replacing the conditions beneath the symptoms</h2>
-
-            <div class="split-copy">
-                <p>
-                    World Amazing operates on a fundamentally different premise than standard political or social
-                    reform. Instead of
-                    treating the visible crises of our world as isolated failures, it recognizes them as the inevitable
-                    output of
-                    our current civilizational operating system.
-                </p>
-
-                <p>
-                    From there, the framework asks a different question than ordinary reform: not how to manage the
-                    symptoms more
-                    efficiently, but how to replace the conditions that keep reproducing them. That is why the work
-                    spans diagnosis,
-                    governance, economics, transition, healing, defense, and public entry points into a better
-                    civilizational
-                    baseline.
-                </p>
-            </div>
-        </section>
-
-        <section class="section" id="diagnosis">
-            <p class="section-kicker">Core diagnosis</p>
-            <h2>The chain the framework is designed to interrupt</h2>
-            <p class="section-intro">
-                The work begins with a causal sequence, not a mood or slogan.
-            </p>
-
-            <div class="diagnosis-strip">
-                <article class="diagnosis-item">
-                    <h3>Human life became conditional</h3>
-                    <p>
-                        Safety, home, dignity, time, and belonging became increasingly mediated by hierarchy, access,
-                        control, and conditional worth.
-                    </p>
-                </article>
-
-                <article class="diagnosis-item">
-                    <h3>Rupture became distortion</h3>
-                    <p>
-                        That pressure entered the adult, the home, the child, and the self, shaping development around
-                        adaptation, performance, fear, shame, and defensive compensation.
-                    </p>
-                </article>
-
-                <article class="diagnosis-item">
-                    <h3>Distortion built the world we know</h3>
-                    <p>
-                        The same pattern scaled outward into institutions, public life, and world-order, producing a
-                        civilization that can be functional and broken at once.
-                    </p>
-                </article>
-            </div>
-        </section>       
-
-        <section class="section" id="pillars">
-            <p class="section-kicker">The framework in brief</p>
-            <h2>Six core pillars</h2>
-            <p class="section-intro">
-                These are six of the clearest structural lines running through the work.
-            </p>
-
-            <div class="pillar-grid">
-                <article class="pillar framework">
-                    <h3>Relief as the floor</h3>
-                    <p>
-                        The old world runs hot because life is organized around pressure, performance, insecurity, and
-                        chronic adaptation. Relief means turning off that heat so life no longer begins in bracing.
-                    </p>
-                </article>
-
-                <article class="pillar framework">
-                    <h3>From conditional life to guaranteed life</h3>
-                    <p>
-                        Civilization 1.0 made access to safety, shelter, care, dignity, and time increasingly
-                        conditional. World Amazing reverses that logic by making the essentials of life part of the
-                        guaranteed baseline.
-                    </p>
-                </article>
-
-                <article class="pillar framework">
-                    <h3>Time sovereignty</h3>
-                    <p>
-                        Work stops consuming life. Labor is reorganized around usefulness and meaningful contribution,
-                        with radically reduced required labor and ever-increasing freedom of time.
-                    </p>
-                </article>
-
-                <article class="pillar framework">
-                    <h3>Coherent human development</h3>
-                    <p>
-                        Civilization reproduces itself through the human being. A coherent civilization must change not
-                        only public systems but the developmental conditions under which children and adults are formed.
-                    </p>
-                </article>
-
-                <article class="pillar framework">
-                    <h3>Land and stewardship</h3>
-                    <p>
-                        The current map is not sacred. Land must be approached through stewardship, integration,
-                        protected belonging, and non-displacing return rather than inherited enclosure and permanent
-                        exclusion.
-                    </p>
-                </article>
-
-                <article class="pillar framework">
-                    <h3>Structure over rulers</h3>
-                    <p>
-                        The answer is not better rulers. It is transparent, decentralized, inspectable structure that
-                        makes domination harder and human participation more real.
-                    </p>
-                </article>
-            </div>
-            <div class="statement-band">
-                <p>
-                    The ultimate pillar of this framework is <strong>dignity</strong>: a world in which every
-                    human being stands as the sole rightful owner of their own body, their own mind, and their own time.
-                </p>
-            </div>
-        </section>
-
-
-        <section class="section" id="different">
-            <p class="section-kicker">Why this is different</p>
-            <h2>Beyond patching symptoms, beyond managing decline</h2>
-            <p class="section-intro">
-                World Amazing is easiest to misread if slotted into familiar categories too early.
-            </p>
-            
-            <div class="anti-pattern-grid">
-                <div class="anti-pattern-card">
-                    <h3><span class="anti-icon">🚫</span> Not a wishlist</h3>
-                    <p>A framework with diagnosis, first principles, architecture, transition logic, and public entry points.</p>
-                </div>
-                <div class="anti-pattern-card">
-                    <h3><span class="anti-icon">🚫</span> Not symptom management</h3>
-                    <p>A change in the conditions that keep reproducing rupture, distortion, and civilizational self-harm.</p>
-                </div>
-                <div class="anti-pattern-card">
-                    <h3><span class="anti-icon">🚫</span> Not a world government pitch</h3>
-                    <p>Planetary coordination with local autonomy, transparent structure, and no permanent central ruler.</p>
-                </div>
-                <div class="anti-pattern-card">
-                    <h3><span class="anti-icon">🚫</span> Not endless opposition</h3>
-                    <p>Build a framework so coherent, humane, and livable that the old system becomes obsolete.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="myths-section">
-            <p class="section-kicker">The Inherited Assumptions</p>
-            <h2>The stories that keep us trapped</h2>
-            <p class="section-intro">
-                The protective myths that keep Civilization 1.0 running—and the truths that dismantle them.
-            </p>
-        
-            <div class="myth-grid">
-                <div class="myth-card">
-                    <div class="myth-part">
-                        <span class="myth-label">Myth</span>
-                        <p class="myth-text">"Scarcity is a natural law. Life is a zero-sum competition."</p>
-                    </div>
-                    <div class="truth-part">
-                        <span class="truth-label">Truth</span>
-                        <p class="truth-text">Abundance is a coordination and design problem.</p>
-                    </div>
-                </div>
-        
-                <div class="myth-card">
-                    <div class="myth-part">
-                        <span class="myth-label">Myth</span>
-                        <p class="myth-text">"Humans need jobs to have purpose and dignity."</p>
-                    </div>
-                    <div class="truth-part">
-                        <span class="truth-label">Truth</span>
-                        <p class="truth-text">We must replace coercive survival labor with meaningful contribution.</p>
-                    </div>
-                </div>
-        
-                <div class="myth-card">
-                    <div class="myth-part">
-                        <span class="myth-label">Myth</span>
-                        <p class="myth-text">"Human nature is fundamentally selfish and competitive."</p>
-                    </div>
-                    <div class="truth-part">
-                        <span class="truth-label">Truth</span>
-                        <p class="truth-text">We are a traumatized species, not a flawed one.</p>
-                    </div>
-                </div>
-        
-                <div class="myth-card">
-                    <div class="myth-part">
-                        <span class="myth-label">Myth</span>
-                        <p class="myth-text">"Struggle and conflict are what drive human greatness."</p>
-                    </div>
-                    <div class="truth-part">
-                        <span class="truth-label">Truth</span>
-                        <p class="truth-text">Ingenuity is a product of safety, not fear.</p>
-                    </div>
-                </div>
-        
-                <div class="myth-card">
-                    <div class="myth-part">
-                        <span class="myth-label">Myth</span>
-                        <p class="myth-text">"Technology alone will eventually save us."</p>
-                    </div>
-                    <div class="truth-part">
-                        <span class="truth-label">Truth</span>
-                        <p class="truth-text">Technology scales the operating system; it doesn't cure it.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="scope">
-            <p class="section-kicker">Range of the work</p>
-            <h2>The work already spans the full field of civilization</h2>
-            <p class="section-intro">
-                World Amazing is not limited to one policy area or one layer of public life. The framework already
-                reaches across diagnosis, governance, economics, transition, healing, defense, childhood, land, and
-                the lived design of a coherent civilization.
-            </p>
-
-            <div class="scope-grid">
-                <article class="scope-card framework">
-                    <h3>Diagnosis</h3>
-                    <p>
-                        The civilizational rupture, the rise of conditional life, the cycle of distortion, and how the
-                        world we know emerged from those conditions.
-                    </p>
-                </article>
-
-                <article class="scope-card framework">
-                    <h3>Framework</h3>
-                    <p>
-                        First principles, the Global Partnership, profound comfort, guaranteed life, and the
-                        architecture of a civilization built on relief, truth, and cooperation.
-                    </p>
-                </article>
-
-                <article class="scope-card framework">
-                    <h3>Economy and Time</h3>
-                    <p>
-                        Contribution over coercion, the economy of clarity, the return of time, projects, capital, and
-                        a world beyond survival labor.
-                    </p>
-                </article>
-
-                <article class="scope-card framework">
-                    <h3>Transition</h3>
-                    <p>
-                        The genesis phase, first communities, beachheads, scaling, and the path from blueprint to a
-                        living, expanding world.
-                    </p>
-                </article>
-
-                <article class="scope-card framework">
-                    <h3>Governance</h3>
-                    <p>
-                        The end of rulers, the rise of structure, local autonomy, inspectable coordination, and
-                        transparent systems designed to resist domination.
-                    </p>
-                </article>
-
-                <article class="scope-card framework">
-                    <h3>Defense</h3>
-                    <p>
-                        Defense and global security, civil defense, homeland resilience, and how a coherent
-                        civilization protects life without reproducing the old logic of domination.
-                    </p>
-                </article>
-
-                <article class="scope-card framework">
-                    <h3>Healing and Human Development</h3>
-                    <p>
-                        We replace chronic pressure with conditions that allow for unbroken development, ensuring
-                        no human being ever has to trade clarity for connection in order to survive.
-                    </p>
-                </article>
-
-                <article class="scope-card framework">
-                    <h3>Land and Belonging</h3>
-                    <p>
-                        Stewardship, return, integration, non-displacing repair, and a civilizational move beyond
-                        inherited enclosure and territorialized exclusion.
-                    </p>
-                </article>
-            </div>
-            <div class="statement-band">
-                <p>
-                    <strong>We do not fight the old system.</strong> We make it obsolete by building something more
-                    coherent, more humane, and more livable.
-                </p>
-            </div>
-        </section>
-
-
-        <section class="section" id="faq">
-            <p class="section-kicker">Likely questions</p>
-            <h2>A few likely questions</h2>
-            <p class="section-intro">
-                Some of the most likely first questions. For deeper discussion on these questions and many more, see the 
-                <a href="https://github.com/worldamazing/plan/blob/main/docs/overview.md#questions-and-answers" target="_blank">
-                    FAQ</a> in the Overview.
-            </p>
-        
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>Is this just another ideology or “ism”?</summary>
-                    <div class="faq-answer">
-                        <p>
-                            No. World Amazing is not an attempt to fit humanity back inside an inherited political label.
-                            It is a civilizational framework built around a different question: what conditions actually
-                            allow human beings to live well, develop coherently, and flourish together?
-                        </p>
-                        <p>
-                            The work draws from many domains, but it does not reduce itself to socialism, capitalism,
-                            communism, nationalism, or any other inherited category. It is trying to move beyond the old
-                            bins, not win a place inside one of them.
-                        </p>
-                    </div>
-                </details>
-        
-                <details class="faq-item">
-                    <summary>Is this anti-capitalism?</summary>
-                    <div class="faq-answer">
-                        <p>
-                            No. It keeps the best parts of capitalism while moving beyond money-first civilizational logic.
-                        </p>
-                        <p>
-                            The framework keeps freedom, initiative, experimentation, building, and voluntary projects, but
-                            removes the requirement that human life must remain subordinate to profit, scarcity pressure, and
-                            survival labor. The aim is not to flatten human initiative. It is to free it from a system that
-                            makes money the main judge of usefulness.
-                        </p>
-                    </div>
-                </details>
-        
-                <details class="faq-item">
-                    <summary>Is this some kind of centralized world government?</summary>
-                    <div class="faq-answer">
-                        <p>
-                            No. The framework is not about concentrating control into one ruling body that governs every
-                            aspect of life.
-                        </p>
-                        <p>
-                            Its logic is the opposite: structure over rulers, transparency over opacity, coordination
-                            without domination, and guaranteed life conditions that increase real human freedom rather
-                            than reduce it. The point is not to create a planetary authority that stands over everyone.
-                            It is to build a world where the essentials of life are secure enough that fewer people can
-                            dominate others through instability, dependence, and fear.
-                        </p>
-                    </div>
-                </details>
-    
-                <details class="faq-item">
-                    <summary>Is the goal really to reduce required work to something like a two-day week?</summary>
-                    <div class="faq-answer">
-                        <p>
-                            Yes — over time, the framework argues that a coherent civilization should be able to meet its essential
-                            needs with far less required labor than today.
-                        </p>
-                        <p>
-                            Much of current labor exists to maintain scarcity logic, duplication, bureaucracy, extraction, and systems
-                            that are not actually organized around human well-being.
-                        </p>
-                        <p>
-                            A coherent civilization would radically reduce unnecessary work, streamline what remains essential, and
-                            increasingly use technology and coordination to lower the labor burden over time. The two-day workweek is
-                            not a gimmick. It is a directional claim about what becomes possible when life is organized around
-                            usefulness rather than around preserving the current structure of pressure.
-                        </p>
-                        <p>
-                            Two days per week is the target, not the starting point. The transition begins by moving in that direction: first lighter required labor, then greater efficiency, then more automation, then still less required work. The point is not merely less work. It is more free human life: more time for learning, training, recovery, creation, contribution, and real development.
-                        </p>
-                    </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>If I’m convinced, what should I do now?</summary>
-                    <div class="faq-answer">
-                        <p>
-                            At this stage, the most valuable thing is serious engagement.
-                        </p>
-                        <p>
-                            Read the Overview. Read the papers. Share the work. Think with it. Pressure-test it. Bring
-                            others into the conversation. The project does not begin with blind buy-in. It begins with
-                            people entering the work honestly enough to see what it is really proposing.
-                        </p>
-                    </div>
-                </details>
-            </div>
-        </section>
-
-        <section class="section" id="go-deeper">
-            <p class="section-kicker">Go deeper</p>
-            <h2>Choose your next entry point</h2>
-            <p class="section-intro">
-                If the framework is starting to come into view, choose the path that fits how you want to continue:
-                the public invitation, the focused papers, the full Overview, or the live public entry through the Show.
-            </p>
-        
-            <div class="card-grid">
-                <article class="card paper">
-                    <p class="card-label">Focused papers</p>
-                    <h3>The Amazing Papers</h3>
-                    <p>
-                        Higher-resolution entries into core mechanism layers of the framework, including relief,
-                        childhood, land, and how the plan changes the conditions that keep producing harm.
-                    </p>
-                    <a class="card-link" href="#papers">See the Papers →</a>
-                </article>
-                
-                <article class="card public">
-                    <p class="card-label">Live public entry</p>
-                    <h3>The World Amazing Show</h3>
-                    <p>
-                        A live public entry point into the work through conversation, gathering, movement, and direct
-                        participation in imagining and building what comes next.
-                    </p>
-                    <a class="card-link" href="https://worldamazing.org/show/" target="_blank">Visit the Show →</a>
-                </article>
-
-                <article class="card framework">
-                    <p class="card-label">Foundational document</p>
-                    <h3>The World Amazing Overview</h3>
-                    <p>
-                        The main architecture of the framework: diagnosis, first principles, governance, economics,
-                        transition, healing, defense, and long-range civilizational vision.
-                    </p>
-                    <a class="card-link" href="https://github.com/worldamazing/plan/blob/main/docs/overview.md"
-                        target="_blank">Read the Overview →</a>
-                </article>
-        
-                <article class="card framework">
-                    <p class="card-label">Open-source home</p>
-                    <h3>Read, inspect, contribute</h3>
-                    <p>
-                        Full documents, revision history, discussions, and ongoing public development of the framework.
-                    </p>
-                    <a class="card-link" href="https://github.com/worldamazing/plan" target="_blank">Open GitHub →</a>
-                </article>
-            </div>
-        </section>
-
-        <section class="section" id="papers">
-            <p class="section-kicker">Focused entry points</p>
-            <h2>The Amazing Papers</h2>
-            <p class="papers-intro">
-                Companion texts that clarify, test, extend, and apply the World Amazing framework across its hardest
-                questions. These
-                are not side essays. They deepen core mechanism layers of the framework.
-            </p>
-
-            <div class="card-grid two">
-                <article class="card paper">
-                    <p class="card-label">Mechanism layer</p>
-                    <h3>How the World Amazing Plan Creates the Conditions for Human Flourishing Worldwide</h3>
-                    <p>
-                        How the framework changes the underlying conditions that produce visible crises and hidden
-                        distortions, not just the symptoms polite society is comfortable naming.
-                    </p>
-                    <a class="card-link"
-                        href="https://github.com/worldamazing/plan/tree/main/docs/amazing-papers/on-human-flourishing.md"
-                        target="_blank">Read the Paper →</a>
-                </article>
-
-                <article class="card paper">
-                    <p class="card-label">Foundational condition</p>
-                    <h3>On Relief</h3>
-                    <p>
-                        Why peace is not enough, why the world runs hot, and why relief is the missing floor of
-                        civilization.
-                    </p>
-                    <a class="card-link"
-                        href="https://github.com/worldamazing/plan/tree/main/docs/amazing-papers/on-relief.md"
-                        target="_blank">Read the Paper →</a>
-                </article>
-
-                <article class="card paper">
-                    <p class="card-label">Developmental layer</p>
-                    <h3>On Childhood</h3>
-                    <p>
-                        How civilization reproduces itself through the human being, and why childhood is not a side
-                        issue but one of the deepest civilizational interfaces.
-                    </p>
-                    <a class="card-link"
-                        href="https://github.com/worldamazing/plan/tree/main/docs/amazing-papers/on-childhood.md"
-                        target="_blank">Read the Paper →</a>
-                </article>
-
-                <article class="card paper">
-                    <p class="card-label">Planetary belonging</p>
-                    <h3>On Land</h3>
-                    <p>
-                        Why the current map is not sacred, and how stewardship, belonging, and return can replace
-                        territorialized exclusion and inherited enclosure.
-                    </p>
-                    <a class="card-link"
-                        href="https://github.com/worldamazing/plan/tree/main/docs/amazing-papers/on-land.md"
-                        target="_blank">Read the Paper →</a>
-                </article>
-            </div>
-        </section>
-
-
-        <section class="section" id="public-entry">
-            <p class="section-kicker">Public entry</p>
-            <h2>The work also begins in public</h2>
-
-            <div class="cta-panel">
-                <h3>The World Amazing Show</h3>
-                <p>
-                    World Amazing is not only a set of documents. It is also a growing public process. The World
-                    Amazing Show is one live way to step into that process through discussion, gathering, movement, and
-                    direct participation in imagining and building what comes next.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="https://forms.gle/AdHLCHzLEFkhTdPN8" target="_blank" class="button primary large">
-                        Hear About Upcoming Shows
-                    </a>
-                    <a href="https://worldamazing.org/show/" target="_blank" class="button large">
-                        Visit the Show Page
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-        <footer>
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <strong>World Amazing</strong>
-                    A public framework for moving humanity from conditional life under Civilization 1.0 to a
-                    civilization organized around relief, truth, cooperation, and human flourishing.
-                </div>
-
-                <div class="footer-group">
-                    <h4>Framework</h4>
-                    <div class="footer-links">
-                        <a href="https://makeitamazing.org/" target="_blank">Make It Amazing</a>
-                        <a href="#papers">Amazing Papers</a>
-                        <a href="https://github.com/worldamazing/plan/blob/main/docs/overview.md" target="_blank">Overview</a>
-                        <a href="https://github.com/worldamazing/plan" target="_blank">GitHub</a>
-                    </div>
-                </div>
-
-                <div class="footer-group">
-                    <h4>Public</h4>
-                    <div class="footer-links">
-                        <a href="https://worldamazing.org/show/" target="_blank">Show</a>
-                        <a href="https://forms.gle/AdHLCHzLEFkhTdPN8" target="_blank">Join</a>
-                        <a href="mailto:hello@worldamazing.org">Contact</a>
-                    </div>
-                </div>
-
-                <div class="footer-group">
-                    <h4>Ecosystem</h4>
-                    <div class="footer-links">
-                        <a href="https://makeitamazing.org/" target="_blank">Make It Amazing</a>
-                        <a href="https://worldamazing.org/" target="_blank">World Amazing</a>
-                        <a href="https://whomanatee.org/" target="_blank">Primary Node</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                Relief is the floor. Amazing is the ceiling.
-            </div>
-        </footer>
-
+  <header class="site-header topbar-wrap">
+  
+    <div class="shell topbar">
+  
+      <a class="brand" href="index.html#top">
+        <span class="brand__full">World Amazing</span>
+        <span class="brand__short">WA</span>
+        <span class="brand__tagline">— the whole plan, clearly explained</span>
+      </a>
+  
+  
+      <!-- DESKTOP NAV -->
+  
+      <nav class="nav" aria-label="Primary navigation">
+  
+        <div class="nav__docs">
+          <a href="basics.html">Basics</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="framework.html">Framework</a>
+        </div>
+  
+  
+        <div class="nav__explore">
+          <a href="papers.html">Papers</a>
+          <a href="memes.html">Memes</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+  
+  
+        <div class="nav__actions">
+  
+          <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+            Make It Amazing
+            <span class="nav__external" aria-hidden="true">↗</span>
+          </a>
+  
+          <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+            Show
+            <span class="nav__external" aria-hidden="true">↗</span>
+          </a>
+  
+          <a class="nav__join" href="index.html#join">
+            Join
+          </a>
+  
+        </div>
+  
+      </nav>
+  
+  
+      <!-- MOBILE ACTIONS -->
+  
+      <div class="nav__mobile-actions">
+  
+        <a class="nav__join" href="index.html#join">
+          Join
+        </a>
+  
+        <button class="nav__menu-button" type="button" aria-expanded="false" aria-controls="mobile-navigation">
+          <span>More</span>
+          <span class="nav__menu-chevron" aria-hidden="true"></span>
+        </button>
+  
+      </div>
+  
     </div>
+  
+  
+    <!-- MOBILE MENU -->
+  
+    <nav class="nav-mobile" id="mobile-navigation" aria-label="Mobile navigation" hidden>
+  
+      <div class="shell nav-mobile__inner">
+        <div class="nav-mobile__group">
+        
+          <span class="nav-mobile__label">
+            Start here
+          </span>
+        
+          <a href="basics.html">Basics</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="framework.html">Framework</a>
+        
+        </div>
+        
+        
+        <div class="nav-mobile__group">
+        
+          <span class="nav-mobile__label">
+            Explore
+          </span>
+        
+          <a href="papers.html">Papers</a>
+          <a href="memes.html">Memes</a>
+          <a href="index.html#faq">FAQ</a>
+        
+        </div>
+        
+        
+        <div class="nav-mobile__group nav-mobile__group--enter">
+        
+          <span class="nav-mobile__label">
+            Enter
+          </span>
+        
+          <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+            Make It Amazing ↗
+          </a>
+        
+          <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+            Show ↗
+          </a>
+        
+          <a href="index.html#join">
+            Join
+          </a>
+        
+        </div>
+  
+        
+  
+      </div>
+  
+    </nav>
+  
+  </header>
+
+  <main id="top">
+    <div class="shell">
+      <!-- HERO -->
+      <section class="hero">
+      
+        <div class="hero-grid">
+      
+      
+          <!-- =====================================================
+               MAIN HERO
+               ===================================================== -->
+      
+          <div>
+      
+            <p class="eyebrow">
+              A realistic plan for humanity
+            </p>
+      
+            <h1>
+              We can make the world amazing.
+            </h1>
+      
+            <p class="hero-copy">
+              World Amazing is a practical plan to secure the foundations
+              of human life, restore the human, connect humanity’s capacity,
+              dramatically reduce necessary labor, and use what we have
+              to build an increasingly extraordinary world.
+            </p>
+      
+            <p class="hero-principle">
+              Relief is the floor.
+              <strong>Amazing is the ceiling.</strong>
+            </p>
+      
+      
+            <div class="hero-actions">
+      
+              <a class="button button--primary button--stacked" href="https://makeitamazing.org" target="_blank"
+                rel="noopener">
+                <span>
+                  Make It Amazing
+                </span>
+      
+                <span class="button__note">
+                  Read the invitation
+                </span>
+              </a>
+      
+      
+              <a class="button button--green button--stacked" href="https://forms.gle/AdHLCHzLEFkhTdPN8" target="_blank"
+                rel="noopener">
+                <span>
+                  Join — $0 Today
+                </span>
+      
+                <span class="button__note">
+                  Email only
+                </span>
+              </a>
+      
+      
+              <a class="button button--stacked" href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+                <span>
+                  The World Amazing Show
+                </span>
+      
+                <span class="button__note">
+                  Meet in public
+                </span>
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- =====================================================
+               ONE WORLD
+               ===================================================== -->
+      
+          <aside class="hero-panel">
+      
+            <span class="hero-panel__big">
+              One world.
+            </span>
+      
+            <h2 style="max-width:none;font-size:2rem;">
+              A shared foundation for human life.
+            </h2>
+      
+            <p>
+              Not one culture.
+              Not one ruler.
+              Not everyone living the same way.
+            </p>
+      
+            <p>
+              One shared commitment:
+              every human remains inside humanity’s care,
+              and the foundations of life are built and coordinated
+              as shared infrastructure.
+            </p>
+      
+            <div class="hero-panel__principles">
+      
+              <span>
+                Globally connected
+              </span>
+      
+              <span>
+                Locally and functionally governed
+              </span>
+      
+              <span>
+                Open to inspection and correction
+              </span>
+      
+            </div>
+      
+          </aside>
+      
+        </div>
+      
+      
+        <!-- =======================================================
+             BASIC MOVE
+             ======================================================= -->
+      
+        <div class="principle cluster">
+      
+          <strong>
+            The basic move:
+          </strong>
+      
+          stop making every human separately fight for access
+          to the things every human needs,
+          and start organizing those things together.
+      
+        </div>
+      
+      </section>
+
+
+      <!-- POSSIBILITY FIELD -->
+      <!-- =========================================================
+           POSSIBILITY PANEL
+           ========================================================= -->
+      
+      <section class="possibility-panel" aria-labelledby="possibility-title">
+      
+      
+        <!-- =======================================================
+             FRAME
+             ======================================================= -->
+      
+        <header class="possibility-frame">
+      
+          <span>
+            The whole move
+          </span>
+      
+          <strong>
+            First, make life work.
+            Then find out what humanity can become.
+          </strong>
+      
+        </header>
+      
+      
+        <!-- =======================================================
+             REALITY / FLOOR
+             ======================================================= -->
+      
+        <div class="possibility-setup">
+      
+      
+          <div class="possibility-status">
+      
+            <span class="possibility-status__label">
+              Still true
+            </span>
+      
+            <p>
+              Humans still go hungry, sleep without safe homes,
+              suffer preventable harm, develop inside fear,
+              and die in wars humanity keeps producing.
+            </p>
+      
+            <strong>
+              We stop treating this as normal.
+            </strong>
+      
+          </div>
+      
+      
+          <div class="possibility-status possibility-status--floor">
+      
+            <span class="possibility-status__label">
+              The floor
+            </span>
+      
+            <p>
+              Food · Water · Home · Healthcare · Learning ·
+              Safety · Care · Connection · Mobility · Energy
+            </p>
+      
+            <strong>
+              Life works.
+            </strong>
+      
+          </div>
+      
+        </div>
+      
+      
+        <!-- =======================================================
+             MAIN FIELD
+             ======================================================= -->
+      
+        <div class="possibility-main">
+      
+      
+          <div class="possibility-main__statement">
+      
+            <p class="eyebrow">
+              Then what?
+            </p>
+      
+            <h2 id="possibility-title">
+              Humanity has never operated from here.
+            </h2>
+      
+            <p>
+              Secure the foundations of life.
+              Keep reducing necessary human labor.
+              Connect more of what humans, machines,
+              and synthetic minds can do.
+              Then find out how extraordinary life can actually become.
+            </p>
+      
+          </div>
+      
+      
+          <!-- =====================================================
+               TRAJECTORY
+               ===================================================== -->
+      
+          <div class="possibility-path">
+      
+      
+            <article class="possibility-step possibility-step--life">
+      
+              <span class="possibility-step__node" aria-hidden="true"></span>
+      
+              <span class="possibility-step__label">
+                More life
+              </span>
+      
+              <strong>
+                Work dramatically less.
+                Live dramatically more.
+              </strong>
+      
+              <p>
+                More time for relationship, recovery, learning,
+                play, thought, creation, exploration,
+                and simply being alive.
+              </p>
+      
+            </article>
+      
+      
+            <article class="possibility-step possibility-step--world">
+      
+              <span class="possibility-step__node" aria-hidden="true"></span>
+      
+              <span class="possibility-step__label">
+                An extraordinary world
+              </span>
+      
+              <strong>
+                Build beyond necessity.
+              </strong>
+      
+              <p>
+                Beautiful cities, spectacular public spaces,
+                restored ecosystems, remarkable food,
+                culture, architecture, travel, celebration,
+                and things worth crossing the planet to experience.
+              </p>
+      
+            </article>
+      
+      
+            <article class="possibility-step possibility-step--frontier">
+      
+              <span class="possibility-step__node" aria-hidden="true"></span>
+      
+              <span class="possibility-step__label">
+                The unknown frontier
+              </span>
+      
+              <strong>
+                Use civilization for discovery.
+              </strong>
+      
+              <p>
+                New medicine. New science. Oceans. Space.
+                New tools. New forms of intelligence.
+                New human possibilities.
+                Things we do not have names for yet.
+              </p>
+      
+            </article>
+      
+          </div>
+      
+        </div>
+      
+      
+        <!-- =======================================================
+             CLOSE
+             ======================================================= -->
+      
+        <div class="possibility-close">
+      
+          <span>
+            Relief is the floor.
+          </span>
+      
+          <strong>
+            There is no known ceiling.
+          </strong>
+      
+        </div>
+      
+      
+        <!-- =======================================================
+             HANDOFF TO THE PAGE
+             ======================================================= -->
+      
+        <nav class="possibility-nav" aria-label="Continue through World Amazing">
+      
+          <a href="#what-changes">
+      
+            <span>
+              01
+            </span>
+      
+            <strong>
+              What changes
+            </strong>
+      
+            <span class="possibility-nav__arrow" aria-hidden="true">
+              ↓
+            </span>
+      
+          </a>
+      
+      
+          <a href="#underlying-move">
+      
+            <span>
+              02
+            </span>
+      
+            <strong>
+              The underlying move
+            </strong>
+      
+            <span class="possibility-nav__arrow" aria-hidden="true">
+              ↓
+            </span>
+      
+          </a>
+      
+      
+          <a href="#enter-the-work">
+      
+            <span>
+              03
+            </span>
+      
+            <strong>
+              Explore the work
+            </strong>
+      
+            <span class="possibility-nav__arrow" aria-hidden="true">
+              ↓
+            </span>
+      
+          </a>
+      
+        </nav>
+      
+      
+      </section>
+
+
+      <!-- WHAT CHANGES -->
+      <section class="public-section change-section" id="what-changes">
+      
+        <div class="home-section-head home-section-head--green">
+        
+          <div class="home-section-head__marker">
+            <span class="home-section-head__number">01</span>
+            <span class="home-section-head__label">What changes</span>
+          </div>
+        
+          <div class="home-section-head__content">
+        
+            <h2>
+              A different operating condition for human life.
+            </h2>
+        
+            <p>
+              World Amazing changes more than individual programs.
+              It changes the conditions humans live inside:
+              what can be lost, what must be earned,
+              how much life is consumed by necessity,
+              how harm is handled,
+              and what becomes possible once the foundation is secure.
+            </p>
+        
+          </div>
+        
+        </div>
+      
+      
+        <div class="change-list">
+      
+          <article class="change-row">
+      
+            <div class="change-row__old">
+              <span>Inherited world</span>
+      
+              <h3>
+                The foundations of life can be lost.
+              </h3>
+      
+              <p>
+                Housing, healthcare, food, utilities,
+                transportation, and other essentials
+                depend heavily on income, access, status,
+                employment, insurance, or circumstance.
+              </p>
+            </div>
+      
+            <div class="change-row__arrow" aria-hidden="true">
+              →
+            </div>
+      
+            <div class="change-row__new">
+              <span>World Amazing</span>
+      
+              <h3>
+                The foundations of life become shared infrastructure.
+              </h3>
+      
+              <p>
+                The systems required for a human to remain housed,
+                fed, cared for, connected, protected,
+                and able to participate are built beneath everyone.
+              </p>
+            </div>
+      
+          </article>
+      
+      
+          <article class="change-row">
+      
+            <div class="change-row__old">
+              <span>Inherited world</span>
+      
+              <h3>
+                Survival consumes enormous amounts of human time.
+              </h3>
+      
+              <p>
+                Much of life is organized around earning enough
+                to keep access to the conditions of life.
+              </p>
+            </div>
+      
+            <div class="change-row__arrow" aria-hidden="true">
+              →
+            </div>
+      
+            <div class="change-row__new">
+              <span>World Amazing</span>
+      
+              <h3>
+                Necessary human labor is dramatically reduced.
+              </h3>
+      
+              <p>
+                Better systems, shared capacity, automation,
+                simplification, and accumulated infrastructure
+                progressively return human time.
+              </p>
+            </div>
+      
+          </article>
+      
+      
+          <article class="change-row">
+      
+            <div class="change-row__old">
+              <span>Inherited world</span>
+      
+              <h3>
+                Automation can threaten the human whose work disappears.
+              </h3>
+      
+              <p>
+                Removing labor can remove income,
+                even when the task itself no longer needs a person.
+              </p>
+            </div>
+      
+            <div class="change-row__arrow" aria-hidden="true">
+              →
+            </div>
+      
+            <div class="change-row__new">
+              <span>World Amazing</span>
+      
+              <h3>
+                Removing unnecessary work returns human capacity.
+              </h3>
+      
+              <p>
+                If a machine can safely carry a necessary function,
+                the human becomes freer to care, learn, investigate,
+                create, play, build, rest, or choose harder work.
+              </p>
+            </div>
+      
+          </article>
+      
+      
+          <article class="change-row">
+      
+            <div class="change-row__old">
+              <span>Inherited world</span>
+      
+              <h3>
+                Harm is often addressed after it has already happened.
+              </h3>
+      
+              <p>
+                Systems frequently concentrate on punishment,
+                confinement, blame, or management of recurring damage.
+              </p>
+            </div>
+      
+            <div class="change-row__arrow" aria-hidden="true">
+              →
+            </div>
+      
+            <div class="change-row__new">
+              <span>World Amazing</span>
+      
+              <h3>
+                Protect life and reduce the conditions producing harm.
+              </h3>
+      
+              <p>
+                Stop active danger, remove harmful access or power,
+                establish responsibility,
+                understand causation,
+                support repair,
+                and change the conditions that keep reproducing harm.
+              </p>
+            </div>
+      
+          </article>
+      
+      
+          <article class="change-row">
+      
+            <div class="change-row__old">
+              <span>Inherited world</span>
+      
+              <h3>
+                Children develop inside the pressures adults already carry.
+              </h3>
+      
+              <p>
+                Fear, insecurity, hierarchy, concealment,
+                unresolved injury, and survival pressure
+                can pass through relationships and into development.
+              </p>
+            </div>
+      
+            <div class="change-row__arrow" aria-hidden="true">
+              →
+            </div>
+      
+            <div class="change-row__new">
+              <span>World Amazing</span>
+      
+              <h3>
+                Human development becomes part of civilizational design.
+              </h3>
+      
+              <p>
+                Safer material conditions,
+                truthful relationships,
+                healthier authority,
+                protection, restoration,
+                and better developmental environments
+                become part of building the world itself.
+              </p>
+            </div>
+      
+          </article>
+      
+      
+          <article class="change-row">
+      
+            <div class="change-row__old">
+              <span>Inherited world</span>
+      
+              <h3>
+                Enormous capacity is spent managing preventable breakdown.
+              </h3>
+      
+              <p>
+                Humanity repeatedly pays for homelessness,
+                untreated illness, conflict, emergency,
+                duplicated systems, insecurity,
+                and the consequences of preventable failure.
+              </p>
+            </div>
+      
+            <div class="change-row__arrow" aria-hidden="true">
+              →
+            </div>
+      
+            <div class="change-row__new">
+              <span>World Amazing</span>
+      
+              <h3>
+                More capacity becomes available to build beyond relief.
+              </h3>
+      
+              <p>
+                Once fewer resources are consumed by recurring breakdown,
+                more human and material capacity can move toward
+                science, art, exploration, relationships,
+                beautiful places, play, invention,
+                and possibilities not yet planned.
+              </p>
+            </div>
+      
+          </article>
+      
+        </div>
+      
+      
+        <div class="principle principle--green change-closing">
+      
+          <strong>
+            Relief changes what a human has to survive.
+            Amazing changes what a human is free to become.
+          </strong>
+      
+        </div>
+      
+      </section>
+
+
+      <!-- THE UNDERLYING MOVE -->
+      <section class="public-section underlying-section" id="underlying-move">
+      
+        <div class="home-section-head home-section-head--blue">
+      
+          <div class="home-section-head__marker">
+            <span class="home-section-head__number">02</span>
+            <span class="home-section-head__label">The underlying move</span>
+          </div>
+      
+          <div class="home-section-head__content">
+      
+            <h2>
+              Stop making every human fight separately
+              for the foundations of life.
+            </h2>
+      
+            <p>
+              Humanity already has enormous amounts of land, buildings,
+              knowledge, infrastructure, machinery, institutions,
+              capital, technology, and human ability.
+              World Amazing changes how that capacity is connected,
+              expanded, and used.
+            </p>
+      
+          </div>
+      
+        </div>
+
+        <div class="underlying-core">
+        
+          <span class="tag">The basic move</span>
+        
+          <strong>
+            Organize the things every human needs as shared infrastructure,
+            connect what already exists,
+            build what is missing,
+            and progressively return human time and capacity.
+          </strong>
+        
+        </div>
+
+        <div class="flow-line flow-line--5 underlying-flow">
+        
+          <article class="flow-line__node">
+            <span class="tag">01</span>
+            <h3>Secure the foundation</h3>
+            <p>
+              Housing, food, healthcare, utilities, learning,
+              mobility, connection, and protection stop being
+              things a human can simply fall out of.
+            </p>
+          </article>
+        
+          <div class="flow-line__arrow" aria-hidden="true">→</div>
+        
+          <article class="flow-line__node">
+            <span class="tag">02</span>
+            <h3>Connect capacity</h3>
+            <p>
+              Link people, land, buildings, businesses,
+              public resources, knowledge, machines,
+              infrastructure, and synthetic intelligence
+              instead of repeatedly operating them in isolation.
+            </p>
+          </article>
+        
+          <div class="flow-line__arrow" aria-hidden="true">→</div>
+        
+          <article class="flow-line__node">
+            <span class="tag">03</span>
+            <h3>Build and improve</h3>
+            <p>
+              Expand the systems humanity actually needs:
+              homes, hospitals, food systems, energy,
+              transport, manufacturing, care, learning,
+              research, and everything around them.
+            </p>
+          </article>
+        
+          <div class="flow-line__arrow" aria-hidden="true">→</div>
+        
+          <article class="flow-line__node">
+            <span class="tag">04</span>
+            <h3>Reduce what humans must do</h3>
+            <p>
+              Remove pointless work, automate safely,
+              simplify systems, prevent recurring breakdown,
+              and dramatically reduce necessary labor.
+            </p>
+          </article>
+        
+          <div class="flow-line__arrow" aria-hidden="true">→</div>
+        
+          <article class="flow-line__node">
+            <span class="tag">05</span>
+            <h3>Build beyond relief</h3>
+            <p>
+              Returned time, intelligence, resources,
+              and productive capacity move into relationships,
+              science, art, play, exploration, invention,
+              beauty, and whatever humanity wants to build next.
+            </p>
+          </article>
+        
+        </div>
+
+
+        <div class="underlying-human">
+        
+          <div>
+            <span class="tag">Through all of it</span>
+        
+            <h3>
+              Change the human conditions while changing
+              the material conditions.
+            </h3>
+          </div>
+        
+          <p>
+            Truth, protection, responsibility, development,
+            grief, repair, recovery, healthier relationships,
+            and better childhood conditions run through the entire build.
+            Otherwise humans can reproduce the old world inside new machinery.
+          </p>
+        
+        </div>
+
+        <div class="principle principle--green underlying-closing">
+        
+          <strong>
+            Relief is the floor.
+            Amazing is the ceiling.
+          </strong>
+        
+        </div>
+            
+      </section>
+
+
+      <!-- ENTER THE WORK -->
+      <section class="public-section enter-section" id="enter-the-work">
+      
+        <div class="home-section-head home-section-head--enter">
+      
+          <div class="home-section-head__marker">
+            <span class="home-section-head__number">03</span>
+            <span class="home-section-head__label">Explore the work</span>
+          </div>
+      
+          <div class="home-section-head__content">
+      
+            <h2>
+              Keep exploring World Amazing.
+            </h2>
+            
+            <p>
+              Follow the main reading path,
+              or jump directly into the part of the work
+              that interests you most.
+            </p>
+      
+          </div>
+      
+        </div>
+      
+      
+        <!-- MAIN READING PATH -->
+      
+        <div class="entry-path">
+      
+          <div class="entry-path__intro">
+            <span class="tag">The main reading path</span>
+      
+            <p>
+              These three pages are the current canonical explanation
+              of World Amazing.
+            </p>
+          </div>
+      
+      
+          <div class="entry-path__grid">
+      
+            <a class="entry-path__card" href="basics.html">
+      
+              <span class="entry-path__number">01</span>
+      
+              <div>
+                <span class="entry-path__role">The orientation</span>
+      
+                <h3>The Basics</h3>
+      
+                <p>
+                  Understand the whole idea:
+                  what changes, why the pieces belong together,
+                  and the minimum needed to see the system clearly.
+                </p>
+      
+                <strong>Start here →</strong>
+              </div>
+      
+            </a>
+      
+      
+            <div class="entry-path__arrow" aria-hidden="true">→</div>
+      
+      
+            <a class="entry-path__card" href="roadmap.html#roadmap">
+      
+              <span class="entry-path__number">02</span>
+      
+              <div>
+                <span class="entry-path__role">The path</span>
+      
+                <h3>A Realistic Roadmap</h3>
+      
+                <p>
+                  See how humanity can move from the world we inherited
+                  toward better operating conditions without requiring
+                  one global switch.
+                </p>
+      
+                <strong>Follow the path →</strong>
+              </div>
+      
+            </a>
+      
+      
+            <div class="entry-path__arrow" aria-hidden="true">→</div>
+      
+      
+            <a class="entry-path__card" href="framework.html#framework-handoff">
+      
+              <span class="entry-path__number">03</span>
+      
+              <div>
+                <span class="entry-path__role">The details</span>
+      
+                <h3>The Full Framework</h3>
+      
+                <p>
+                  Open the machinery:
+                  human restoration, capacity, economics,
+                  governance, transition, protection,
+                  implementation, and what comes beyond relief.
+                </p>
+      
+                <strong>Inspect the framework →</strong>
+              </div>
+      
+            </a>
+      
+          </div>
+      
+        </div>
+      
+      
+        <!-- =========================================================
+             OTHER WAYS INTO THE WORK
+             ========================================================= -->
+        
+        <div class="entry-other">
+        
+          <div class="entry-other__intro">
+        
+            <span class="tag">
+              Other ways into the work
+            </span>
+        
+            <p>
+              Enter through participation, public conversation,
+              deeper investigation, compressed models,
+              operation, source material, or the longer companion.
+            </p>
+        
+          </div>
+        
+        
+          <!-- =======================================================
+               PARTICIPATE / PUBLIC / OPERATE
+               ======================================================= -->
+        
+          <div class="explore-live-grid">
+        
+        
+            <!-- MAKE IT AMAZING -->
+        
+            <a class="explore-card explore-card--live" href="https://makeitamazing.org/" target="_blank" rel="noopener">
+        
+              <div class="explore-card__top">
+        
+                <span class="explore-card__tag">
+                  Invitation
+                </span>
+        
+                <span class="explore-card__arrow" aria-hidden="true">
+                  ↗
+                </span>
+        
+              </div>
+        
+              <div class="explore-card__body">
+        
+                <h3>
+                  Make It Amazing
+                </h3>
+        
+                <p>
+                  The simplest public invitation:
+                  we inherited this world,
+                  and we can make something better.
+                </p>
+        
+              </div>
+        
+            </a>
+        
+        
+            <!-- WORLD AMAZING SHOW -->
+        
+            <a class="explore-card explore-card--live" href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+        
+              <div class="explore-card__top">
+        
+                <span class="explore-card__tag">
+                  Public
+                </span>
+        
+                <span class="explore-card__arrow" aria-hidden="true">
+                  ↗
+                </span>
+        
+              </div>
+        
+              <div class="explore-card__body">
+        
+                <h3>
+                  World Amazing Show
+                </h3>
+        
+                <p>
+                  Conversation, gathering, imagination,
+                  demonstration, music, questioning,
+                  and participation in public.
+                </p>
+        
+              </div>
+        
+            </a>
+        
+        
+            <!-- GLOBAL PARTNERSHIP -->
+        
+            <a class="explore-card explore-card--live" href="https://whomanatee.org/" target="_blank" rel="noopener">
+        
+              <div class="explore-card__top">
+        
+                <span class="explore-card__tag">
+                  Operational
+                </span>
+        
+                <span class="explore-card__arrow" aria-hidden="true">
+                  ↗
+                </span>
+        
+              </div>
+        
+              <div class="explore-card__body">
+        
+                <h3>
+                  Global Partnership
+                </h3>
+        
+                <p>
+                  The connected operating network
+                  through which World Amazing can move
+                  from framework into functioning reality.
+                </p>
+        
+              </div>
+        
+            </a>
+        
+          </div>
+        
+        
+          <!-- =======================================================
+               EXPAND / COMPRESS
+               ======================================================= -->
+        
+          <div class="explore-deep-grid">
+        
+        
+            <!-- PAPERS -->
+        
+            <a class="explore-card explore-card--deep explore-card--papers" href="papers.html">
+        
+              <div class="explore-card__top">
+        
+                <span class="explore-card__tag">
+                  Sustained depth
+                </span>
+        
+                <span class="explore-card__arrow" aria-hidden="true">
+                  →
+                </span>
+        
+              </div>
+        
+        
+              <div class="explore-card__body">
+        
+                <h3>
+                  The Amazing Papers
+                </h3>
+        
+                <strong class="explore-card__statement">
+                  Some questions need room.
+                </strong>
+        
+                <p>
+                  Take one question out of the whole,
+                  reconstruct it, examine its assumptions,
+                  and follow it further.
+                </p>
+        
+              </div>
+        
+        
+              <div class="explore-card__footer">
+        
+                <span>
+                  Relief
+                </span>
+        
+                <span>
+                  Childhood
+                </span>
+        
+                <span>
+                  Land
+                </span>
+        
+                <span>
+                  Flourishing
+                </span>
+        
+              </div>
+        
+            </a>
+        
+        
+            <!-- MEMES -->
+        
+            <a class="explore-card explore-card--deep explore-card--memes" href="memes.html">
+        
+              <div class="explore-card__top">
+        
+                <span class="explore-card__tag">
+                  Compressed models
+                </span>
+        
+                <span class="explore-card__arrow" aria-hidden="true">
+                  →
+                </span>
+        
+              </div>
+        
+        
+              <div class="explore-card__body">
+        
+                <h3>
+                  Memes
+                </h3>
+        
+                <strong class="explore-card__statement">
+                  Sometimes the hidden structure fits in one sentence.
+                </strong>
+        
+                <p>
+                  Compress an argument until an inherited assumption,
+                  contradiction, or mechanism becomes visible.
+                </p>
+        
+              </div>
+        
+        
+              <blockquote class="explore-card__quote">
+                Civilization does not perpetuate itself.
+                Humans perpetuate it.
+              </blockquote>
+        
+            </a>
+        
+          </div>
+        
+        
+          <!-- =======================================================
+               SOURCE / COMPANION
+               ======================================================= -->
+        
+          <div class="explore-utility-grid">
+        
+        
+            <!-- GITHUB -->
+        
+            <a class="explore-utility" href="https://github.com/worldamazing/plan" target="_blank" rel="noopener">
+        
+              <div>
+        
+                <span>
+                  Source / GitHub
+                </span>
+        
+                <strong>
+                  Inspect the source, documents, and development history.
+                </strong>
+        
+              </div>
+        
+              <span class="explore-utility__arrow" aria-hidden="true">
+                ↗
+              </span>
+        
+            </a>
+        
+        
+            <!-- OVERVIEW -->
+        
+            <a class="explore-utility" href="https://github.com/worldamazing/plan/blob/main/docs/overview.md" target="_blank"
+              rel="noopener">
+        
+              <div>
+        
+                <span>
+                  Extended companion / Overview
+                </span>
+        
+                <strong>
+                  Earlier long-form synthesis, additional treatments,
+                  transition material, and archive.
+                </strong>
+        
+              </div>
+        
+              <span class="explore-utility__arrow" aria-hidden="true">
+                ↗
+              </span>
+        
+            </a>
+        
+          </div>
+        
+        </div>
+      
+      </section>
+
+
+      <!-- WORLD AMAZING SHOW -->
+      <section class="public-section show-section" id="show">
+        <div class="show-banner">
+          <div>
+            <p class="eyebrow">Meet in public</p>
+
+            <h2>The World Amazing Show</h2>
+
+            <p>
+              World Amazing leaves the page and becomes conversation,
+              gathering, music, imagination, demonstration, and participation.
+            </p>
+          </div>
+
+          <div class="show-banner__action">
+            <p>
+              Hear it. Question it. Meet other humans. Help make it real.
+            </p>
+
+            <a class="button button--green" href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+              Visit the Show
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- FAQ -->      
+      <section class="public-section faq-section" id="faq">
+      
+        <div class="compact-heading">
+      
+          <p class="eyebrow">
+            FAQ
+          </p>
+      
+          <h2>
+            Ask the hard questions.
+          </h2>
+      
+          <p>
+            The obvious objections, practical questions,
+            and structural questions belong here too.
+          </p>
+      
+        </div>
+      
+      
+        <div class="faq-grid">
+      
+      
+          <!-- 01 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              Is this communism, socialism, capitalism, or some other ism?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                No inherited label contains the framework.
+                The useful question is what a structure actually does:
+                whether it protects life, preserves human autonomy,
+                coordinates resources coherently, expands human possibility,
+                and remains open to inspection and correction.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 02 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              Is this one world government?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                No. Global coordination does not require a global ruler.
+                Different functions belong at different scales.
+                Decisions should remain as close as possible to the humans,
+                places, systems, and problems they actually affect,
+                while larger problems can be coordinated across larger networks.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 03 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              Does everyone have to agree or live the same way?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                No. Shared foundations are not cultural uniformity.
+                Humans can disagree, investigate, criticize,
+                organize differently, create different ways of living,
+                and continue correcting the shared systems around them.
+                Humanity can be connected without becoming identical.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 04 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              Who is in charge?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                No permanent ruler owns the framework.
+                Authority follows function, scope, knowledge,
+                affected humans, evidence, and the needs of the situation.
+                Different people can carry different responsibilities
+                without becoming different classes of human.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 05 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              How does World Amazing avoid becoming another hierarchy?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                By making power visible and limited:
+                distributed nodes, scoped authority, transparent resources,
+                inspectable reasoning, open documentation, meaningful exit,
+                local autonomy, and structures that can be challenged,
+                revised, replaced, or dissolved when they stop serving humans.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 06 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              What stops everyone from doing nothing?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                Survival no longer needs to be the threat that forces contribution.
+                Necessary work still exists.
+                So do curiosity, mastery, usefulness, creation,
+                relationship, challenge, projects, exploration, play,
+                responsibility, and the desire to participate in something meaningful.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 07 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              How much would people actually have to work?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                There is no permanent work quota.
+                The direction is to keep reducing necessary human labor
+                through automation, redesign, shared contribution,
+                better coordination, and the removal of unnecessary work.
+                A much shorter workweek can be part of the transition.
+                It is not the ceiling.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 08 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              How is any of this paid for?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                World Amazing does not need the entire future funded before it can begin.
+                It can start by connecting resources that already exist:
+                human contribution, capital, land, buildings, tools,
+                technology, knowledge, institutions, productive capacity,
+                and voluntary participation.
+                As the network grows, more production and infrastructure
+                can operate through the shared system itself.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 09 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              What happens to businesses and owners?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                Useful capacity is not destroyed because it belongs to an inherited category.
+                Businesses can continue, partner, supply the network,
+                convert into new forms, sell assets or operations,
+                become projects inside the larger system,
+                or become unnecessary as better structures emerge.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 10 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              Why would people give up systems they already own or benefit from?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                They do not all have to.
+                World Amazing can build alongside existing systems,
+                cooperate with them, purchase from them,
+                integrate useful capacity, and replace functions
+                when better systems become available.
+                The transition does not require everyone to surrender
+                the old world before the new one can begin.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 11 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              What happens when someone causes serious harm?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                Protection comes first. Harm is stopped.
+                Then the work becomes truth, responsibility,
+                causal reconstruction, repair, secure separation where needed,
+                and restoration where possible.
+                Understanding why harm occurred does not make the harm acceptable,
+                and causing severe harm does not make a human disposable.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 12 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              Why not just reform current governments and institutions?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                Reform can reduce harm and improve existing systems.
+                But some inherited mechanisms exist because the surrounding structure
+                requires them.
+                World Amazing also builds alternatives:
+                systems capable of taking over useful functions
+                as better ways of organizing them become possible.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 13 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              How can this begin without controlling governments?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                Humans already organize land, buildings, capital,
+                knowledge, technology, services, production,
+                research, care, infrastructure, and projects outside
+                any single government.
+                World Amazing can begin wherever enough people and capacity
+                connect to make one part of the system real,
+                then expand through working relationships with everything around it.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 14 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              What is the Global Partnership?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                The Global Partnership is the connected human
+                and operational network through which World Amazing
+                begins functioning in reality.
+                Its first integrated operating node can begin locally
+                and expand through connection, replication, and cooperation.
+                Being first does not make any node permanently superior.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 15 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              Is World Amazing finished?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                No.
+                Some parts are already developed deeply.
+                Others still require design, research, papers,
+                engineering, testing, real-world operation,
+                observation, failure, revision, and further discovery.
+                A system built to remain correctable cannot be finished in that sense.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+          <!-- 16 -->
+      
+          <details class="faq-item">
+      
+            <summary>
+              This sounds impossible. Why take it seriously?
+            </summary>
+      
+            <div class="faq-answer">
+              <p>
+                Because the proposal can be broken into real questions,
+                real systems, and real experiments.
+                Food can be produced. Homes can be built.
+                Care can be delivered. Work can be automated.
+                Capacity can be connected. New institutions can be operated and tested.
+                The whole future does not need to be guaranteed in advance.
+                Better structures need to be built, examined, corrected,
+                and shown to work.
+              </p>
+            </div>
+      
+          </details>
+      
+      
+        </div>
+      
+      </section>
+
+
+      <!-- JOIN -->
+      <section class="public-section join-section" id="join">
+        <div class="join-panel join-panel--compact">
+          <p class="eyebrow">Join World Amazing</p>
+
+          <h2>$0 today. Email only.</h2>
+
+          <p>
+            Hear about participation, projects, local activity,
+            the Show, and the first nodes as they develop.
+          </p>
+
+          <a class="button button--green" href="https://forms.gle/AdHLCHzLEFkhTdPN8" target="_blank" rel="noopener">
+            Join World Amazing
+          </a>
+
+          <small>
+            This is not yet financial or operational membership.
+          </small>
+        </div>
+      </section>
+
+
+      
+
+
+      <!-- FOOTER -->
+      <footer class="site-footer">
+      
+        <div class="footer-grid">
+      
+      
+          <!-- ===================================================
+                   WORLD AMAZING
+                   =================================================== -->
+      
+          <div class="footer-brand">
+      
+            <a class="footer-brand__name" href="index.html">
+              World Amazing
+            </a>
+      
+            <p>
+              A public framework for human and civilizational restoration:
+              stabilize life, restore humans, connect capacity,
+              and build beyond relief.
+            </p>
+      
+            <p class="footer-brand__line">
+              Relief is the floor. Amazing is the ceiling.
+            </p>
+      
+      
+            <div class="footer-path">
+      
+              <span>
+                Start here
+              </span>
+      
+              <div class="footer-path__links">
+      
+                <a href="basics.html">
+                  Basics
+                </a>
+      
+                <span aria-hidden="true">
+                  →
+                </span>
+      
+                <a href="roadmap.html">
+                  Roadmap
+                </a>
+      
+                <span aria-hidden="true">
+                  →
+                </span>
+      
+                <a href="framework.html">
+                  Framework
+                </a>
+      
+              </div>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   UNDERSTAND
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              Understand
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="basics.html">
+                The Basics
+              </a>
+      
+              <a href="roadmap.html">
+                A Realistic Roadmap
+              </a>
+      
+              <a href="framework.html">
+                The Full Framework
+              </a>
+      
+              <a href="papers.html">
+                Amazing Papers
+              </a>
+      
+              <a href="memes.html">
+                Memes
+              </a>
+      
+              <a href="index.html#faq">
+                FAQ
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   ENTER
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              Enter
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+                Make It Amazing
+              </a>
+      
+              <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+                World Amazing Show
+              </a>
+      
+              <a href="https://whomanatee.org/" target="_blank" rel="noopener">
+                Global Partnership
+              </a>
+      
+              <a href="index.html#join">
+                Join
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   MORE
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              More
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="https://github.com/worldamazing/plan" target="_blank" rel="noopener">
+                GitHub
+              </a>
+      
+              <a href="https://github.com/worldamazing/plan/blob/main/docs/overview.md" target="_blank" rel="noopener">
+                Overview
+              </a>
+      
+              <a href="settings.html">
+                Settings
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+        </div>
+      
+      
+        <!-- =======================================================
+               BOTTOM
+               ======================================================= -->
+      
+        <div class="footer-bottom">
+      
+          <span>
+            World Amazing
+          </span>
+      
+          <span>
+            Relief is the floor. Amazing is the ceiling.
+          </span>
+      
+        </div>
+      
+      </footer>
+    </div>
+  </main> 
+
+  
+  <script src="assets/site-settings.js"></script>
+  <script src="assets/topbar.js"></script>
 </body>
 
 </html>

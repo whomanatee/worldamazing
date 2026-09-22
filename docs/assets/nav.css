@@ -1,0 +1,282 @@
+:root {
+    --wa-topbar-height: 74px;
+    --wa-toc-gap: 16px;
+}
+
+/* =========================================================
+   SHARED TOC SHELL
+   ========================================================= */
+
+:root {
+    --wa-topbar-height: 74px;
+    --wa-toc-gap: 16px;
+    --wa-toc-rail-gutter: 1.35rem;
+}
+
+.wa-toc__sticky {
+    position: sticky;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    top: calc(var(--wa-topbar-height) + var(--wa-toc-gap));
+
+    height: calc(100dvh - var(--wa-topbar-height) - var(--wa-toc-gap) - var(--wa-toc-gap));
+
+    max-height: none;
+
+    box-sizing: border-box;
+
+    transition:
+        top 140ms ease,
+        height 140ms ease;
+}
+
+body:has(.topbar-wrap.is-hidden) .wa-toc__sticky {
+    top: var(--wa-toc-gap);
+
+    height: calc(100dvh - var(--wa-toc-gap) - var(--wa-toc-gap));
+
+    transition-delay: 100ms;
+}
+
+
+/* =========================================================
+   FIXED TOP
+   ========================================================= */
+
+.wa-toc__header {
+    flex: 0 0 auto;
+
+    margin-bottom: 1rem;
+}
+
+
+.wa-toc__site {
+    display: block;
+
+    margin-bottom: 0.35rem;
+
+    color: var(--green);
+
+    font-size: 0.62rem;
+    font-weight: 900;
+    line-height: 1;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    text-decoration: none;
+}
+
+
+.wa-toc__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 0.75rem;
+
+    color: var(--white);
+
+    font-size: 1.05rem;
+    font-weight: 850;
+    line-height: 1.15;
+
+    text-decoration: none;
+}
+
+
+.wa-toc__title>span:last-child {
+    color: var(--muted);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+
+.wa-toc__site:hover,
+.wa-toc__title:hover {
+    color: var(--white);
+}
+
+
+.wa-toc__header p {
+    max-width: 22ch;
+
+    margin: 0.45rem 0 0;
+
+    color: var(--muted);
+
+    font-size: 0.73rem;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   SCROLLABLE MIDDLE
+   ========================================================= */
+
+.wa-toc__body {
+    position: relative;
+
+    flex: 1 1 auto;
+    min-height: 0;
+
+    overflow: hidden;
+}
+
+
+.wa-toc__scroll {
+    height: 100%;
+    min-height: 0;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    /*
+     * Extend the actual scrolling viewport back to the track,
+     * then inset its contents again.
+     * This leaves physical room for the active rail.
+     */
+    margin-left: calc(-1 * var(--wa-toc-rail-gutter));
+    padding-left: var(--wa-toc-rail-gutter);
+
+    padding-right: 0.35rem;
+    padding-bottom: 1.5rem;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+}
+
+.wa-toc [data-toc-target] {
+    position: relative;
+}
+
+.wa-toc [data-toc-target]::before {
+    left: -0.07rem;
+}
+
+/* =========================================================
+   MORE-BELOW CUE
+   ========================================================= */
+
+.wa-toc__more {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    height: 34px;
+
+    padding-bottom: 0.1rem;
+
+    background:
+        linear-gradient(to bottom,
+            transparent,
+            var(--bg) 72%);
+
+    color: var(--green);
+
+    font-size: 0.82rem;
+    font-weight: 800;
+
+    pointer-events: none;
+
+    opacity: 0;
+    transform: translateY(-3px);
+
+    transition:
+        opacity 160ms ease,
+        transform 160ms ease;
+}
+
+
+.wa-toc__body.has-more .wa-toc__more {
+    opacity: 0.82;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   FIXED BOTTOM
+   ========================================================= */
+
+.wa-toc__footer {
+    flex: 0 0 auto;
+
+    margin-top: 0.75rem;
+    padding-top: 0.9rem;
+
+    border-top: 1px solid var(--line-soft);
+}
+
+
+.wa-toc__footer nav {
+    display: grid;
+    gap: 0.15rem;
+
+    margin-top: 0.35rem;
+}
+
+
+.wa-toc__footer a {
+    display: flex;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    padding: 0.3rem 0;
+
+    color: var(--muted);
+
+    font-size: 0.7rem;
+    font-weight: 650;
+    line-height: 1.2;
+
+    text-decoration: none;
+}
+
+
+.wa-toc__footer a:hover {
+    color: var(--white);
+}
+
+
+.wa-toc__footer a>span {
+    width: 0.75rem;
+
+    color: var(--green);
+
+    font-size: 0.62rem;
+    text-align: center;
+}
+
+
+
+/* =========================================================
+   TOPBAR — AUTO HIDE ON NAV PAGES
+   ========================================================= */
+
+.topbar-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    transform: translateY(0);
+
+    transition:
+        transform 220ms ease;
+
+    will-change: transform;
+}
+
+.topbar-wrap.is-hidden {
+    transform: translateY(-100%);
+}

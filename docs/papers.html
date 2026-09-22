@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="color-scheme" content="dark only">
+
+    <meta name="description"
+        content="The Amazing Papers: focused World Amazing investigations into questions that deserve sustained treatment of their own.">
+
+    <title>The Amazing Papers — World Amazing</title>
+
+    <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="assets/global-nav.css" />
+    <link rel="stylesheet" href="assets/footer.css" />
+
+    <style>
+        /* =========================================================
+           AMAZING PAPERS
+           ========================================================= */
+
+        .papers-page {
+            padding:
+                clamp(4rem, 7vw, 6.5rem) 0 clamp(5rem, 9vw, 8rem);
+        }
+
+
+        /* =========================================================
+        HERO
+        ========================================================= */
+
+        .papers-hero {
+            position: relative;
+
+            display: grid;
+            grid-template-columns:
+                minmax(0, 1.25fr) minmax(260px, 0.75fr);
+
+            gap: clamp(2rem, 6vw, 6rem);
+            align-items: end;
+
+            padding:
+                clamp(2rem, 5vw, 4rem);
+
+            border: 1px solid var(--line);
+            border-radius: clamp(22px, 3vw, 34px);
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 8% 0%,
+                    rgba(139, 211, 255, 0.1),
+                    transparent 28rem),
+                linear-gradient(145deg,
+                    var(--surface-2),
+                    var(--surface));
+        }
+
+
+        .papers-hero::after {
+            content: "PAPERS";
+
+            position: absolute;
+            right: -0.04em;
+            bottom: -0.22em;
+
+            color: rgba(255, 255, 255, 0.023);
+
+            font-size: clamp(6rem, 19vw, 16rem);
+            font-weight: 950;
+            line-height: 0.8;
+            letter-spacing: -0.08em;
+
+            pointer-events: none;
+        }
+
+
+        .papers-hero__main,
+        .papers-hero__method {
+            position: relative;
+            z-index: 1;
+        }
+
+
+        .papers-hero h1 {
+            max-width: 900px;
+
+            margin-top: 0.55rem;
+
+            font-size: clamp(3.4rem, 8vw, 7rem);
+            line-height: 0.86;
+            letter-spacing: -0.065em;
+        }
+
+
+        .papers-hero__lead {
+            max-width: 780px;
+
+            margin-top: 1.4rem;
+
+            color: var(--soft);
+
+            font-size: clamp(1.08rem, 1.9vw, 1.36rem);
+            line-height: 1.65;
+        }
+
+
+        .papers-hero__method {
+            padding-left: clamp(1.25rem, 3vw, 2rem);
+
+            border-left: 1px solid var(--line-soft);
+        }
+
+
+        .papers-hero__method>span {
+            display: block;
+
+            color: var(--blue);
+
+            font-size: 0.67rem;
+            font-weight: 900;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+
+        .papers-hero__method>strong {
+            display: block;
+
+            margin-top: 0.7rem;
+
+            color: var(--white);
+
+            font-size: clamp(1.25rem, 2.3vw, 1.7rem);
+            line-height: 1.35;
+        }
+
+
+        .papers-hero__method>p {
+            margin-top: 0.9rem;
+
+            color: var(--muted);
+
+            font-size: 0.91rem;
+            line-height: 1.65;
+        }
+
+
+        /* =========================================================
+        LIBRARY
+        ========================================================= */
+
+        .papers-library {
+            margin-top: clamp(3.5rem, 7vw, 6rem);
+        }
+
+
+        .papers-library__head {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            align-items: baseline;
+
+            padding-bottom: 1rem;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+
+        .papers-library__head h2 {
+            margin: 0;
+
+            font-size: clamp(1.7rem, 3vw, 2.5rem);
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+
+
+        .papers-library__head>span {
+            color: var(--muted);
+
+            font-size: 0.67rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+        PAPER INDEX
+        ========================================================= */
+
+        .paper-list {
+            display: grid;
+        }
+
+
+        .paper-row {
+            display: grid;
+            grid-template-columns:
+                58px minmax(0, 1fr) 120px;
+
+            gap: clamp(1rem, 3vw, 2.5rem);
+            align-items: center;
+
+            min-width: 0;
+
+            padding:
+                clamp(1.5rem, 3vw, 2.25rem) 0;
+
+            border-bottom: 1px solid var(--line-soft);
+
+            color: inherit;
+
+            text-decoration: none;
+
+            transition:
+                padding-left 160ms ease,
+                padding-right 160ms ease,
+                background 160ms ease;
+        }
+
+
+        .paper-row:hover,
+        .paper-row:focus-visible {
+            padding-left: 1rem;
+            padding-right: 1rem;
+
+            background:
+                linear-gradient(90deg,
+                    rgba(139, 211, 255, 0.045),
+                    rgba(139, 211, 255, 0.012) 55%,
+                    transparent);
+        }
+
+
+        .paper-row__number {
+            align-self: start;
+
+            padding-top: 0.2rem;
+
+            color: rgba(139, 211, 255, 0.48);
+
+            font-family:
+                ui-monospace,
+                SFMono-Regular,
+                Menlo,
+                monospace;
+
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+        }
+
+
+        .paper-row__main {
+            max-width: 920px;
+        }
+
+
+        .paper-row__main h3 {
+            margin: 0;
+
+            color: var(--white);
+
+            font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+            line-height: 1.24;
+            letter-spacing: -0.025em;
+        }
+
+
+        .paper-row__main p {
+            max-width: 780px;
+
+            margin-top: 0.7rem;
+
+            color: var(--muted);
+
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+
+        .paper-row__action {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.65rem;
+            align-items: center;
+
+            color: var(--blue);
+
+            font-size: 0.73rem;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+        }
+
+
+        .paper-row__action strong {
+            font-size: 1rem;
+
+            transition:
+                transform 160ms ease,
+                color 160ms ease;
+        }
+
+
+        .paper-row:hover .paper-row__action strong,
+        .paper-row:focus-visible .paper-row__action strong {
+            color: var(--green);
+
+            transform: translate(2px, -2px);
+        }
+
+
+        /* =========================================================
+        CONTINUING FIELD
+        ========================================================= */
+
+        .papers-continuing {
+            display: grid;
+            grid-template-columns:
+                minmax(140px, 0.3fr) minmax(0, 1fr);
+
+            gap: clamp(1.5rem, 4vw, 4rem);
+
+            margin-top: clamp(2.5rem, 5vw, 4rem);
+            padding-top: 1.4rem;
+
+            border-top: 1px solid var(--line);
+        }
+
+
+        .papers-continuing__label {
+            color: var(--green);
+
+            font-size: 0.67rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+
+        .papers-continuing p {
+            max-width: 760px;
+
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 0.94rem;
+            line-height: 1.65;
+        }
+
+
+        /* =========================================================
+        RETURN
+        ========================================================= */
+
+        .papers-return {
+            margin-top: clamp(3rem, 6vw, 5rem);
+        }
+
+
+        .papers-return a {
+            color: var(--blue);
+
+            font-weight: 850;
+            text-decoration: none;
+        }
+
+
+        .papers-return a:hover,
+        .papers-return a:focus {
+            color: var(--white);
+        }
+
+
+        /* =========================================================
+        RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .papers-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .papers-hero__method {
+                max-width: 760px;
+
+                padding-top: 1.4rem;
+                padding-left: 0;
+
+                border-top: 1px solid var(--line-soft);
+                border-left: 0;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .paper-row {
+                grid-template-columns:
+                    42px minmax(0, 1fr);
+
+                gap: 0.9rem;
+            }
+
+            .paper-row__action {
+                grid-column: 2;
+
+                justify-content: flex-start;
+
+                margin-top: 0.35rem;
+            }
+
+            .paper-row:hover,
+            .paper-row:focus-visible {
+                padding-left: 0.6rem;
+                padding-right: 0.6rem;
+            }
+
+            .papers-continuing {
+                grid-template-columns: 1fr;
+
+                gap: 0.65rem;
+            }
+
+        }
+
+
+        @media (max-width: 520px) {
+
+            .papers-page {
+                padding-top: 3rem;
+            }
+
+            .papers-hero {
+                padding: 1.5rem;
+            }
+
+            .papers-library__head {
+                display: block;
+            }
+
+            .papers-library__head>span {
+                display: block;
+
+                margin-top: 0.65rem;
+            }
+
+            .paper-row {
+                grid-template-columns: 1fr;
+
+                padding:
+                    1.4rem 0;
+            }
+
+            .paper-row__number {
+                padding: 0;
+            }
+
+            .paper-row__action {
+                grid-column: auto;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =======================================================
+       TOPBAR
+       ======================================================= -->
+
+    <header class="site-header topbar-wrap">
+  
+    <div class="shell topbar">
+  
+      <a class="brand" href="index.html#top">
+        <span class="brand__full">World Amazing</span>
+        <span class="brand__short">WA</span>
+        <span class="brand__tagline">— the whole plan, clearly explained</span>
+      </a>
+  
+  
+      <!-- DESKTOP NAV -->
+  
+      <nav class="nav" aria-label="Primary navigation">
+  
+        <div class="nav__docs">
+          <a href="basics.html">Basics</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="framework.html">Framework</a>
+        </div>
+  
+  
+        <div class="nav__explore">
+          <a href="papers.html">Papers</a>
+          <a href="memes.html">Memes</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+  
+  
+        <div class="nav__actions">
+  
+          <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+            Make It Amazing
+            <span class="nav__external" aria-hidden="true">↗</span>
+          </a>
+  
+          <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+            Show
+            <span class="nav__external" aria-hidden="true">↗</span>
+          </a>
+  
+          <a class="nav__join" href="index.html#join">
+            Join
+          </a>
+  
+        </div>
+  
+      </nav>
+  
+  
+      <!-- MOBILE ACTIONS -->
+  
+      <div class="nav__mobile-actions">
+  
+        <a class="nav__join" href="index.html#join">
+          Join
+        </a>
+  
+        <button class="nav__menu-button" type="button" aria-expanded="false" aria-controls="mobile-navigation">
+          <span>More</span>
+          <span class="nav__menu-chevron" aria-hidden="true"></span>
+        </button>
+  
+      </div>
+  
+    </div>
+  
+  
+    <!-- MOBILE MENU -->
+  
+    <nav class="nav-mobile" id="mobile-navigation" aria-label="Mobile navigation" hidden>
+  
+      <div class="shell nav-mobile__inner">
+        <div class="nav-mobile__group">
+        
+          <span class="nav-mobile__label">
+            Start here
+          </span>
+        
+          <a href="basics.html">Basics</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="framework.html">Framework</a>
+        
+        </div>
+        
+        
+        <div class="nav-mobile__group">
+        
+          <span class="nav-mobile__label">
+            Explore
+          </span>
+        
+          <a href="papers.html">Papers</a>
+          <a href="memes.html">Memes</a>
+          <a href="index.html#faq">FAQ</a>
+        
+        </div>
+        
+        
+        <div class="nav-mobile__group nav-mobile__group--enter">
+        
+          <span class="nav-mobile__label">
+            Enter
+          </span>
+        
+          <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+            Make It Amazing ↗
+          </a>
+        
+          <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+            Show ↗
+          </a>
+        
+          <a href="index.html#join">
+            Join
+          </a>
+        
+        </div>
+  
+        
+  
+      </div>
+  
+    </nav>
+  
+  </header>
+
+
+    <main id="top">
+
+        <div class="shell">
+
+            <div class="papers-page">
+            
+            
+                <!-- =======================================================
+                   HERO
+                   ======================================================= -->
+            
+                <header class="papers-hero">
+            
+                    <div class="papers-hero__main">
+            
+                        <p class="eyebrow">
+                            Focused work
+                        </p>
+            
+                        <h1>
+                            The Amazing Papers
+                        </h1>
+            
+                        <p class="papers-hero__lead">
+                            Some questions need room.
+                            The papers take one part of the larger World Amazing framework,
+                            reconstruct the thing underneath the inherited framing,
+                            and follow the question further.
+                        </p>
+            
+                    </div>
+            
+            
+                    <div class="papers-hero__method">
+            
+                        <span>
+                            The method
+                        </span>
+            
+                        <strong>
+                            Do not inherit the category.
+                            Reconstruct the thing.
+                        </strong>
+            
+                        <p>
+                            The framework connects the system.
+                            A paper slows one question down long enough
+                            to inspect its assumptions, causation,
+                            implications, and possible alternatives.
+                        </p>
+            
+                    </div>
+            
+                </header>
+            
+            
+                <!-- =======================================================
+                   PAPERS
+                   ======================================================= -->
+            
+                <section class="papers-library">
+            
+                    <div class="papers-library__head">
+            
+                        <h2>
+                            The papers
+                        </h2>
+            
+                        <span>
+                            04 current papers
+                        </span>
+            
+                    </div>
+            
+            
+                    <div class="paper-list">
+            
+            
+                        <!-- 01 -->
+            
+                        <a class="paper-row"
+                            href="https://github.com/worldamazing/plan/blob/main/docs/amazing-papers/on-human-flourishing.md"
+                            target="_blank" rel="noopener">
+            
+                            <span class="paper-row__number">
+                                01
+                            </span>
+            
+            
+                            <div class="paper-row__main">
+            
+                                <h3>
+                                    How the World Amazing Plan Creates the Conditions
+                                    for Human Flourishing Worldwide
+                                </h3>
+            
+                                <p>
+                                    What conditions allow human life to flourish,
+                                    and what changes when civilization is organized
+                                    around creating those conditions rather than repeatedly
+                                    managing the damage produced when they are absent?
+                                </p>
+            
+                            </div>
+            
+            
+                            <div class="paper-row__action">
+            
+                                <span>
+                                    Read paper
+                                </span>
+            
+                                <strong aria-hidden="true">
+                                    ↗
+                                </strong>
+            
+                            </div>
+            
+                        </a>
+            
+            
+                        <!-- 02 -->
+            
+                        <a class="paper-row" href="https://github.com/worldamazing/plan/blob/main/docs/amazing-papers/on-relief.md"
+                            target="_blank" rel="noopener">
+            
+                            <span class="paper-row__number">
+                                02
+                            </span>
+            
+            
+                            <div class="paper-row__main">
+            
+                                <h3>
+                                    On Relief
+                                </h3>
+            
+                                <p>
+                                    What changes when chronic survival pressure
+                                    stops being treated as the ordinary operating condition
+                                    of human life—and why relief is the floor,
+                                    rather than the ceiling.
+                                </p>
+            
+                            </div>
+            
+            
+                            <div class="paper-row__action">
+            
+                                <span>
+                                    Read paper
+                                </span>
+            
+                                <strong aria-hidden="true">
+                                    ↗
+                                </strong>
+            
+                            </div>
+            
+                        </a>
+            
+            
+                        <!-- 03 -->
+            
+                        <a class="paper-row"
+                            href="https://github.com/worldamazing/plan/blob/main/docs/amazing-papers/on-childhood.md"
+                            target="_blank" rel="noopener">
+            
+                            <span class="paper-row__number">
+                                03
+                            </span>
+            
+            
+                            <div class="paper-row__main">
+            
+                                <h3>
+                                    On Childhood
+                                </h3>
+            
+                                <p>
+                                    How civilization enters the developing human
+                                    through relationship, safety, fear, authority,
+                                    belonging, pressure, and repeated experience—and how
+                                    those humans later participate in reproducing the world.
+                                </p>
+            
+                            </div>
+            
+            
+                            <div class="paper-row__action">
+            
+                                <span>
+                                    Read paper
+                                </span>
+            
+                                <strong aria-hidden="true">
+                                    ↗
+                                </strong>
+            
+                            </div>
+            
+                        </a>
+            
+            
+                        <!-- 04 -->
+            
+                        <a class="paper-row" href="https://github.com/worldamazing/blob/tree/main/docs/amazing-papers/on-land.md"
+                            target="_blank" rel="noopener">
+            
+                            <span class="paper-row__number">
+                                04
+                            </span>
+            
+            
+                            <div class="paper-row__main">
+            
+                                <h3>
+                                    On Land
+                                </h3>
+            
+                                <p>
+                                    Land before property, territory, jurisdiction,
+                                    border, asset, or nation:
+                                    ownership, movement, stewardship, belonging,
+                                    and the structures humans have built on physical Earth.
+                                </p>
+            
+                            </div>
+            
+            
+                            <div class="paper-row__action">
+            
+                                <span>
+                                    Read paper
+                                </span>
+            
+                                <strong aria-hidden="true">
+                                    ↗
+                                </strong>
+            
+                            </div>
+            
+                        </a>
+            
+            
+                    </div>
+            
+                </section>
+            
+            
+                <!-- =======================================================
+                   CONTINUING FIELD
+                   ======================================================= -->
+            
+                <div class="papers-continuing">
+            
+                    <span class="papers-continuing__label">
+                        Continuing work
+                    </span>
+            
+                    <p>
+                        More papers will be added wherever a question,
+                        mechanism, institution, or inherited category
+                        needs sustained treatment of its own.
+                    </p>
+            
+                </div>
+            
+            
+                <div class="papers-return">
+            
+                    <a href="index.html#enter-the-work">
+                        ← Explore the rest of World Amazing
+                    </a>
+            
+                </div>
+            
+            </div>
+
+            <footer class="site-footer">
+      
+        <div class="footer-grid">
+      
+      
+          <!-- ===================================================
+                   WORLD AMAZING
+                   =================================================== -->
+      
+          <div class="footer-brand">
+      
+            <a class="footer-brand__name" href="index.html">
+              World Amazing
+            </a>
+      
+            <p>
+              A public framework for human and civilizational restoration:
+              stabilize life, restore humans, connect capacity,
+              and build beyond relief.
+            </p>
+      
+            <p class="footer-brand__line">
+              Relief is the floor. Amazing is the ceiling.
+            </p>
+      
+      
+            <div class="footer-path">
+      
+              <span>
+                Start here
+              </span>
+      
+              <div class="footer-path__links">
+      
+                <a href="basics.html">
+                  Basics
+                </a>
+      
+                <span aria-hidden="true">
+                  →
+                </span>
+      
+                <a href="roadmap.html">
+                  Roadmap
+                </a>
+      
+                <span aria-hidden="true">
+                  →
+                </span>
+      
+                <a href="framework.html">
+                  Framework
+                </a>
+      
+              </div>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   UNDERSTAND
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              Understand
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="basics.html">
+                The Basics
+              </a>
+      
+              <a href="roadmap.html">
+                A Realistic Roadmap
+              </a>
+      
+              <a href="framework.html">
+                The Full Framework
+              </a>
+      
+              <a href="papers.html">
+                Amazing Papers
+              </a>
+      
+              <a href="memes.html">
+                Memes
+              </a>
+      
+              <a href="index.html#faq">
+                FAQ
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   ENTER
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              Enter
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+                Make It Amazing
+              </a>
+      
+              <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+                World Amazing Show
+              </a>
+      
+              <a href="https://whomanatee.org/" target="_blank" rel="noopener">
+                Global Partnership
+              </a>
+      
+              <a href="index.html#join">
+                Join
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+          <!-- ===================================================
+                   MORE
+                   =================================================== -->
+      
+          <div class="footer-group">
+      
+            <h4>
+              More
+            </h4>
+      
+            <div class="footer-links">
+      
+              <a href="https://github.com/worldamazing/plan" target="_blank" rel="noopener">
+                GitHub
+              </a>
+      
+              <a href="https://github.com/worldamazing/plan/blob/main/docs/overview.md" target="_blank" rel="noopener">
+                Overview
+              </a>
+      
+              <a href="settings.html">
+                Settings
+              </a>
+      
+            </div>
+      
+          </div>
+      
+      
+        </div>
+      
+      
+        <!-- =======================================================
+               BOTTOM
+               ======================================================= -->
+      
+        <div class="footer-bottom">
+      
+          <span>
+            World Amazing
+          </span>
+      
+          <span>
+            Relief is the floor. Amazing is the ceiling.
+          </span>
+      
+        </div>
+      
+      </footer>
+        </div>
+
+    </main>
+
+
+    <script src="assets/topbar.js"></script>
+    <script src="assets/site-settings.js"></script>
+</body>
+
+</html>

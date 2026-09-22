@@ -1,0 +1,82 @@
+/* =========================================================
+   CANONICAL DOCUMENT ENVIRONMENT
+   Basics / Roadmap / Framework
+   ========================================================= */
+
+.wa-doc-page {
+    position: relative;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+}
+
+
+.wa-doc-environment {
+    position: relative;
+
+    width: 100%;
+
+    padding: 2.3rem 0;
+
+    background: #242b31;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+
+.wa-doc-environment::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        repeating-linear-gradient(135deg,
+            rgba(255, 255, 255, 0.055) 0,
+            rgba(255, 255, 255, 0.055) 1px,
+            transparent 1px,
+            transparent 8px);
+
+    opacity: 0.65;
+}
+
+
+.wa-doc-surface {
+    position: relative;
+    z-index: 1;
+
+    padding-right: 0.5rem;
+    padding-bottom: 2rem;
+
+    background: var(--bg);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.18);
+}
+
+
+.wa-doc-main {
+    min-width: 0;
+
+    padding:
+        clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem) clamp(2.5rem, 5vw, 4rem);
+}
+
+
+@media (max-width: 640px) {
+
+    .wa-doc-environment {
+        padding: 1rem 0;
+    }
+
+    .wa-doc-surface {
+        border-radius: 16px;
+    }
+
+}
