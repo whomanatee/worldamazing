@@ -935,7 +935,6 @@
     }
 
     @media (max-width: 760px) {
-
       .change-row {
         grid-template-columns: 1fr;
         gap: 0.75rem;
@@ -943,12 +942,17 @@
 
       .change-row__arrow {
         min-height: 24px;
-        justify-content: start;
 
-        transform: rotate(90deg);
-        transform-origin: center;
+        transform: none;
+
+        font-size: 0;
       }
 
+      .change-row__arrow::before {
+        content: "↓";
+
+        font-size: 1.6rem;
+      }
     }
   </style>
 
