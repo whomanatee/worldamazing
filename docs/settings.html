@@ -632,6 +632,8 @@
 
 
     .rotary {
+      --rotation: -46deg; /* default to min */
+
       position: relative;
 
       width: 104px;
@@ -674,7 +676,7 @@
 
       transform:
         translateX(-50%)
-        rotate(var(--rotation, 0deg));
+        rotate(var(--rotation));
 
       transform-origin: 50% 39px;
 
@@ -1484,6 +1486,7 @@
                       >
 
                         <button
+                          class="is-selected"
                           type="button"
                           data-value="rare"
                         >
@@ -1491,7 +1494,6 @@
                         </button>
 
                         <button
-                          class="is-selected"
                           type="button"
                           data-value="occasional"
                         >
@@ -1535,6 +1537,7 @@
                       >
 
                         <button
+                          class="is-selected"
                           type="button"
                           data-value="subtle"
                         >
@@ -1542,7 +1545,6 @@
                         </button>
 
                         <button
-                          class="is-selected"
                           type="button"
                           data-value="cinematic"
                         >
@@ -1573,8 +1575,8 @@
                     class="flare-preview__status"
                     id="flare-readout"
                   >
-                    AUTO / OCCASIONAL<br>
-                    OUTPUT / CINEMATIC
+                    STANDBY / RARE <br>
+                    OUTPUT / SUBTLE
                   </div>
 
 
