@@ -92,6 +92,9 @@
     padding: 0 0.15rem;
 }
 
+.nav__explore a[aria-current="page"] {
+    color: var(--white);
+}
 
 /* =========================================================
    ENTRY / ACTIONS

@@ -1,0 +1,2149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark only">
+    <meta name="description" content="World Amazing is an open-source civilizational framework for guaranteeing life,
+    returning human time, restoring the human, and building systems organized around relief, 
+    truth, cooperation, and flourishing.">
+    <title>World Amazing</title>
+
+    <link rel="stylesheet" href="assets/main.css" />
+    <link rel="stylesheet" href="assets/footer.css" />
+    <link rel="stylesheet" href="assets/global-nav.css" />
+
+    <!-- HOMEPAGE SECTION HEADS -->
+    <style>
+        /* =========================================================
+       HOMEPAGE SECTION HEADS
+       ========================================================= */
+
+        .home-section-head {
+            position: relative;
+
+            display: grid;
+            grid-template-columns:
+                minmax(130px, 0.28fr) minmax(0, 1fr);
+
+            gap: clamp(1.5rem, 5vw, 5rem);
+            align-items: end;
+
+            padding:
+                clamp(1.6rem, 3vw, 2.4rem) clamp(1.4rem, 3vw, 2.5rem);
+
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(110deg,
+                    rgba(255, 255, 255, 0.018),
+                    transparent 52%),
+                var(--surface);
+        }
+
+
+        /* accent */
+
+        .home-section-head::before {
+            content: "";
+
+            position: absolute;
+            top: -1px;
+            left: 0;
+
+            width: clamp(90px, 14vw, 170px);
+            height: 3px;
+
+            border-radius: 999px;
+        }
+
+
+        .home-section-head--green::before {
+            background: var(--green);
+            box-shadow:
+                0 0 22px rgba(185, 247, 207, 0.16);
+        }
+
+
+        /* marker */
+
+        .home-section-head__marker {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            min-height: 100%;
+        }
+
+
+        .home-section-head__number {
+            color: rgba(185, 247, 207, 0.16);
+
+            font-size: clamp(3.8rem, 8vw, 7rem);
+            font-weight: 950;
+            line-height: 0.8;
+            letter-spacing: -0.07em;
+        }
+
+
+        .home-section-head__label {
+            margin-top: 1rem;
+
+            color: var(--green);
+
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+
+        /* content */
+
+        .home-section-head__content {
+            position: relative;
+            z-index: 1;
+        }
+
+
+        .home-section-head__content h2 {
+            max-width: 900px;
+
+            margin: 0;
+
+            font-size: clamp(2rem, 4.2vw, 3.8rem);
+            line-height: 0.98;
+            letter-spacing: -0.05em;
+        }
+
+
+        .home-section-head__content>p {
+            max-width: 760px;
+
+            margin-top: 1rem;
+
+            color: var(--muted);
+
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+
+        @media (max-width: 700px) {
+
+            .home-section-head {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .home-section-head__marker {
+                min-height: 0;
+            }
+
+            .home-section-head__number {
+                font-size: 3.5rem;
+            }
+
+            .home-section-head__label {
+                margin-top: 0.7rem;
+            }
+
+        }
+    </style>
+
+    <!-- CLOSING SECTIONS -->
+    <style>
+        /* =========================================================
+        COMPACT PUBLIC ENDING
+        ========================================================= */
+    
+        .public-section {
+            position: relative;
+            padding: clamp(62px, 8vw, 92px) 0;
+            padding-top: 42px;
+        }
+    
+        .compact-heading {
+            max-width: 900px;
+        }
+    
+        .compact-heading>p:last-child {
+            max-width: 760px;
+    
+            margin-top: 0.9rem;
+    
+            color: var(--muted);
+        }
+    
+    
+        .compact-heading--center {
+            max-width: 900px;
+            margin-inline: auto;
+            text-align: center;
+        }
+    
+        .compact-heading--center h2,
+        .compact-heading--center>p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        .compact-heading--center .eyebrow {
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+
+    <style>
+        /* =========================================================
+        QUESTIONS / FAQ PAGE
+        ========================================================= */
+
+        .faq-page {
+        padding:
+            clamp(4rem, 7vw, 6.5rem)
+            0
+            clamp(5rem, 9vw, 8rem);        
+        }
+
+
+        /* =========================================================
+        HERO
+        ========================================================= */
+
+        .faq-hero {
+        position: relative;
+
+        display: grid;
+        grid-template-columns:
+            minmax(0, 1.2fr)
+            minmax(260px, 0.8fr);
+
+        gap: clamp(2rem, 6vw, 6rem);
+        align-items: end;
+
+        padding:
+            clamp(2rem, 5vw, 4rem);
+
+        border: 1px solid rgba(185, 247, 207, 0.2);
+        border-radius: clamp(22px, 3vw, 34px);
+
+        overflow: hidden;
+
+        background:
+            radial-gradient(
+            circle at 7% 0%,
+            rgba(185, 247, 207, 0.09),
+            transparent 28rem
+            ),
+            radial-gradient(
+            circle at 100% 100%,
+            rgba(139, 211, 255, 0.06),
+            transparent 26rem
+            ),
+            linear-gradient(
+            145deg,
+            var(--surface-2),
+            var(--surface)
+            );
+        }
+
+
+        .faq-hero::after {
+        content: "QUESTIONS";
+
+        position: absolute;
+        right: -0.04em;
+        bottom: -0.2em;
+
+        color: rgba(255, 255, 255, 0.022);
+
+        font-size: clamp(5.5rem, 17vw, 14rem);
+        font-weight: 950;
+        line-height: 0.8;
+        letter-spacing: -0.085em;
+
+        pointer-events: none;
+        }
+
+
+        .faq-hero__main,
+        .faq-hero__side {
+        position: relative;
+        z-index: 1;
+        }
+
+
+        .faq-hero h1 {
+        max-width: 900px;
+
+        margin-top: 0.55rem;
+
+        font-size: clamp(4rem, 10vw, 8rem);
+        line-height: 0.8;
+        letter-spacing: -0.075em;
+        }
+
+
+        .faq-hero__lead {
+        max-width: 760px;
+
+        margin-top: 1.4rem;
+
+        color: var(--soft);
+
+        font-size: clamp(1.08rem, 1.9vw, 1.36rem);
+        line-height: 1.6;
+        }
+
+
+        /* =========================================================
+        HERO SIDE
+        ========================================================= */
+
+        .faq-hero__side {
+        padding-left:
+            clamp(1.25rem, 3vw, 2rem);
+
+        border-left: 1px solid var(--line-soft);
+        }
+
+
+        .faq-hero__side > span {
+        display: block;
+
+        color: var(--green);
+
+        font-size: 0.67rem;
+        font-weight: 900;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        }
+
+
+        .faq-hero__side > strong {
+        display: block;
+
+        margin-top: 0.7rem;
+
+        color: var(--white);
+
+        font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+        line-height: 1.3;
+        letter-spacing: -0.025em;
+        }
+
+
+        .faq-hero__side > p {
+        max-width: 520px;
+
+        margin-top: 0.9rem;
+
+        color: var(--muted);
+
+        font-size: 0.92rem;
+        line-height: 1.65;
+        }
+
+
+        /* =========================================================
+        RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+        .faq-hero {
+            grid-template-columns: 1fr;
+        }
+
+        .faq-hero__side {
+            max-width: 760px;
+
+            padding-top: 1.4rem;
+            padding-left: 0;
+
+            border-top: 1px solid var(--line-soft);
+            border-left: 0;
+        }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+        .faq-page {
+            padding-top: 3rem;
+        }
+
+        .faq-hero {
+            padding: 1.5rem;
+        }
+
+        .faq-hero::after {
+            font-size: clamp(5rem, 24vw, 8rem);
+        }
+
+        }
+    </style>
+
+    <!-- FAQ -->
+    <style>
+        /* =========================================================
+    FAQ
+    ========================================================= */
+
+        .faq-grid {
+            display: grid;
+            gap: 9px;
+
+            margin-top: 30px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+
+            background: var(--surface);
+
+            overflow: hidden;
+        }
+
+        .faq-item[open] {
+            border-color: rgba(139, 211, 255, 0.24);
+        }
+
+        .faq-item>summary {
+            position: relative;
+
+            padding: 18px 56px 18px 19px;
+
+            color: var(--white);
+
+            font-size: 0.96rem;
+            font-weight: 800;
+            line-height: 1.4;
+
+            cursor: pointer;
+
+            list-style: none;
+        }
+
+        .faq-item>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item>summary::after {
+            content: "+";
+
+            position: absolute;
+            top: 50%;
+            right: 20px;
+
+            transform: translateY(-50%);
+
+            color: var(--blue);
+
+            font-size: 1.1rem;
+            font-weight: 900;
+        }
+
+        .faq-item[open]>summary::after {
+            content: "−";
+
+            color: var(--green);
+        }
+
+        .faq-answer {
+            max-width: 960px;
+
+            padding: 0 56px 19px 19px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 0.93rem;
+        }
+
+        .faq-link {
+            margin-top: 20px;
+        }
+
+        .faq-link a {
+            color: var(--blue);
+
+            font-size: 0.92rem;
+            font-weight: 850;
+            text-decoration: none;
+        }
+
+        .faq-link a:hover {
+            color: var(--white);
+        }
+
+        /* =========================================================
+       FAQ GROUPS
+       ========================================================= */
+
+        .faq-groups {
+            display: grid;
+            gap: clamp(3rem, 6vw, 5rem);
+
+            margin-top: 34px;
+        }
+
+
+        .faq-group__heading {
+            display: grid;
+            grid-template-columns:
+                auto minmax(0, 1fr);
+
+            gap: clamp(1rem, 2.5vw, 1.8rem);
+            align-items: start;
+
+            max-width: 900px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .faq-group__heading>span {
+            color: var(--green);
+
+            font-family:
+                ui-monospace,
+                SFMono-Regular,
+                Menlo,
+                monospace;
+
+            font-size: .72rem;
+            font-weight: 900;
+            letter-spacing: .08em;
+        }
+
+
+        .faq-group__heading h3 {
+            margin: 0;
+
+            color: var(--white);
+
+            font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+            line-height: 1.05;
+            letter-spacing: -.035em;
+        }
+
+
+        .faq-group__heading p {
+            max-width: 650px;
+
+            margin: .45rem 0 0;
+
+            color: var(--muted);
+
+            font-size: .9rem;
+            line-height: 1.55;
+        }
+
+
+        .faq-group .faq-grid {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header topbar-wrap">
+
+        <div class="shell topbar">
+
+            <a class="brand" href="index.html">
+                <span class="brand__full">World Amazing</span>
+                <span class="brand__short">WA</span>
+                <span class="brand__tagline">— the whole plan, clearly explained</span>
+            </a>
+
+
+            <!-- DESKTOP NAV -->
+
+            <nav class="nav" aria-label="Primary navigation">
+
+                <div class="nav__docs">
+                    <a href="basics.html">Basics</a>
+                    <a href="roadmap.html">Roadmap</a>
+                    <a href="framework.html">Framework</a>
+                </div>
+
+
+                <div class="nav__explore">
+                    <a href="papers.html">Papers</a>
+                    <a href="memes.html">Memes</a>
+                    <a href="faq.html" aria-current="page">FAQ</a>
+                </div>
+
+
+                <div class="nav__actions">
+
+                    <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+                        Make It Amazing
+                        <span class="nav__external" aria-hidden="true">↗</span>
+                    </a>
+
+                    <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+                        Show
+                        <span class="nav__external" aria-hidden="true">↗</span>
+                    </a>
+
+                    <a class="nav__join" href="index.html#join">
+                        Join
+                    </a>
+
+                </div>
+
+            </nav>
+
+
+            <!-- MOBILE ACTIONS -->
+
+            <div class="nav__mobile-actions">
+
+                <a class="nav__join" href="index.html#join">
+                    Join
+                </a>
+
+                <button class="nav__menu-button" type="button" aria-expanded="false" aria-controls="mobile-navigation">
+                    <span>More</span>
+                    <span class="nav__menu-chevron" aria-hidden="true"></span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE MENU -->
+
+        <nav class="nav-mobile" id="mobile-navigation" aria-label="Mobile navigation" hidden>
+
+            <div class="shell nav-mobile__inner">
+                <div class="nav-mobile__group">
+
+                    <span class="nav-mobile__label">
+                        Start here
+                    </span>
+
+                    <a href="basics.html">Basics</a>
+                    <a href="roadmap.html">Roadmap</a>
+                    <a href="framework.html">Framework</a>
+
+                </div>
+
+
+                <div class="nav-mobile__group">
+
+                    <span class="nav-mobile__label">
+                        Explore
+                    </span>
+
+                    <a href="papers.html">Papers</a>
+                    <a href="memes.html">Memes</a>
+                    <a href="faq.html">FAQ</a>
+
+                </div>
+
+
+                <div class="nav-mobile__group nav-mobile__group--enter">
+
+                    <span class="nav-mobile__label">
+                        Enter
+                    </span>
+
+                    <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+                        Make It Amazing ↗
+                    </a>
+
+                    <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+                        Show ↗
+                    </a>
+
+                    <a href="index.html#join">
+                        Join
+                    </a>
+
+                </div>
+
+
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main id="top">
+        
+        <div class="shell">
+            
+
+            <!-- FAQ -->
+            <section class="faq-section" id="faq">
+                <div class="faq-page">
+                
+                    <header class="faq-hero">
+                
+                        <div class="faq-hero__main">
+                
+                            <p class="eyebrow">
+                                Interrogate the framework
+                            </p>
+                
+                            <h1>
+                                Questions
+                            </h1>
+                
+                            <p class="faq-hero__lead">
+                                The objections matter.
+                                So do the assumptions underneath them.
+                                World Amazing should survive scrutiny,
+                                not avoid it.
+                            </p>
+                
+                        </div>
+                
+                
+                        <div class="faq-hero__side">
+                
+                            <span>
+                                42 questions
+                            </span>
+                
+                            <strong>
+                                Ask the hard questions.
+                            </strong>
+                
+                            <p>
+                                Human nature. Power. Money. Work. Climate.
+                                Harm. Government. Surveillance. Cults. Failure.
+                                And whether the inherited world is really
+                                the more realistic plan.
+                            </p>
+                
+                        </div>
+                
+                    </header>
+                
+                </div>
+
+
+                <div class="faq-groups">
+
+
+                    <!-- =====================================================
+               01 — THE CLAIM
+               ===================================================== -->
+
+                    <section class="faq-group">
+
+                        <header class="faq-group__heading">
+
+                            <span>
+                                01
+                            </span>
+
+                            <div>
+                                <h3>
+                                    The claim
+                                </h3>
+
+                                <p>
+                                    Why attempt something this large,
+                                    and what does “fixing the world” actually mean?
+                                </p>
+                            </div>
+
+                        </header>
+
+
+                        <div class="faq-grid">
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Why try to fix everything? Why not pick one problem and help where you can?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Helping one person, protecting one forest,
+                                        improving one law, or solving one local problem can matter enormously.
+                                        World Amazing is not an argument against focused work.
+                                        The problem appears when humanity treats every recurring failure
+                                        as permanently separate while leaving the systems producing them untouched.
+                                        Follow housing, health, work, violence, climate, childhood,
+                                        infrastructure, economics, and governance far enough,
+                                        and their causes begin intersecting.
+                                        The work becomes connected because reality is connected.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What if something needs to be fixed right now?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Fix what is urgent now.
+                                        If a forest is being destroyed tomorrow, protect the forest tomorrow.
+                                        If someone is bleeding, stop the bleeding.
+                                        If someone has nowhere safe to sleep tonight, help tonight.
+                                        Immediate response and structural repair are both necessary.
+                                        They are not the same job.
+                                        World Amazing asks what must change so humanity does not spend
+                                        the rest of history responding to the same preventable emergency.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    How can one framework address problems as different as housing, war, healthcare,
+                                    climate, and childhood?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        It does not assume they are one problem.
+                                        It follows each problem through its actual causes.
+                                        Different paths repeatedly encounter the same underlying fields:
+                                        material security, development, power, labor, infrastructure,
+                                        land, energy, institutions, information, relationships,
+                                        governance, and human coordination.
+                                        World Amazing was not designed by choosing a preferred future
+                                        and working backward.
+                                        It emerged by following problems far enough
+                                        that their causes began intersecting
+                                        and their solutions began converging.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Isn’t rethinking civilization unrealistic?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Civilization is already continuously rebuilt.
+                                        Humans operate the institutions, maintain the infrastructure,
+                                        allocate the resources, enforce the rules,
+                                        train the next workers, repair the systems,
+                                        and teach the next generation how the world works.
+                                        The inherited arrangement is not passive reality.
+                                        It requires enormous continuous effort to reproduce.
+                                        The question is not whether humans will organize civilization.
+                                        Humans already do.
+                                        The question is what we keep organizing.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    If the current world keeps producing outcomes almost everyone says they do not want,
+                                    why is continuing to
+                                    reproduce it considered realistic?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Familiarity is often mistaken for realism.
+                                        War, preventable illness, homelessness,
+                                        ecological destruction, enormous unnecessary labor,
+                                        damaged childhoods, and recurring institutional failure
+                                        do not become realistic solutions because they already exist.
+                                        A proposal for change should be pressure-tested.
+                                        So should the proposal to keep reproducing the present indefinitely.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Why now? What makes this more possible than it was before?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Humanity has accumulated extraordinary productive capacity,
+                                        global communication, logistics, medicine,
+                                        scientific knowledge, automation, computing,
+                                        infrastructure, institutional experience,
+                                        and increasingly capable synthetic intelligence.
+                                        We also know far more about development,
+                                        behavior, systems, trauma, incentives,
+                                        ecology, and large-scale coordination.
+                                        The pieces have never existed in exactly this combination before.
+                                        What remains is connecting them coherently.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What does “fix everything” actually mean?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        It does not mean no human will ever suffer,
+                                        no accident will occur,
+                                        no conflict will arise,
+                                        or one perfect system will finish history.
+                                        It means nothing preventable gets permanent exemption from examination
+                                        simply because it is old, widespread, profitable,
+                                        politically difficult, or familiar.
+                                        Humanity stops treating recurring failure as an inherited operating condition
+                                        and becomes increasingly capable of seeing problems,
+                                        understanding causes, protecting life,
+                                        building alternatives, testing them, correcting them,
+                                        and resolving what can actually be resolved.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                        </div>
+                    </section>
+
+
+                    <!-- =====================================================
+               02 — THE HUMAN
+               ===================================================== -->
+
+                    <section class="faq-group">
+
+                        <header class="faq-group__heading">
+
+                            <span>
+                                02
+                            </span>
+
+                            <div>
+                                <h3>
+                                    The human
+                                </h3>
+
+                                <p>
+                                    The systems are operated by humans.
+                                    The humans developed somewhere.
+                                </p>
+                            </div>
+
+                        </header>
+
+
+                        <div class="faq-grid">
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Aren’t humans themselves the problem?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Humans are part of the causal system.
+                                        Humans have also done horrific things.
+                                        But “humans are the problem” is not yet an explanation.
+                                        Every human develops inside biological,
+                                        material, relational, cultural, and institutional conditions.
+                                        Fear, domination, concealment, shame,
+                                        aggression, status fixation, cooperation,
+                                        trust, responsibility, and repair all have developmental histories.
+                                        If destructive patterns are repeatedly being produced,
+                                        understanding that production is part of reducing the destruction.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Does World Amazing assume humans will become good?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No.
+                                        Humans will continue to differ in temperament,
+                                        desire, ambition, ability, belief, interest, and drive.
+                                        Some humans will deceive, exploit, dominate,
+                                        withdraw, or cause serious harm.
+                                        World Amazing does not require perfect humans.
+                                        That is why protection, boundaries,
+                                        transparent systems, scoped authority,
+                                        accountability, correction,
+                                        and resistance to capture remain part of the design.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Are you saying evil does not exist?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        The word can name the moral extremity
+                                        or horror of an act.
+                                        It does not by itself explain how that act became possible.
+                                        Naming something evil may be emotionally or morally meaningful,
+                                        but World Amazing still asks the causal questions:
+                                        what developed, what was reinforced,
+                                        what power made the harm scalable,
+                                        what failed to interrupt it,
+                                        and what would reduce the chance of its recurrence.
+                                        Named is not explained.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Does understanding the causes of harmful behavior excuse it?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No.
+                                        Causation and responsibility are not opposites.
+                                        Understanding why something happened can improve protection,
+                                        prevention, accountability, repair, treatment,
+                                        separation, institutional design,
+                                        and future decision-making.
+                                        Refusing to investigate causation does not make responsibility stronger.
+                                        It makes humanity less capable of preventing repetition.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Does restoration mean I have to forgive, reconcile with, or stay close to someone
+                                    who harmed me?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No.
+                                        Human standing is not the same thing as access,
+                                        trust, proximity, relationship, forgiveness,
+                                        or continued participation in someone’s life.
+                                        A person can remain inside humanity’s concern
+                                        while another person maintains a complete boundary from them.
+                                        Restoration cannot require renewed contact,
+                                        emotional performance, or pretending harm did not happen.
+                                        Care for human life includes protecting your own.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Why is human restoration part of infrastructure?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Because every institution is eventually operated by developed humans.
+                                        Rebuild the material machinery while leaving fear,
+                                        domination, secrecy, unresolved injury,
+                                        distorted authority, compulsive status,
+                                        and damaged relationship patterns untouched,
+                                        and humans can reproduce the old world inside new structures.
+                                        Material conditions and human conditions have to change together.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What happens when someone causes serious harm?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Protection comes first.
+                                        Harm is stopped.
+                                        Then the work becomes truth,
+                                        responsibility, causal reconstruction,
+                                        repair, secure separation where needed,
+                                        and restoration where possible.
+                                        Understanding why harm occurred does not make the harm acceptable,
+                                        and causing severe harm does not make a human disposable.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                        </div>
+                    </section>
+
+
+                    <!-- =====================================================
+               03 — WORKING TOGETHER
+               ===================================================== -->
+
+                    <section class="faq-group">
+
+                        <header class="faq-group__heading">
+
+                            <span>
+                                03
+                            </span>
+
+                            <div>
+                                <h3>
+                                    Working together
+                                </h3>
+
+                                <p>
+                                    Cooperation does not require sameness,
+                                    universal agreement, or one ruler.
+                                </p>
+                            </div>
+
+                        </header>
+
+
+                        <div class="faq-grid">
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Why should humanity be able to work together when we have failed at it so often?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Humans already cooperate at extraordinary scale.
+                                        Food systems, aviation, medicine, cities,
+                                        telecommunications, science, manufacturing,
+                                        software, finance, shipping, utilities,
+                                        and governments all depend on large networks of coordinated human action.
+                                        The question is not whether humans can cooperate.
+                                        The question is what our cooperative systems are organized to do,
+                                        what conditions they create,
+                                        and how well they remain aligned with human life.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What does “working together” actually mean?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        It means coordinating what reality requires us to coordinate.
+                                        Humans do not need one culture,
+                                        one personality, one belief system,
+                                        one lifestyle, or one opinion.
+                                        They do share ecological systems,
+                                        infrastructure, productive capacity,
+                                        disease environments, knowledge,
+                                        technologies, economies, and one planet.
+                                        Working together means becoming capable of handling
+                                        those shared realities without demanding human sameness.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Does everyone have to agree or live the same way?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No.
+                                        Shared foundations are not cultural uniformity.
+                                        Humans can disagree, investigate, criticize,
+                                        organize differently, create different ways of living,
+                                        and continue correcting the shared systems around them.
+                                        Humanity can be connected without becoming identical.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Is this one world government?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No.
+                                        Global coordination does not require a global ruler.
+                                        Different functions belong at different scales.
+                                        Decisions should remain as close as possible
+                                        to the humans, places, systems, and problems they actually affect,
+                                        while genuinely global problems can be coordinated
+                                        across larger networks.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Who is in charge?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No permanent ruler owns the framework.
+                                        Authority follows function, scope, knowledge,
+                                        affected humans, evidence,
+                                        and the requirements of the situation.
+                                        Different humans can carry different responsibilities
+                                        without becoming different classes of human.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    How does World Amazing avoid becoming another hierarchy?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        By distinguishing human standing from functional authority
+                                        and making power visible and limited.
+                                        Distributed nodes, scoped authority,
+                                        transparent resources, inspectable reasoning,
+                                        open documentation, meaningful exit,
+                                        local autonomy, and structures that can be challenged,
+                                        revised, replaced, or dissolved
+                                        reduce the chance that useful coordination hardens into permanent domination.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What if people do not want to participate?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        They do not all have to.
+                                        A global destination does not require a globally synchronized start.
+                                        People and communities can participate at different levels,
+                                        use different systems where alternatives remain necessary,
+                                        disagree with the framework,
+                                        or build other approaches.
+                                        What matters is whether better systems can begin,
+                                        work, remain voluntary where possible,
+                                        and carry increasingly useful functions.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                        </div>
+                    </section>
+
+
+                    <!-- =====================================================
+               04 — THE MATERIAL WORLD
+               ===================================================== -->
+
+                    <section class="faq-group">
+
+                        <header class="faq-group__heading">
+
+                            <span>
+                                04
+                            </span>
+
+                            <div>
+                                <h3>
+                                    The material world
+                                </h3>
+
+                                <p>
+                                    Land, labor, resources, production,
+                                    ownership, technology, and ecological limits still matter.
+                                </p>
+                            </div>
+
+                        </header>
+
+
+                        <div class="faq-grid">
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Is this communism, socialism, capitalism, or some other ism?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No inherited label contains the framework.
+                                        World Amazing can use useful mechanisms
+                                        wherever they actually work.
+                                        The relevant questions are what a structure does,
+                                        whether it protects life,
+                                        preserves human autonomy,
+                                        coordinates resources coherently,
+                                        supports contribution,
+                                        expands human possibility,
+                                        and remains open to inspection and correction.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Does this depend on unlimited resources or “post-scarcity”?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No.
+                                        Matter, energy, land, ecosystems,
+                                        human attention, time, and productive capacity all have limits.
+                                        Abundance does not mean infinity.
+                                        It means understanding what humans actually require,
+                                        what capacity exists,
+                                        what can be produced sustainably,
+                                        where waste and duplication can be removed,
+                                        and how available capacity can be organized more coherently.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What stops everyone from doing nothing?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Survival no longer needs to be the threat
+                                        that forces contribution.
+                                        Necessary work still exists.
+                                        So do curiosity, mastery, usefulness,
+                                        creation, responsibility, challenge,
+                                        relationship, projects, exploration,
+                                        play, ambition, and the desire
+                                        to participate in something meaningful.
+                                        The goal is not to eliminate contribution.
+                                        It is to stop making unnecessary labor
+                                        the price of remaining alive.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    How much would people actually have to work?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        There is no permanent work quota.
+                                        The direction is to keep reducing necessary human labor
+                                        through automation, redesign,
+                                        shared contribution, better coordination,
+                                        prevention of recurring breakdown,
+                                        and removal of work that no longer needs to exist.
+                                        A much shorter workweek can be part of the transition.
+                                        It is not the ceiling.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    How is any of this paid for?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        World Amazing does not need the entire future funded
+                                        before any part can begin.
+                                        It can connect resources that already exist:
+                                        human contribution, capital, land,
+                                        buildings, tools, technology,
+                                        knowledge, institutions,
+                                        productive capacity, public systems,
+                                        businesses, philanthropy, and voluntary participation.
+                                        As shared capacity grows,
+                                        more of the network can produce,
+                                        maintain, and finance useful infrastructure directly.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What happens to businesses and owners?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Useful capacity is not destroyed
+                                        because it belongs to an inherited category.
+                                        Businesses can continue,
+                                        partner, supply the network,
+                                        develop new products and services,
+                                        sell assets or operations,
+                                        convert into different forms,
+                                        become projects inside larger systems,
+                                        or become unnecessary when better structures
+                                        can carry their function.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    How does this address climate change, emissions, forests, waste, and ecological
+                                    damage?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        By treating ecological damage as a system problem,
+                                        not only as an isolated emissions target.
+                                        Transport connects to commuting,
+                                        housing, work, urban design,
+                                        production, logistics, energy, land use,
+                                        consumption, waste, and material durability.
+                                        Forest destruction connects to agriculture,
+                                        livelihoods, ownership, construction,
+                                        global demand, energy, and supply chains.
+                                        Immediate environmental protections still matter.
+                                        Structural repair means reducing the processes
+                                        that keep recreating the damage.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What is the Global Partnership?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        The Global Partnership is the connected human
+                                        and operational network through which World Amazing
+                                        begins functioning in reality.
+                                        Its first integrated operating node can begin locally
+                                        and expand through connection,
+                                        replication, cooperation,
+                                        learning, and shared infrastructure.
+                                        Being first does not make any node permanently superior.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                        </div>
+                    </section>
+
+
+                    <!-- =====================================================
+               05 — TRANSITION AND POWER
+               ===================================================== -->
+
+                    <section class="faq-group">
+
+                        <header class="faq-group__heading">
+
+                            <span>
+                                05
+                            </span>
+
+                            <div>
+                                <h3>
+                                    Transition and power
+                                </h3>
+
+                                <p>
+                                    The inherited world does not disappear
+                                    because a better idea has been written down.
+                                </p>
+                            </div>
+
+                        </header>
+
+
+                        <div class="faq-grid">
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Why not just reform current governments and institutions?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Reform matters where reform can reduce harm
+                                        or improve a functioning institution.
+                                        World Amazing is not opposed to repairing
+                                        something that can be repaired.
+                                        But recurring failures often arise
+                                        from interacting structures rather than one defective rule.
+                                        If the surrounding system keeps reproducing the failure,
+                                        reform becomes permanent maintenance.
+                                        World Amazing therefore does both:
+                                        improve what exists where useful,
+                                        and build alternatives capable of making
+                                        some inherited mechanisms unnecessary.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    How can this begin without controlling governments?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Humans already organize land,
+                                        buildings, capital, knowledge,
+                                        technology, services, production,
+                                        research, care, infrastructure,
+                                        communities, companies, nonprofits,
+                                        and projects outside any single government.
+                                        World Amazing can begin wherever enough people
+                                        and capacity connect to make one useful part real,
+                                        then expand through working relationships
+                                        with governments, businesses,
+                                        institutions, and communities around it.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Why would people give up systems they already own or benefit from?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        They do not all have to.
+                                        World Amazing can build alongside existing systems,
+                                        cooperate with them, purchase from them,
+                                        integrate useful capacity,
+                                        compete where appropriate,
+                                        and replace functions when better systems
+                                        become available.
+                                        Transition does not require everyone
+                                        to surrender the inherited world
+                                        before something better can begin.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What if powerful people or institutions fight it?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Opposition is possible and should be designed for,
+                                        not wished away.
+                                        Distributed capacity, public legitimacy,
+                                        transparency, lawful operation,
+                                        economic usefulness, redundancy,
+                                        alliances, documentation,
+                                        independent nodes, and resistance to capture
+                                        all matter.
+                                        The framework does not assume
+                                        that every incumbent interest will cooperate.
+                                        It aims to make better systems increasingly useful,
+                                        resilient, and difficult to suppress
+                                        simply by refusing permission.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Does the whole world have to begin at once?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No.
+                                        Nothing in the framework requires
+                                        eight billion humans to agree on the same day.
+                                        A local node can begin locally.
+                                        A housing project can begin as a housing project.
+                                        A care network can begin as a care network.
+                                        A region can coordinate more deeply than another region.
+                                        What works can connect, replicate,
+                                        improve, and expand.
+                                        Global destination does not require synchronized start.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What happens while the old system and the new system overlap?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        They coexist.
+                                        World Amazing does not require humanity
+                                        to destroy a functioning bridge
+                                        before another bridge can carry the traffic.
+                                        New systems can begin beside inherited ones,
+                                        cooperate with them,
+                                        rely on them where still necessary,
+                                        take on functions as capacity grows,
+                                        and progressively make older mechanisms unnecessary.
+                                        Replacement comes before obsolescence.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                        </div>
+                    </section>
+
+
+                    <!-- =====================================================
+               06 — PRESSURE TEST IT
+               ===================================================== -->
+
+                    <section class="faq-group">
+
+                        <header class="faq-group__heading">
+
+                            <span>
+                                06
+                            </span>
+
+                            <div>
+                                <h3>
+                                    Pressure test it
+                                </h3>
+
+                                <p>
+                                    World Amazing does not get exemption
+                                    from the standards it applies to everything else.
+                                </p>
+                            </div>
+
+                        </header>
+
+
+                        <div class="faq-grid">
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Is World Amazing finished?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No.
+                                        Some parts are already developed deeply.
+                                        Others still require design,
+                                        research, papers, engineering,
+                                        quantitative work, testing,
+                                        real-world operation, observation,
+                                        failure, revision, and further discovery.
+                                        A framework built around correction
+                                        cannot become finished dogma.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What if part of the framework is wrong?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Then it should change.
+                                        World Amazing is not protected
+                                        by the fact that it is called World Amazing.
+                                        Claims should remain inspectable.
+                                        Mechanisms should be tested.
+                                        Evidence should be updated.
+                                        Better explanations should replace weaker ones.
+                                        Correction is not a failure of the framework.
+                                        It is one of its operating requirements.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Who decides whether something is working, and how do we prevent capture?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No single measure or institution should own the answer.
+                                        Outcomes, transparent data,
+                                        affected humans, independent inspection,
+                                        open reasoning, audits,
+                                        local observation, dissent,
+                                        comparison with alternatives,
+                                        and the ability to challenge or replace failing structures
+                                        all matter.
+                                        Capture becomes harder when authority is scoped,
+                                        information is visible,
+                                        resources are traceable,
+                                        nodes are distributed,
+                                        and no institution is beyond correction.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    What would make World Amazing fail?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        It would fail if it became an ideology
+                                        that protected itself from reality;
+                                        if authority became unaccountable;
+                                        if participation required coercive uniformity;
+                                        if human restoration became rhetoric
+                                        rather than real change;
+                                        if material claims ignored ecological or productive limits;
+                                        if better systems could not actually carry useful functions;
+                                        or if the framework reproduced the harms
+                                        it was supposed to reduce.
+                                        Those possibilities belong inside the design,
+                                        not outside it.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    This sounds impossible. Why take it seriously?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        Because the proposal can be broken
+                                        into real questions, real systems,
+                                        real materials, real people,
+                                        and real experiments.
+                                        Food can be produced.
+                                        Homes can be built.
+                                        Care can be delivered.
+                                        Energy systems can change.
+                                        Work can be automated.
+                                        Capacity can be connected.
+                                        Human developmental conditions can improve.
+                                        New institutions can be operated and tested.
+                                        The whole future does not need
+                                        to be guaranteed in advance.
+                                        Better structures need to be built,
+                                        examined, corrected, and shown to work.
+                                    </p>
+                                </div>
+
+                            </details>
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Is this some kind of cult?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        It should become very obvious if it ever starts behaving like one.
+                                        World Amazing does not require loyalty to a person,
+                                        unquestioning belief, secrecy,
+                                        isolation from outsiders,
+                                        suppression of criticism,
+                                        control over private life,
+                                        or punishment for leaving.
+                                        The framework is public.
+                                        Its reasoning can be challenged.
+                                        Its structures can be inspected.
+                                        Participation is not supposed to require surrendering your mind.
+                                        If World Amazing ever asks humans to stop examining World Amazing,
+                                        something has gone badly wrong.
+                                    </p>
+                                </div>
+
+                            </details>
+
+                            <details class="faq-item">
+
+                                <summary>
+                                    Is this secretly a way to spy on everyone?
+                                </summary>
+
+                                <div class="faq-answer">
+                                    <p>
+                                        No.
+                                        Transparency should increase as power increases,
+                                        not as a human becomes more private.
+                                        Institutions, public resources,
+                                        authority, system performance,
+                                        and consequential decisions should be highly inspectable.
+                                        A person’s private life should not become public infrastructure.
+                                        Data should have a defined purpose,
+                                        collect only what is actually needed,
+                                        remain under clear rules of access and use,
+                                        and never become an invisible mechanism
+                                        for manipulating or controlling the humans the system exists to serve.
+                                        A transparent civilization does not require transparent humans.
+                                    </p>
+                                </div>
+
+                            </details>
+
+
+                        </div>
+                    </section>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+
+                <div class="footer-grid">
+
+
+                    <!-- ===================================================
+                   WORLD AMAZING
+                   =================================================== -->
+
+                    <div class="footer-brand">
+
+                        <a class="footer-brand__name" href="index.html">
+                            World Amazing
+                        </a>
+
+                        <p>
+                            A public framework for human and civilizational restoration:
+                            stabilize life, restore humans, connect capacity,
+                            and build beyond relief.
+                        </p>
+
+                        <p class="footer-brand__line">
+                            Relief is the floor. Amazing is the ceiling.
+                        </p>
+
+
+                        <div class="footer-path">
+
+                            <span>
+                                Start here
+                            </span>
+
+                            <div class="footer-path__links">
+
+                                <a href="basics.html">
+                                    Basics
+                                </a>
+
+                                <span aria-hidden="true">
+                                    →
+                                </span>
+
+                                <a href="roadmap.html">
+                                    Roadmap
+                                </a>
+
+                                <span aria-hidden="true">
+                                    →
+                                </span>
+
+                                <a href="framework.html">
+                                    Framework
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ===================================================
+                   UNDERSTAND
+                   =================================================== -->
+
+                    <div class="footer-group">
+
+                        <h4>
+                            Understand
+                        </h4>
+
+                        <div class="footer-links">
+
+                            <a href="basics.html">
+                                The Basics
+                            </a>
+
+                            <a href="roadmap.html">
+                                A Realistic Roadmap
+                            </a>
+
+                            <a href="framework.html">
+                                The Full Framework
+                            </a>
+
+                            <a href="papers.html">
+                                Amazing Papers
+                            </a>
+
+                            <a href="memes.html">
+                                Memes
+                            </a>
+
+                            <a href="faq.html">
+                                FAQ
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ===================================================
+                   ENTER
+                   =================================================== -->
+
+                    <div class="footer-group">
+
+                        <h4>
+                            Enter
+                        </h4>
+
+                        <div class="footer-links">
+
+                            <a href="https://makeitamazing.org/" target="_blank" rel="noopener">
+                                Make It Amazing
+                            </a>
+
+                            <a href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+                                World Amazing Show
+                            </a>
+
+                            <a href="https://whomanatee.org/" target="_blank" rel="noopener">
+                                Global Partnership
+                            </a>
+
+                            <a href="index.html#join">
+                                Join
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ===================================================
+                   MORE
+                   =================================================== -->
+
+                    <div class="footer-group">
+
+                        <h4>
+                            More
+                        </h4>
+
+                        <div class="footer-links">
+
+                            <a href="https://github.com/worldamazing/plan" target="_blank" rel="noopener">
+                                GitHub
+                            </a>
+
+                            <a href="https://github.com/worldamazing/plan/blob/main/docs/overview.md" target="_blank"
+                                rel="noopener">
+                                Overview
+                            </a>
+
+                            <a href="settings.html">
+                                Settings
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =======================================================
+               BOTTOM
+               ======================================================= -->
+
+                <div class="footer-bottom">
+
+                    <span>
+                        World Amazing
+                    </span>
+
+                    <span>
+                        Relief is the floor. Amazing is the ceiling.
+                    </span>
+
+                </div>
+
+            </footer>
+        </div>
+    </main>
+
+
+    <script src="assets/site-settings.js"></script>
+    <script src="assets/topbar.js"></script>
+</body>
+
+</html>

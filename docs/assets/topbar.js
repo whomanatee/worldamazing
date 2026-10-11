@@ -1,6 +1,6 @@
 /* =========================================================
    TOPBAR
-   - hide down / show up
+   - REMOVED - hide down / show up
    - mobile navigation
    ========================================================= */
 
@@ -117,98 +117,98 @@
        HIDE DOWN / SHOW UP
        ===================================================== */
 
-    let lastY = window.scrollY;
-    let ticking = false;
+    // let lastY = window.scrollY;
+    // let ticking = false;
 
-    const topZone = 80;
-    const movementThreshold = 8;
-
-
-    function updateTopbar() {
-
-        const currentY = window.scrollY;
-        const movement = currentY - lastY;
-
-        const menuOpen =
-            menuButton &&
-            menuButton.getAttribute("aria-expanded") === "true";
+    // const topZone = 80;
+    // const movementThreshold = 8;
 
 
-        /*
-         * Never hide while the mobile menu is open.
-         */
-        if (menuOpen) {
+    // function updateTopbar() {
 
-            topbar.classList.remove("is-hidden");
+    //     const currentY = window.scrollY;
+    //     const movement = currentY - lastY;
 
-            lastY = currentY;
-            ticking = false;
-
-            return;
-
-        }
+    //     const menuOpen =
+    //         menuButton &&
+    //         menuButton.getAttribute("aria-expanded") === "true";
 
 
-        /*
-         * Always show near the top.
-         */
-        if (currentY <= topZone) {
+    //     /*
+    //      * Never hide while the mobile menu is open.
+    //      */
+    //     if (menuOpen) {
 
-            topbar.classList.remove("is-hidden");
+    //         topbar.classList.remove("is-hidden");
 
-            lastY = currentY;
-            ticking = false;
+    //         lastY = currentY;
+    //         ticking = false;
 
-            return;
+    //         return;
 
-        }
-
-
-        /*
-         * Ignore tiny movements.
-         */
-        if (Math.abs(movement) < movementThreshold) {
-
-            ticking = false;
-
-            return;
-
-        }
+    //     }
 
 
-        /*
-         * Down = hide.
-         * Up = show.
-         */
-        if (movement > 0) {
+    //     /*
+    //      * Always show near the top.
+    //      */
+    //     if (currentY <= topZone) {
 
-            topbar.classList.add("is-hidden");
+    //         topbar.classList.remove("is-hidden");
 
-        } else {
+    //         lastY = currentY;
+    //         ticking = false;
 
-            topbar.classList.remove("is-hidden");
+    //         return;
 
-        }
-
-
-        lastY = currentY;
-        ticking = false;
-
-    }
+    //     }
 
 
-    window.addEventListener(
-        "scroll",
-        () => {
+    //     /*
+    //      * Ignore tiny movements.
+    //      */
+    //     if (Math.abs(movement) < movementThreshold) {
 
-            if (ticking) return;
+    //         ticking = false;
 
-            ticking = true;
+    //         return;
 
-            requestAnimationFrame(updateTopbar);
+    //     }
 
-        },
-        { passive: true }
-    );
+
+    //     /*
+    //      * Down = hide.
+    //      * Up = show.
+    //      */
+    //     if (movement > 0) {
+
+    //         topbar.classList.add("is-hidden");
+
+    //     } else {
+
+    //         topbar.classList.remove("is-hidden");
+
+    //     }
+
+
+    //     lastY = currentY;
+    //     ticking = false;
+
+    // }
+
+
+    // window.addEventListener(
+    //     "scroll",
+    //     () => {
+
+    //         if (ticking) return;
+
+    //         ticking = true;
+
+    //         requestAnimationFrame(updateTopbar);
+
+    //     },
+    //     { passive: true }
+    // );
 
 })();

@@ -4653,6 +4653,92 @@
     }
   </style>
 
+  <!-- GROUP HEADINGS -->
+  <style>
+    .basics-group-heading {
+      position: relative;
+
+      margin-top: 5rem;
+      padding: 2.35rem 2.2rem 2.5rem;
+
+      border-top: 1px solid rgba(139, 211, 255, .18);
+      border-bottom: 1px solid rgba(139, 211, 255, .18);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(139, 211, 255, .13),
+          rgba(139, 211, 255, .04) 58%,
+          transparent 100%
+        );
+    }
+
+    .basics-group-heading::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+
+      width: 5px;
+      background: var(--green);
+    }
+
+    .basics-group-heading h2 {
+      margin: 0;
+
+      color: var(--green);
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      font-weight: 950;
+      line-height: .92;
+      letter-spacing: -0.045em;
+    }
+
+    .basics-group-heading + .wa-front {
+      padding-top: 3.5rem;
+    }    
+  </style>
+
+  <!-- BASICS HEADER LINKS -->
+  <style>
+    .wa-doc-path {
+      display: grid;
+      max-width: 34rem;
+      margin-top: 1.7rem;
+    }
+
+    .wa-doc-path__item {
+      display: grid;
+      grid-template-columns: 7rem 1fr auto;
+      gap: .8rem;
+      align-items: baseline;
+
+      padding: .55rem 0;
+
+      border-bottom: 1px solid var(--line-soft);
+
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .wa-doc-path__item strong {
+      color: var(--white);
+    }
+
+    .wa-doc-path__item span {
+      color: var(--green);
+      font-weight: 750;
+    }
+
+    .wa-doc-path__item i {
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    .wa-doc-path__item:hover span,
+    .wa-doc-path__item:focus-visible span {
+      color: var(--white);
+    }
+  </style>
+
 </head>
 
 <body>
@@ -4660,7 +4746,7 @@
   
     <div class="shell topbar">
   
-      <a class="brand" href="index.html#top">
+      <a class="brand" href="index.html">
         <span class="brand__full">World Amazing</span>
         <span class="brand__short">WA</span>
         <span class="brand__tagline">— the whole plan, clearly explained</span>
@@ -4681,7 +4767,7 @@
         <div class="nav__explore">
           <a href="papers.html">Papers</a>
           <a href="memes.html">Memes</a>
-          <a href="index.html#faq">FAQ</a>
+          <a href="faq.html">FAQ</a>
         </div>
   
   
@@ -4750,7 +4836,7 @@
         
           <a href="papers.html">Papers</a>
           <a href="memes.html">Memes</a>
-          <a href="index.html#faq">FAQ</a>
+          <a href="faq.html">FAQ</a>
         
         </div>
         
@@ -4830,21 +4916,38 @@
                   and how the transition can begin.
                 </p>
           
-                <div class="wa-basics-intro__map">
-                  <strong>Basics:</strong> understand it
-                  <span aria-hidden="true">→</span>
-
-                  <a href="roadmap.html#roadmap">Roadmap: see the path</a>
-                  <span aria-hidden="true">→</span>
-                  
-                  <a href="framework.html#framework-handoff">Framework: inspect the machinery</a>
-                </div>
+                <nav class="wa-doc-path" aria-label="World Amazing reading path">
+                
+                  <a href="#orientation" class="wa-doc-path__item is-current">
+                    <strong>Basics</strong>
+                    <span>Understand it</span>
+                    <i aria-hidden="true">↓</i>
+                  </a>
+                
+                  <a href="roadmap.html" class="wa-doc-path__item">
+                    <strong>Roadmap</strong>
+                    <span>See the path</span>
+                    <i aria-hidden="true">→</i>
+                  </a>
+                
+                  <a href="framework.html" class="wa-doc-path__item">
+                    <strong>Framework</strong>
+                    <span>Inspect the machinery</span>
+                    <i aria-hidden="true">→</i>
+                  </a>
+                
+                </nav>
           
               </div>
           
             </div>
           
           </header>
+
+
+          <div class="basics-group-heading" id="orientation">
+            <h2>Orientation</h2>
+          </div>
 
           <!-- =======================================================
               AT A GLANCE
@@ -5044,6 +5147,12 @@
             </div>
 
           </section>
+
+
+
+          <div class="basics-group-heading">
+            <h2>Human + world</h2>
+          </div>
 
 
           <!-- =======================================================
@@ -5545,6 +5654,12 @@
             </div>
 
           </section>
+
+
+
+          <div class="basics-group-heading">
+            <h2>Work + economics</h2>
+          </div>
 
 
           <!-- =======================================================
@@ -7354,6 +7469,12 @@
           </section>
 
 
+
+          <div class="basics-group-heading">
+            <h2>Transition</h2>
+          </div>
+
+
           <!-- =======================================================
               FROM HERE TO THERE
               ======================================================= -->
@@ -7888,7 +8009,7 @@
                 Memes
               </a>
       
-              <a href="index.html#faq">
+              <a href="faq.html">
                 FAQ
               </a>
       

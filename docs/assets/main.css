@@ -98,7 +98,8 @@ h4 {
 
 h1 {
     max-width: 8.8ch;
-    font-size: clamp(3.8rem, 9vw, 8rem);
+    font-size: clamp(3.8rem, 9vw, 7.2rem);
+    line-height: 1;
 }
 
 h2 {
@@ -439,11 +440,13 @@ h4 {
 
 .topbar {
     display: flex;
-    min-height: 74px;
+    min-height: 54px;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
 }
+
+
 
 /* =========================================================
    TOPBAR → TOC HANDOFF
@@ -492,108 +495,6 @@ body:has(.topbar-wrap.is-hidden) .wa-toc__sticky {
     display: none;
 }
 
-
-/* hero  */
-
-.hero {
-    padding: 108px 0 82px;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
-    gap: 62px;
-    align-items: end;
-}
-
-.hero-copy {
-    max-width: 780px;
-    margin-top: 1.6rem;
-    color: var(--soft);
-    font-size: clamp(1.18rem, 2vw, 1.5rem);
-}
-
-.hero-copy+.hero-copy {
-    margin-top: 1rem;
-    color: var(--muted);
-    font-size: 1.08rem;
-}
-
-.hero-principle {
-    margin: 1.5rem auto 1.4rem;
-    color: var(--soft);
-    font-size: clamp(1.35rem, 3vw, 2.15rem);
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.035em;
-    text-align: center;
-}
-
-.hero-principle strong {
-    color: var(--green);
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 2rem;
-}
-
-.hero-panel {
-    padding: 1.75rem;
-    border: 1px solid var(--line);
-    border-top: 3px solid var(--blue-strong);
-    border-radius: var(--radius-lg);
-    background:
-        radial-gradient(circle at 80% 0%, rgba(139, 211, 255, 0.11), transparent 16rem),
-        linear-gradient(145deg, var(--surface-2), var(--surface));
-    box-shadow: var(--shadow);
-}
-
-.hero-panel__big {
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--green);
-    font-size: clamp(2.8rem, 7vw, 5.2rem);
-    font-weight: 950;
-    line-height: 0.95;
-    letter-spacing: -0.06em;
-}
-
-.hero-panel p {
-    margin-top: 1rem;
-    color: var(--muted);
-}
-
-.hero-panel__principles {
-    display: grid;
-    gap: 0.65rem;
-    margin-top: 1.3rem;
-}
-
-.hero-panel__principles span {
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--line-soft);
-    color: var(--soft);
-    font-weight: 750;
-}
-
-.hero-outline {
-    display: grid;
-    gap: 0.75rem;
-    margin-top: 1.2rem;
-}
-
-.hero-outline div {
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--line-soft);
-}
-
-.hero-outline strong {
-    display: block;
-    margin-bottom: 0.2rem;
-}
 
 .flow-line {
     display: grid;

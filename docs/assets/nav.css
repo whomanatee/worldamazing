@@ -258,8 +258,6 @@ body:has(.topbar-wrap.is-hidden) .wa-toc__sticky {
     text-align: center;
 }
 
-
-
 /* =========================================================
    TOPBAR — AUTO HIDE ON NAV PAGES
    ========================================================= */
@@ -271,8 +269,7 @@ body:has(.topbar-wrap.is-hidden) .wa-toc__sticky {
 
     transform: translateY(0);
 
-    transition:
-        transform 220ms ease;
+    transition: transform 220ms ease;
 
     will-change: transform;
 }
