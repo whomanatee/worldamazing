@@ -1272,10 +1272,6 @@ body:has(.topbar-wrap.is-hidden) .wa-toc__sticky {
     .capital-math {
         grid-template-columns: 1fr;
     }
-
-    .capital-math__operator {
-        transform: rotate(90deg);
-    }
 }
 
 /* ---------------------------------------------------------
