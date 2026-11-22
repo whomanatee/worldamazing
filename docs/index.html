@@ -2941,6 +2941,251 @@
     }
   </style>
 
+<!-- 01 — CONTINUE READING -->
+  <style>
+    /* =========================================================
+      01 — CONTINUE READING
+      ========================================================= */
+
+    .wa-opening__more {
+      margin: 0;
+    }
+
+    /* Disclosure control */
+
+    .wa-opening__more > summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+
+      padding:
+        1.6rem
+        clamp(1.35rem, 4vw, 3.5rem);
+
+      background:
+        linear-gradient(
+          100deg,
+          rgba(139, 211, 255, .055),
+          rgba(185, 247, 207, .025)
+        ),
+        var(--surface-2);
+
+      cursor: pointer;
+      list-style: none;
+
+      transition:
+        background 160ms ease,
+        color 160ms ease;
+    }
+
+    .wa-opening__more > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .wa-opening__more > summary::marker {
+      content: "";
+    }
+
+    /* Text */
+
+    .wa-opening__more-copy {
+      display: grid;
+      gap: .4rem;
+    }
+
+    .wa-opening__more-copy strong {
+      color: var(--blue);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .wa-opening__more-copy small {
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.5;
+    }
+
+    /* Plus / minus */
+
+    .wa-opening__more > summary::after {
+      content: "+";
+
+      flex: none;
+
+      color: var(--blue);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .wa-opening__more[open] > summary::after {
+      content: "−";
+    }
+
+    /* Open / closed labels */
+
+    .wa-opening__more-open {
+      display: none;
+    }
+
+    .wa-opening__more[open] .wa-opening__more-closed {
+      display: none;
+    }
+
+    .wa-opening__more[open] .wa-opening__more-open {
+      display: block;
+    }
+
+    /* Hover */
+
+    .wa-opening__more > summary:hover {
+      background: var(--surface-2);
+    }
+
+    .wa-opening__more > summary:hover strong {
+      color: var(--white);
+    }
+
+    /* Expanded content boundaries */
+
+    .wa-opening__more[open] > summary {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wa-opening__more > :not(summary) + :not(summary) {
+      border-top: 1px solid var(--line);
+    }
+
+    /* =========================================================
+      01 — CONTINUE READING / ENHANCED
+      ========================================================= */
+
+    .wa-opening__more > summary {
+      position: relative;
+
+      padding:
+        clamp(1.8rem, 3vw, 2.3rem)
+        clamp(1.35rem, 4vw, 3.5rem);
+
+      background:
+        linear-gradient(
+          110deg,
+          rgba(139, 211, 255, .105),
+          rgba(185, 247, 207, .035) 55%,
+          transparent
+        ),
+        var(--surface-2);
+
+      transition: background 180ms ease;
+    }
+
+    /* Accent rail */
+
+    .wa-opening__more > summary::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 4px;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--blue),
+          var(--green)
+        );
+
+      opacity: .75;
+      transition: opacity 180ms ease;
+    }
+
+    /* Heading */
+
+    .wa-opening__more-copy strong {
+      color: var(--white);
+
+      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+      font-weight: 900;
+      letter-spacing: -.025em;
+    }
+
+    /* Supporting copy */
+
+    .wa-opening__more-copy small {
+      color: var(--muted);
+
+      font-size: .88rem;
+      line-height: 1.5;
+    }
+
+    /* Circular expand indicator */
+
+    .wa-opening__more > summary::after {
+      content: "+";
+
+      display: grid;
+      place-items: center;
+      flex: 0 0 46px;
+
+      width: 46px;
+      height: 46px;
+
+      border: 1px solid rgba(139, 211, 255, .32);
+      border-radius: 50%;
+
+      background: rgba(139, 211, 255, .07);
+      color: var(--blue);
+
+      font-size: 1.6rem;
+      font-weight: 500;
+
+      transition:
+        border-color 180ms ease,
+        background 180ms ease,
+        transform 180ms ease;
+    }
+
+    /* Hover */
+
+    .wa-opening__more > summary:hover {
+      background:
+        linear-gradient(
+          110deg,
+          rgba(139, 211, 255, .15),
+          rgba(185, 247, 207, .055) 60%,
+          transparent
+        ),
+        var(--surface-2);
+    }
+
+    .wa-opening__more > summary:hover::before {
+      opacity: 1;
+    }
+
+    .wa-opening__more > summary:hover::after {
+      border-color: var(--blue);
+      background: rgba(139, 211, 255, .13);
+      transform: scale(1.06);
+    }
+
+    .wa-opening__more > summary:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: -3px;
+    }
+
+    /* Expanded state */
+
+    .wa-opening__more[open] > summary::after {
+      content: "−";
+
+      border-color: rgba(185, 247, 207, .4);
+      color: var(--green);
+    }
+</style>
+
   <!-- 02 THE UNDERLYING MOVE -->
   <style>
     /* =========================================================
@@ -4188,6 +4433,28 @@
       margin-right: auto;
     }
 
+    .join-panel__email {
+    margin-top: 1.5rem;
+  }
+
+  .join-panel--compact .join-panel__email-note {
+    margin: .6rem auto 0;
+    color: var(--muted);
+    font-size: .8rem;
+  }
+
+  .join-panel__follow {
+    max-width: 450px;
+    margin: 1.8rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .join-panel__follow > span {
+    color: var(--soft);
+    font-size: .85rem;
+    font-weight: 800;
+  }
 
     /* =========================================================
     RESPONSIVE
@@ -4614,15 +4881,9 @@
               </a>
       
       
-              <a class="button button--green button--stacked" href="https://forms.gle/AdHLCHzLEFkhTdPN8" target="_blank"
-                rel="noopener">
-                <span>
-                  Join — $0 Today
-                </span>
-      
-                <span class="button__note">
-                  Email only
-                </span>
+              <a class="button button--green button--stacked" href="#join">
+                <span>Join — $0 Today</span>
+                <span class="button__note">Choose how to connect</span>
               </a>
       
       
@@ -5051,6 +5312,8 @@
 
 
       <!-- 01 THE CASE FOR POSSIBILITY -->
+
+        
       <div class="home-section-head" id="the-case">
       
         <div class="home-section-head__marker">
@@ -5077,8 +5340,8 @@
 
       <section class="wa-opening">
         <!-- =======================================================
-             01 — WHAT THIS COULD MEAN
-             ======================================================= -->
+                    01 — WHAT THIS COULD MEAN
+                    ======================================================= -->
       
         <div class="wa-opening__possibility">
       
@@ -5194,8 +5457,8 @@
       
       
         <!-- =======================================================
-             02 — THE WORLD CAN BE WORKED ON
-             ======================================================= -->
+                    02 — THE WORLD CAN BE WORKED ON
+                    ======================================================= -->
       
         <div class="wa-opening__workable">
       
@@ -5251,9 +5514,30 @@
         </div>
       
       
+        <!-- REST OF 01 — COLLAPSIBLE -->
+        <details class="wa-opening__more">
+        
+          <summary>
+            <span class="wa-opening__more-copy">
+        
+              <strong class="wa-opening__more-closed">
+                Continue reading 01
+              </strong>
+        
+              <strong class="wa-opening__more-open">
+                Collapse 01
+              </strong>
+        
+              <small>
+                Go deeper into what produces the world's problems—and what actual change requires to stop reproducing them.
+              </small>
+        
+            </span>
+          </summary>
+
         <!-- =======================================================
-             03 — TRIAGE IS NOT THE WHOLE SYSTEM
-             ======================================================= -->
+                    03 — TRIAGE IS NOT THE WHOLE SYSTEM
+                    ======================================================= -->
       
         <div class="wa-opening__triage">
       
@@ -5341,8 +5625,8 @@
       
       
         <!-- =======================================================
-             04 — FOLLOW THE PROBLEM
-             ======================================================= -->
+                    04 — FOLLOW THE PROBLEM
+                    ======================================================= -->
       
         <div class="wa-opening__trace">
       
@@ -5473,8 +5757,8 @@
       
       
         <!-- =======================================================
-             05 — FOLLOW THE HUMAN
-             ======================================================= -->
+                    05 — FOLLOW THE HUMAN
+                    ======================================================= -->
       
         <div class="wa-opening__human">
       
@@ -5577,8 +5861,8 @@
       
       
         <!-- =======================================================
-             06 — HUMAN NATURE
-             ======================================================= -->
+                    06 — HUMAN NATURE
+                    ======================================================= -->
       
         <div class="wa-opening__nature">
       
@@ -5680,8 +5964,8 @@
       
       
         <!-- =======================================================
-             07 — WHY THE SOLUTIONS CONVERGE
-             ======================================================= -->
+                    07 — WHY THE SOLUTIONS CONVERGE
+                    ======================================================= -->
       
         <div class="wa-opening__converge">
       
@@ -5766,23 +6050,23 @@
       
         </div>
       
-        
+      
         <!-- =======================================================
-             08 — HERE WE ARE
-             ======================================================= -->
-
+                    08 — HERE WE ARE
+                    ======================================================= -->
+      
         <div class="wa-opening__decision">
-        
+      
           <header>
-        
+      
             <p class="eyebrow">
               Understanding eventually becomes a decision
             </p>
-        
+      
             <h2>
               Here we are.
             </h2>
-        
+      
             <p class="wa-opening__decision-lead">
               Humans are born into a world already in motion.
               We develop inside what previous humans built,
@@ -5790,27 +6074,27 @@
               and help create the conditions
               that reach the humans who come next.
             </p>
-        
+      
             <p>
               Once that loop becomes visible,
               the question changes.
             </p>
-        
+      
           </header>
-        
-        
+      
+      
           <div class="wa-opening__decision-sequence">
-        
+      
             <article>
-        
+      
               <span>
                 We can see more now.
               </span>
-        
+      
               <strong>
                 Human behavior does not appear from nowhere.
               </strong>
-        
+      
               <p>
                 Fear, domination, concealment, shame,
                 unresolved injury, distorted authority,
@@ -5818,20 +6102,20 @@
                 violence, withdrawal, and other human patterns
                 develop somewhere and are reinforced somewhere.
               </p>
-        
+      
             </article>
-        
-        
+      
+      
             <article>
-        
+      
               <span>
                 We can interrupt the loop.
               </span>
-        
+      
               <strong>
                 What was transmitted does not have to be transmitted again.
               </strong>
-        
+      
               <p>
                 Adults can restore.
                 Families can change.
@@ -5841,20 +6125,20 @@
                 The developmental environment reaching the next human
                 can be different from the one that reached us.
               </p>
-        
+      
             </article>
-        
-        
+      
+      
             <article>
-        
+      
               <span>
                 And we can build differently.
               </span>
-        
+      
               <strong>
                 Understanding the cause creates somewhere to act.
               </strong>
-        
+      
               <p>
                 Protect life now.
                 Repair what can be repaired.
@@ -5862,25 +6146,25 @@
                 Build systems that make healthier outcomes
                 increasingly ordinary.
               </p>
-        
+      
             </article>
-        
+      
           </div>
-        
-        
+      
+      
           <div class="wa-opening__decision-standard">
-        
+      
             <span>
               The standard changes
             </span>
-        
+      
             <strong>
               No amount of human-caused suffering
               becomes acceptable simply because it is old,
               widespread, inherited, profitable,
               politically difficult, or familiar.
             </strong>
-        
+      
             <p>
               War does not become acceptable because humans have always fought.
               A child living in fear does not become acceptable because families
@@ -5892,32 +6176,32 @@
               Ecological destruction does not become acceptable because
               the economy learned to depend on it.
             </p>
-        
+      
             <p>
               History can explain how something came to exist.
               It does not require humanity to keep reproducing it.
             </p>
-        
+      
           </div>
-        
-        
+      
+      
           <div class="wa-opening__decision-hard">
-        
+      
             <div>
-        
+      
               <p class="eyebrow">
                 This will not all be comfortable
               </p>
-        
+      
               <h3>
                 The work includes looking at what happened to humanity.
               </h3>
-        
+      
             </div>
-        
-        
+      
+      
             <div>
-        
+      
               <p>
                 That means looking at families.
                 Childhood.
@@ -5935,7 +6219,7 @@
                 What people then did to others.
                 What each of us may still be carrying.
               </p>
-        
+      
               <p>
                 There will be grief.
                 There will be things people do not want to see.
@@ -5943,34 +6227,34 @@
                 There will be responsibility without the luxury
                 of pretending causation does not matter.
               </p>
-        
+      
               <strong>
                 The alternative is to keep passing it forward.
               </strong>
-        
+      
             </div>
-        
+      
           </div>
-        
-        
+      
+      
           <div class="wa-opening__decision-once">
-        
+      
             <span>
               Once and for all
             </span>
-        
+      
             <h3>
               We stop accepting the reproduction
               of preventable suffering as the normal condition of humanity.
             </h3>
-        
+      
             <p>
               “Once and for all” does not mean
               no new problem will ever appear,
               no human will ever cause harm,
               or one perfect system will finish history.
             </p>
-        
+      
             <p>
               It means humanity becomes a civilization
               that does not simply name a recurring failure,
@@ -5979,75 +6263,75 @@
               hand it to the next generation,
               and call that reality.
             </p>
-        
-        
+      
+      
             <div class="wa-opening__decision-loop">
-        
+      
               <span>See it</span>
               <i aria-hidden="true">→</i>
-        
+      
               <span>Understand it</span>
               <i aria-hidden="true">→</i>
-        
+      
               <span>Protect life</span>
               <i aria-hidden="true">→</i>
-        
+      
               <span>Trace the causes</span>
               <i aria-hidden="true">→</i>
-        
+      
               <span>Build</span>
               <i aria-hidden="true">→</i>
-        
+      
               <span>Test</span>
               <i aria-hidden="true">→</i>
-        
+      
               <span>Correct</span>
               <i aria-hidden="true">→</i>
-        
+      
               <span>Keep going</span>
-        
+      
             </div>
-        
+      
           </div>
-        
-        
+      
+      
           <div class="wa-opening__generation">
-        
+      
             <p>
               Every generation inherits conditions
               it did not choose.
             </p>
-        
+      
             <strong>
               What if this is the generation
               that stops passing so much of it on?
             </strong>
-        
+      
             <p>
               What one generation can only imagine,
               another can inherit as the ordinary conditions of life.
             </p>
-        
+      
           </div>
-        
-        
+      
+      
           <div class="wa-opening__decision-handoff">
-        
+      
             <span>
               Understanding is not the end of the work.
             </span>
-        
+      
             <strong>
               It tells us where to build.
             </strong>
-        
+      
           </div>
-        
+      
         </div>
-
+      
         <!-- =======================================================
-             09 — BIZARRELY LOGISTICAL
-             ======================================================= -->
+                    09 — BIZARRELY LOGISTICAL
+                    ======================================================= -->
       
         <div class="wa-opening__logistics">
       
@@ -6138,8 +6422,8 @@
       
       
         <!-- =======================================================
-             10 — TIME HORIZONS
-             ======================================================= -->
+                    10 — TIME HORIZONS
+                    ======================================================= -->
       
         <div class="wa-opening__horizons">
       
@@ -6264,8 +6548,8 @@
       
       
         <!-- =======================================================
-             11 — KEEP THE STRUCTURE CLEAR
-             ======================================================= -->
+                    11 — KEEP THE STRUCTURE CLEAR
+                    ======================================================= -->
       
         <div class="wa-opening__distinctions">
       
@@ -6376,8 +6660,8 @@
       
       
         <!-- =======================================================
-             CLOSE / HANDOFF
-             ======================================================= -->
+                    CLOSE / HANDOFF
+                    ======================================================= -->
       
         <footer class="wa-opening__close">
       
@@ -6423,8 +6707,10 @@
           </strong>
       
         </footer>
+
+        </details>
       
-      </section>
+      </section>  
 
 
       <!-- BRIDGE: OPENING → POSSIBILITY -->
@@ -7360,22 +7646,41 @@
       <!-- JOIN -->
       <section class="public-section join-section" id="join">
         <div class="join-panel join-panel--compact">
+      
           <p class="eyebrow">Join World Amazing</p>
-
-          <h2>$0 today. Email only.</h2>
-
+      
+          <h2>Be part of what's being built.</h2>
+      
           <p>
-            Hear about participation, projects, local activity,
-            the Show, and the first nodes as they develop.
+            Hear about upcoming shows, local activity,
+            new projects, and ways to take part.
           </p>
-
-          <a class="button button--green" href="https://forms.gle/AdHLCHzLEFkhTdPN8" target="_blank" rel="noopener">
-            Join World Amazing
+      
+          <a class="button button--green join-panel__email" href="https://forms.gle/AdHLCHzLEFkhTdPN8" target="_blank"
+            rel="noopener">
+            Join by email — $0
           </a>
-
+      
+          <p class="join-panel__email-note">
+            Only your email address is required.
+          </p>
+      
+          <div class="join-panel__follow">
+      
+            <span>Or follow the build</span>
+      
+            <div class="wa-social-links">
+              <a href="https://www.youtube.com/@worldamazinghq" target="_blank" rel="noopener">YouTube</a>
+              <a href="https://www.tiktok.com/@worldamazinghq" target="_blank" rel="noopener">TikTok</a>
+              <a href="https://x.com/worldamazinghq" target="_blank" rel="noopener">X</a>
+            </div>
+      
+          </div>
+      
           <small>
-            This is not yet financial or operational membership.
+            Email signup is not yet financial or operational membership.
           </small>
+      
         </div>
       </section>
 
@@ -7437,6 +7742,18 @@
       
               </div>
       
+            </div>
+
+            <div class="footer-social">
+            
+              <span>Follow the build</span>
+            
+              <div class="wa-social-links">
+                <a href="https://www.youtube.com/@worldamazinghq" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://www.tiktok.com/@worldamazinghq" target="_blank" rel="noopener">TikTok</a>
+                <a href="https://x.com/worldamazinghq" target="_blank" rel="noopener">X</a>
+              </div>
+            
             </div>
       
           </div>

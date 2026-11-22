@@ -4108,3 +4108,41 @@ body:has(.topbar-wrap.is-hidden) .wa-toc__sticky {
     }
 
 }
+
+
+
+.wa-social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .6rem;
+    margin-top: .85rem;
+}
+
+.wa-social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .65rem 1.1rem;
+
+    border: 1px solid var(--line);
+    border-radius: 9px;
+
+    background: var(--surface-2);
+    color: var(--soft);
+
+    font-size: .85rem;
+    font-weight: 800;
+    text-decoration: none;
+
+    transition: border-color 160ms ease,
+        color 160ms ease,
+        background 160ms ease;
+}
+
+.wa-social-links a:hover,
+.wa-social-links a:focus-visible {
+    border-color: var(--blue);
+    background: var(--surface);
+    color: var(--white);
+}
