@@ -465,6 +465,409 @@
     }
   </style>
 
+  <style>
+    /* =========================================================
+     WORLD AMAZING — HOMEPAGE HERO FACELIFT
+     Place LAST in the homepage <head>, after other hero styles.
+     Scoped to .hero--editorial to avoid changes to other pages.
+     ========================================================= */
+  
+    .hero--editorial {
+      position: relative;
+      padding: clamp(2.9rem, 5vw, 4.25rem) 0 0;
+    }
+  
+    /* The declaration and companion principle are a unified composition. */
+    .hero--editorial .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.62fr) minmax(285px, .74fr);
+      gap: clamp(2rem, 4.1vw, 4rem);
+      align-items: center;
+    }
+  
+    .hero--editorial .hero-main {
+      min-width: 0;
+    }
+  
+    .hero--editorial h1 {
+      width: 100%;
+      max-width: 10.5ch;
+      margin: 0;
+      font-size: clamp(4rem, 7.25vw, 6.8rem);
+      font-weight: 950;
+      line-height: .93;
+      letter-spacing: -.067em;
+      text-wrap: balance;
+    }
+  
+    .hero--editorial .hero-thesis {
+      max-width: 790px;
+      margin: 1rem 0 0;
+      color: var(--green);
+      font-size: clamp(.95rem, 1.22vw, 1.09rem);
+      font-weight: 780;
+      line-height: 1.45;
+      letter-spacing: -.015em;
+    }
+  
+    .hero--editorial .hero-copy {
+      max-width: 760px;
+      margin: 1.4rem 0 0;
+      color: var(--soft);
+      font-size: clamp(1.03rem, 1.35vw, 1.2rem);
+      line-height: 1.55;
+    }
+  
+    .hero--editorial .hero-principle {
+      max-width: none;
+      margin: 1rem 0 0;
+      color: var(--soft);
+      font-size: clamp(1.2rem, 1.9vw, 1.65rem);
+      line-height: 1.2;
+      text-align: left;
+      font-weight: 800;
+      letter-spacing: -.035em;
+    }
+  
+    .hero--editorial .hero-principle strong {
+      color: var(--green);
+    }
+  
+    /* No floating card: the right column belongs to the same proposition. */
+    .hero--editorial .hero-panel {
+      position: relative;
+      min-width: 0;
+      padding: 1rem 0 1rem clamp(1.5rem, 2.6vw, 3rem);
+      border: 0;
+      border-left: 1px solid rgba(139, 211, 255, .33);
+      border-radius: 0;
+      background: none;
+      box-shadow: none;
+    }
+  
+    .hero--editorial .hero-panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -1px;
+      width: 2px;
+      height: 74px;
+      background: linear-gradient(180deg, var(--blue), var(--green));
+    }
+  
+    .hero--editorial .hero-panel__big {
+      display: block;
+      font-weight: 950;
+      max-width: 7ch;
+      margin: 0 0 .8rem;
+      font-size: clamp(3.2rem, 4.6vw, 5rem);
+      line-height: .94;
+      color: var(--green);
+    }
+  
+    .hero--editorial .hero-panel h2 {
+      max-width: 15ch;
+      margin: 0;
+      font-size: clamp(1.55rem, 2.2vw, 2.05rem);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+  
+    .hero--editorial .hero-panel p {
+      max-width: 420px;
+      margin: .85rem 0 0;
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.6;
+    }
+  
+    .hero--editorial .hero-panel__principles {
+      display: grid;
+      gap: .45rem;
+      margin-top: 1.05rem;
+    }
+  
+    .hero--editorial .hero-panel__principles span {
+      padding-top: .55rem;
+      font-size: .86rem;
+      font-weight: 780;
+    }
+  
+    /* Action row: visually separate the invitation from the declaration. */
+    .hero--editorial .hero-invitation {
+      margin-top: 1.25rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--line-soft);
+    }
+  
+    .hero--editorial .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin: 0;
+    }
+  
+    .hero--editorial .hero-actions .button--stacked {
+      min-height: 56px;
+    }
+  
+    .hero--editorial .hero-alternative {
+      margin-top: .8rem;
+      font-size: .77rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+  
+    .hero--editorial .hero-alternative a {
+      color: var(--soft);
+      font-weight: 850;
+      text-decoration: none;
+    }
+  
+    .hero--editorial .hero-alternative a:hover,
+    .hero--editorial .hero-alternative a:focus-visible {
+      color: var(--white);
+    }
+  
+    /* The basic move is a conclusion to the opening, not a fourth card. */
+    .hero--editorial .hero-basic-move {
+      margin-top: 1.25rem;
+      padding: 1.05rem clamp(1.15rem, 2.5vw, 1.7rem);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 18px 18px 0;
+      background: linear-gradient(90deg, rgba(139, 211, 255, .04), transparent 65%), var(--surface);
+      color: var(--soft);
+      font-size: .99rem;
+      line-height: 1.6;
+    }
+  
+    .hero--editorial .hero-basic-move strong {
+      margin-right: .3rem;
+    }
+  
+    /* PAGE OVERVIEW: one continuous orientation strip, not five cards. */
+    .hero-page-map {
+      margin: clamp(2rem, 3.3vw, 3rem) 0 0;
+    }
+  
+    .hero-page-map__heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .5rem 1rem;
+      margin-bottom: .85rem;
+    }
+  
+    .hero-page-map__heading>span {
+      color: var(--green);
+      font-size: .69rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+  
+    .hero-page-map__heading p {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+  
+    .hero-page-map__items {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line-soft);
+    }
+  
+    .hero-page-map__items a {
+      position: relative;
+      display: grid;
+      align-content: start;
+      gap: .3rem;
+      min-width: 0;
+      min-height: 113px;
+      padding: 1rem clamp(.8rem, 1.35vw, 1.35rem) 1.1rem;
+      color: inherit;
+      text-decoration: none;
+      transition: background 160ms ease;
+    }
+  
+    .hero-page-map__items a:first-child {
+      padding-left: 0;
+    }
+  
+    .hero-page-map__items a+a {
+      border-left: 1px solid var(--line-soft);
+    }
+  
+    .hero-page-map__items a::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -1px;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+      opacity: 0;
+      transition: opacity 160ms ease;
+    }
+  
+    .hero-page-map__number {
+      color: var(--blue);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: .65rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+  
+    .hero-page-map__items strong {
+      color: var(--soft);
+      font-size: clamp(.83rem, 1vw, .95rem);
+      line-height: 1.3;
+      font-weight: 850;
+    }
+  
+    .hero-page-map__items small {
+      color: var(--muted);
+      font-size: .71rem;
+      line-height: 1.42;
+    }
+  
+    .hero-page-map__items a:hover,
+    .hero-page-map__items a:focus-visible {
+      background: rgba(139, 211, 255, .04);
+    }
+  
+    .hero-page-map__items a:hover::before,
+    .hero-page-map__items a:focus-visible::before {
+      opacity: 1;
+    }
+  
+    .hero-page-map__items a:hover strong,
+    .hero-page-map__items a:focus-visible strong {
+      color: var(--white);
+    }
+  
+    .hero-page-map__items a:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: -2px;
+    }
+  
+    /* Responsive stacking goes LAST to win against the desktop grid rules. */
+    @media (max-width: 1050px) {
+      .hero--editorial .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 1.7rem;
+      }
+  
+      .hero--editorial .hero-panel {
+        padding: .5rem 0 .5rem 1.5rem;
+      }
+  
+      .hero--editorial .hero-panel__big {
+        max-width: none;
+      }
+  
+      .hero-page-map__items {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+  
+      .hero-page-map__items a:nth-child(4) {
+        border-left: 0;
+      }
+  
+      .hero-page-map__items a:nth-child(n+4) {
+        border-top: 1px solid var(--line-soft);
+      }
+    }
+  
+    @media (max-width: 700px) {
+      .hero--editorial {
+        padding-top: 2rem;
+      }
+  
+      .hero--editorial h1 {
+        max-width: none;
+        font-size: clamp(3.45rem, 12vw, 5.4rem);
+        line-height: .96;
+      }
+  
+      .hero--editorial .hero-copy {
+        font-size: 1.05rem;
+      }
+  
+      .hero--editorial .hero-actions {
+        flex-direction: column;
+      }
+  
+      .hero--editorial .hero-actions .button {
+        width: 100%;
+      }
+  
+      .hero-page-map__items {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+  
+      .hero-page-map__items a:nth-child(4) {
+        border-left: 1px solid var(--line-soft);
+      }
+  
+      .hero-page-map__items a:nth-child(odd) {
+        border-left: 0;
+      }
+  
+      .hero-page-map__items a:nth-child(n+3) {
+        border-top: 1px solid var(--line-soft);
+      }
+  
+      .hero-page-map__items a {
+        min-height: 105px;
+      }
+    }
+  
+    @media (max-width: 430px) {
+      .hero--editorial h1 {
+        font-size: clamp(3.1rem, 11.6vw, 3.8rem);
+      }
+  
+      .hero--editorial .hero-panel {
+        padding-left: 1.1rem;
+      }
+  
+      .hero-page-map__items a {
+        padding-left: .8rem;
+        padding-right: .8rem;
+      }
+  
+      .hero-page-map__items a:first-child {
+        padding-left: .8rem;
+      }
+    }
+
+    /* Give hero and page overview their own wider canvas */
+
+.hero--editorial,
+.hero-page-map {
+  position: relative;
+
+  width: min(calc(100vw - 64px), 1410px);
+  max-width: none;
+
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 700px) {
+  .hero--editorial,
+  .hero-page-map {
+    width: calc(100vw - 28px);
+  }
+}
+  </style>
+
   <!-- POSSIBILITY OPENING -->
   <style>
     /* =========================================================
@@ -4834,147 +5237,129 @@
       
 
       <!-- HERO -->
-      <section class="hero">
+      <section class="hero hero--editorial" aria-labelledby="hero-title">
       
         <div class="hero-grid">
       
-      
-          <!-- =====================================================
-               MAIN HERO
-               ===================================================== -->
-      
+          <!-- DECLARATION -->
           <div class="hero-main">
-      
-            <h1>
-              We can make the world amazing.
-            </h1>
+            <h1 id="hero-title">We can make the world amazing.</h1>
       
             <p class="hero-thesis">
-              What one generation can only imagine,
-              another can inherit as the ordinary conditions of life.
+              What one generation can only imagine, another can inherit as the ordinary conditions of life.
             </p>
       
             <p class="hero-copy">
-              World Amazing is a practical and realistic plan to secure
-              the foundations of human life, restore the human,
-              connect humanity’s capacity, dramatically reduce necessary labor,
-              and use what we have to build an increasingly extraordinary world.
+              World Amazing is a practical and realistic plan to secure the foundations
+              of human life, restore the human, connect humanity’s capacity,
+              dramatically reduce necessary labor, and use what we have
+              to build an increasingly extraordinary world.
             </p>
       
             <p class="hero-principle">
-              Relief is the floor.
-              <strong>Amazing is the ceiling.</strong>
+              Relief is the floor. <strong>Amazing is the ceiling.</strong>
             </p>
-      
-      
-            <div class="hero-actions">
-      
-              <a class="button button--primary button--stacked" href="https://makeitamazing.org" target="_blank"
-                rel="noopener">
-                <span>
-                  Make It Amazing
-                </span>
-      
-                <span class="button__note">
-                  Read the invitation
-                </span>
-              </a>
-      
-      
-              <a class="button button--green button--stacked" href="#join">
-                <span>Join — $0 Today</span>
-                <span class="button__note">Choose how to connect</span>
-              </a>
-      
-      
-              <a class="button button--stacked" href="https://worldamazing.org/show/" target="_blank" rel="noopener">
-                <span>
-                  The World Amazing Show
-                </span>
-      
-                <span class="button__note">
-                  Meet in public
-                </span>
-              </a>
-      
-            </div>
-      
-      
-            <p class="hero-alternative">
-              For those that prefer keeping the status quo, visit
-              <a href="https://worldmediocre.com/" target="_blank" rel="noopener">
-                World Mediocre →
-              </a>
-            </p>
-      
           </div>
       
+          <!-- THE FOUNDATION: INTEGRATED COMPANION PRINCIPLE -->
+          <aside class="hero-panel" aria-label="One world, a shared foundation">
+            <span class="hero-panel__big">One world.</span>
       
-          <!-- =====================================================
-               ONE WORLD
-               ===================================================== -->
+            <h2>A shared foundation for human life.</h2>
       
-          <aside class="hero-panel">
-      
-            <span class="hero-panel__big">
-              One world.
-            </span>
-      
-            <h2>
-              A shared foundation for human life.
-            </h2>
+            <p>Not one culture. Not one ruler. Not everyone living the same way.</p>
       
             <p>
-              Not one culture.
-              Not one ruler.
-              Not everyone living the same way.
-            </p>
-      
-            <p>
-              One shared commitment:
-              every human remains inside humanity’s care,
-              and the foundations of life are built and coordinated
-              as shared infrastructure.
+              One shared commitment: every human remains inside humanity’s care,
+              and the foundations of life are built and coordinated as shared infrastructure.
             </p>
       
             <div class="hero-panel__principles">
-      
-              <span>
-                Globally connected
-              </span>
-      
-              <span>
-                Locally and functionally governed
-              </span>
-      
-              <span>
-                Open to inspection and correction
-              </span>
-      
+              <span>Globally connected</span>
+              <span>Locally and functionally governed</span>
+              <span>Open to inspection and correction</span>
             </div>
-      
           </aside>
-      
         </div>
       
+        <!-- THE INVITATION -->
+        <div class="hero-invitation">
+          <div class="hero-actions">
+            <a class="button button--primary button--stacked" href="https://makeitamazing.org/" target="_blank"
+              rel="noopener">
+              <span>Make It Amazing</span>
+              <span class="button__note">Read the invitation</span>
+            </a>
       
-        <!-- =======================================================
-             BASIC MOVE
-             ======================================================= -->
+            <a class="button button--green button--stacked" href="#join">
+              <span>Join — $0 Today</span>
+              <span class="button__note">Email only</span>
+            </a>
       
-        <div class="principle hero-basic-move">
+            <a class="button button--stacked" href="https://worldamazing.org/show/" target="_blank" rel="noopener">
+              <span>The World Amazing Show</span>
+              <span class="button__note">Meet in public</span>
+            </a>
+          </div>
       
-          <strong>
-            The basic move:
-          </strong>
+          <p class="hero-alternative">
+            For those that prefer keeping the status quo, visit
+            <a href="https://worldmediocre.com/" target="_blank" rel="noopener">World Mediocre →</a>
+          </p>
+        </div>
       
-          stop making every human separately fight for access
-          to the things every human needs,
+        <!-- THE BASIC MOVE: CLOSE THE DECLARATION -->
+        <div class="hero-basic-move">
+          <strong>The basic move:</strong>
+          stop making every human separately fight for access to the things every human needs,
           and start organizing those things together.
-      
         </div>
       
       </section>
+      
+      <!-- =========================================================
+           THE PATH THROUGH THIS PAGE
+           Previously at the bottom of the Possibility Panel.
+           ========================================================= -->
+      <nav class="hero-page-map" aria-label="On this page">
+        <div class="hero-page-map__heading">
+          <span>The path through this page</span>
+          <p>Read straight through, or enter where you want.</p>
+        </div>
+      
+        <div class="hero-page-map__items">
+          <a href="#the-possibility">
+            <span class="hero-page-map__number">Start</span>
+            <strong>The possibility</strong>
+            <small>What becomes possible when life works</small>
+          </a>
+      
+          <a href="#the-case">
+            <span class="hero-page-map__number">01</span>
+            <strong>From problems to construction</strong>
+            <small>What actual change requires</small>
+          </a>
+      
+          <a href="#what-changes">
+            <span class="hero-page-map__number">02</span>
+            <strong>What changes</strong>
+            <small>A different operating condition</small>
+          </a>
+      
+          <a href="#underlying-move">
+            <span class="hero-page-map__number">03</span>
+            <strong>The underlying move</strong>
+            <small>How the conditions change</small>
+          </a>
+      
+          <a href="#enter-the-work">
+            <span class="hero-page-map__number">Enter</span>
+            <strong>Explore the work</strong>
+            <small>Read, examine, participate</small>
+          </a>
+        </div>
+      </nav>
+
 
 
       <!-- HERO → PANEL -->
@@ -5002,7 +5387,7 @@
 
 
       <!-- POSSIBILITY PANEL -->
-      <section class="possibility-panel" aria-labelledby="possibility-title">
+      <section class="possibility-panel" aria-labelledby="possibility-title" id="the-possibility">
       
       
         <!-- =======================================================
@@ -5204,82 +5589,7 @@
           </strong>
       
         </div>
-      
-      
-        <!-- =======================================================
-                    HANDOFF TO THE PAGE
-                    ======================================================= -->
-      
-        <nav class="possibility-nav" aria-label="Continue through World Amazing">
-          
-          <a href="#the-case">
-          
-            <span>
-              01
-            </span>
-          
-            <strong>
-              Problems to construction
-            </strong>
-          
-            <span class="possibility-nav__arrow" aria-hidden="true">
-              ↓
-            </span>
-          
-          </a>
-
-          <a href="#what-changes">
-      
-            <span>
-              02
-            </span>
-      
-            <strong>
-              What changes
-            </strong>
-      
-            <span class="possibility-nav__arrow" aria-hidden="true">
-              ↓
-            </span>
-      
-          </a>
-      
-      
-          <a href="#underlying-move">
-      
-            <span>
-              03
-            </span>
-      
-            <strong>
-              The underlying move
-            </strong>
-      
-            <span class="possibility-nav__arrow" aria-hidden="true">
-              ↓
-            </span>
-      
-          </a>
-      
-      
-          <a href="#enter-the-work">
-      
-            <span>
-              
-            </span>
-      
-            <strong>
-              Explore the work
-            </strong>
-      
-            <span class="possibility-nav__arrow" aria-hidden="true">
-              ↓
-            </span>
-      
-          </a>
-      
-        </nav>
-      
+            
       </section>
 
 
